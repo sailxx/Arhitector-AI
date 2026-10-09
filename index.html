@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты</title>
+<meta name="description" content="ARHITECTOR AI — рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.">
+<link rel="canonical" href="https://arhitector-ai.ru/">
+<link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/?lang=ru">
+<link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://arhitector-ai.ru/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arhitector-ai.ru/">
+<meta property="og:title" content="ARHITECTOR AI">
+<meta property="og:description" content="AI ad videos, creatives, websites and Telegram AI bots. Рекламные ИИ-видео, креативы, сайты и ИИ-боты.">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Crect x='4' y='4' width='24' height='24' fill='none' stroke='%23f4f4f2' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='15' fill='%23f4f4f2' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505;
+  --bg-2:#0b0b0b;
+  --fg:#f4f4f2;
+  --muted:rgba(244,244,242,.58);
+  --faint:rgba(244,244,242,.34);
+  --line:rgba(244,244,242,.10);
+  --line-2:rgba(244,244,242,.18);
+  --card:rgba(244,244,242,.03);
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pad:clamp(16px,4vw,48px);
+  --max:1320px;
+  --grad:linear-gradient(180deg,var(--fg) 10%,rgba(244,244,242,.14) 95%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+::selection{background:var(--fg);color:var(--bg)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.muted{color:var(--muted)}
+.o{color:var(--faint)}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.todo{outline:1px dashed rgba(255,200,0,.6);outline-offset:2px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s,background .2s,color .2s,border-color .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;border:0}
+.btn-solid{background:var(--fg);color:var(--bg)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(244,244,242,.45)}
+.btn-ghost{border:1px solid var(--line-2);background:transparent}
+.btn-ghost:hover{border-color:var(--fg)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translate(2px,-2px)}
+
+/* ---------- promo bar ---------- */
+.promo{background:var(--fg);color:var(--bg);text-align:center;font-size:13px;font-weight:600;padding:9px 16px;letter-spacing:.01em}
+.promo b{font-weight:800}
+.promo a{text-decoration:underline;text-underline-offset:3px;margin-left:6px}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(5,5,5,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+header.scrolled .promo{display:none}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:21px;display:flex;align-items:baseline}
+.logo span{color:var(--muted);font-weight:500}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--fg)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
+.lang button{background:none;border:0;cursor:pointer;font:600 12px var(--mono);letter-spacing:.06em;color:var(--muted);padding:6px 11px;border-radius:999px;transition:all .2s}
+.lang button.on{background:var(--fg);color:var(--bg)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--fg);flex:none;box-shadow:0 0 0 0 rgba(244,244,242,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(244,244,242,0)}100%{box-shadow:0 0 0 0 rgba(244,244,242,0)}}
+.nav .btn{height:42px;padding:0 20px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:150px 0 48px;overflow:hidden}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:88px 88px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);pointer-events:none}
+.glow{position:absolute;width:900px;height:900px;left:50%;top:-30%;transform:translateX(-50%);background:radial-gradient(circle,rgba(244,244,242,.10),transparent 60%);pointer-events:none}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
+.coords{text-align:right;color:var(--faint);line-height:1.8}
+.hero h1{position:relative;font-weight:900;font-size:clamp(46px,14.6vw,232px);line-height:.86;letter-spacing:-.035em;margin-left:-.03em}
+.hero h1 .g{display:block}
+.hero-bottom{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:40px}
+.hero-lead{font-size:clamp(19px,2vw,26px);line-height:1.3;font-weight:500;max-width:640px;letter-spacing:-.01em}
+.hero-lead em{font-style:normal;color:var(--muted)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.hero-cta-note{width:100%;text-align:right;color:var(--faint);margin-top:4px}
+.stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:48px}
+.stat{padding:22px 20px 0 0}
+.stat b{display:block;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;color:var(--muted);font-size:14px;margin-top:8px;line-height:1.35}
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg-2)}
+.track{display:flex;gap:56px;width:max-content;animation:run 38s linear infinite}
+.track span{font-weight:800;font-size:clamp(22px,3vw,36px);letter-spacing:-.03em;display:flex;align-items:center;gap:56px;white-space:nowrap}
+.track span::after{content:"✦";font-size:.5em;color:var(--faint)}
+.track span:nth-child(even){color:var(--faint)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(80px,11vw,140px) 0}
+section.tight{padding-top:0}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(34px,5.4vw,76px);line-height:1;letter-spacing:-.035em;font-weight:800}
+.sec-head p{margin-top:20px;color:var(--muted);font-size:18px;max-width:620px}
+.sec-num{padding-top:10px;color:var(--faint)}
+
+/* ---------- services ---------- */
+.services{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc{position:relative;padding:clamp(28px,3.4vw,48px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:22px;min-height:440px;transition:background .3s;overflow:hidden}
+.svc:hover{background:var(--card)}
+.svc-top{display:flex;justify-content:space-between;align-items:center}
+.svc-num{font-family:var(--mono);font-size:13px;color:var(--faint)}
+.svc-icon{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:background .3s,color .3s}
+.svc:hover .svc-icon{background:var(--fg);color:var(--bg)}
+.svc h3{font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
+.svc > p{color:var(--muted);max-width:460px}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:rgba(244,244,242,.8)}
+.svc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px dashed var(--line)}
+.price{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.price small{font-size:14px;font-weight:500;color:var(--muted);margin-right:6px}
+.svc-foot .term{color:var(--muted);font-size:13px;margin-top:4px}
+.svc-foot .btn{height:44px;padding:0 18px;font-size:14px}
+
+/* ---------- free offer band ---------- */
+.offer{position:relative;background:var(--fg);color:var(--bg);overflow:hidden}
+.offer .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;padding-block:clamp(48px,6vw,80px)}
+.offer h3{font-size:clamp(30px,4.4vw,60px);line-height:1;letter-spacing:-.04em;font-weight:900}
+.offer p{margin-top:16px;font-size:18px;color:rgba(5,5,5,.66);max-width:560px}
+.offer-cta{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.offer .btn{background:var(--bg);color:var(--fg);height:60px;padding:0 34px;font-size:16px}
+.offer .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px -10px rgba(0,0,0,.6)}
+.offer .mono{color:rgba(5,5,5,.5)}
+.offer-big{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-size:clamp(160px,26vw,420px);font-weight:900;letter-spacing:-.06em;line-height:.8;color:rgba(5,5,5,.05);pointer-events:none}
+
+/* ---------- before / after ---------- */
+.cases-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{background:none;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;font:500 14px var(--sans);cursor:pointer;transition:all .2s}
+.tab:hover{color:var(--fg)}
+.tab.active{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.case{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(20px,3vw,40px);align-items:stretch}
+.ba{position:relative;aspect-ratio:4/3;border:1px solid var(--line-2);overflow:hidden;user-select:none;--pos:50%;background:#111}
+.ba-layer{position:absolute;inset:0}
+.ba-layer>svg,.ba-layer>img{width:100%;height:100%;display:block;object-fit:cover;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:var(--fg);transform:translateX(-1px);pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:var(--pos);width:54px;height:54px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;transform:translate(-50%,-50%);pointer-events:none;font-size:18px;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba-label{position:absolute;top:16px;padding:6px 12px;background:rgba(5,5,5,.7);backdrop-filter:blur(6px);border:1px solid var(--line-2);border-radius:999px;pointer-events:none;z-index:2}
+.ba-label.l{left:16px}.ba-label.r{right:16px}
+.case-info{border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:24px;background:var(--card)}
+.case-info h3{font-size:clamp(24px,2.4vw,34px);letter-spacing:-.035em;line-height:1.05;font-weight:800}
+.ba-rows{display:flex;flex-direction:column;gap:14px}
+.ba-row{display:grid;grid-template-columns:76px 1fr;gap:14px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.ba-row:last-child{border:0;padding:0}
+.ba-row .k{color:var(--faint);padding-top:3px}
+.did{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.did li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;color:rgba(244,244,242,.85)}
+.case-foot{margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-top:20px;border-top:1px dashed var(--line)}
+.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.case-meta span{display:block;color:var(--faint);margin-bottom:4px}
+.case-meta b{font-size:24px;letter-spacing:-.03em}
+.case-foot .btn{width:100%}
+.tab-n{font-family:var(--mono);font-size:11px;opacity:.5;margin-right:8px}
+.hint{margin-top:14px;color:var(--faint)}
+
+/* ---------- compare ---------- */
+.compare{border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr}
+.compare > div{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.compare .h{padding-block:24px;font-weight:700;font-size:18px}
+.compare .k{color:var(--muted)}
+.compare .old{color:var(--muted);border-left:1px solid var(--line)}
+.compare .new{background:var(--fg);color:var(--bg);font-weight:600}
+.compare .new.h{font-weight:800}
+.compare > div:nth-last-child(-n+3){border-bottom:0}
+.compare .x{color:var(--faint);font-weight:700}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{position:relative;border:1px solid var(--line);padding:32px;min-height:260px;display:flex;flex-direction:column;background:var(--card)}
+.step-n{font-size:84px;font-weight:900;letter-spacing:-.06em;line-height:1;color:rgba(244,244,242,.08)}
+.step h4{font-size:24px;letter-spacing:-.03em;margin:auto 0 10px;font-weight:700}
+.step p{color:var(--muted)}
+.step .free{position:absolute;top:28px;right:28px;background:var(--fg);color:var(--bg);border-radius:999px;padding:5px 12px;font-weight:600}
+
+/* ---------- packages ---------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;padding-top:12px}
+.plan{border:1px solid var(--line);padding:38px 32px 32px;display:flex;flex-direction:column;gap:20px;position:relative}
+.plan.hot{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.plan.hot .muted,.plan.hot li{color:rgba(5,5,5,.7)}
+.plan.hot li::before{background:var(--bg)}
+.plan.hot .price small,.plan.hot .was{color:rgba(5,5,5,.45)}
+.plan-badge{position:absolute;top:-13px;left:32px;background:var(--bg);color:var(--fg);border:1px solid var(--fg);border-radius:999px;padding:4px 12px}
+.plan-sale{position:absolute;top:22px;right:22px;border:1px solid currentColor;border-radius:999px;padding:4px 10px;font-weight:600;opacity:.8}
+.plan h3{font-size:30px;letter-spacing:-.035em;font-weight:800}
+.plan .price{font-size:42px}
+.was{color:var(--faint);text-decoration:line-through;font-size:16px;font-weight:500;display:block;margin-bottom:2px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px}
+.plan li{position:relative;padding-left:22px;color:rgba(244,244,242,.8)}
+.plan li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1.5px;background:var(--fg)}
+.plan .btn{margin-top:auto}
+.plan.hot .btn-solid{background:var(--bg);color:var(--fg)}
+.plans-note{margin-top:28px;color:var(--faint);text-align:center}
+
+/* ---------- guarantees ---------- */
+.guar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gu{border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px}
+.gu i{font-style:normal;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:18px}
+.gu b{font-size:19px;letter-spacing:-.02em}
+.gu span{color:var(--muted);font-size:15px}
+
+/* ---------- founder ---------- */
+.founder{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(24px,5vw,80px);align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line-2);background:radial-gradient(circle at 50% 35%,#2a2a2a,#0c0c0c 70%);display:grid;place-items:center;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 30%}
+.portrait::after{content:"";position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,rgba(5,5,5,.85));pointer-events:none}
+.portrait .cap{z-index:1;position:absolute;left:18px;bottom:18px;right:18px;display:flex;justify-content:space-between;color:var(--muted)}
+.founder blockquote{font-size:clamp(22px,2.6vw,36px);line-height:1.18;letter-spacing:-.03em;font-weight:600}
+.founder blockquote span{color:var(--muted)}
+.timeline{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.timeline div{padding:18px 16px 0 0}
+.timeline b{display:block;font-size:22px;letter-spacing:-.03em}
+.timeline small{color:var(--muted);font-size:13px;line-height:1.4;display:block;margin-top:4px}
+.marks::before{content:"";position:absolute;z-index:2;width:14px;height:14px;border-color:var(--faint);border-style:solid}
+.marks::before{top:-8px;left:-8px;border-width:1px 0 0 1px}
+.marks{overflow:visible}
+
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;font-size:clamp(18px,1.8vw,23px);font-weight:600;letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{flex:none;width:38px;height:38px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:transform .3s,background .3s,color .3s;font-size:20px;font-weight:300}
+.faq details[open] .pm{transform:rotate(45deg);background:var(--fg);color:var(--bg)}
+.faq details p{padding:0 60px 26px 0;color:var(--muted);max-width:820px}
+
+/* ---------- final cta ---------- */
+.final{position:relative;text-align:center;padding:clamp(90px,13vw,170px) 0;overflow:hidden;border-top:1px solid var(--line)}
+.final h2{position:relative;font-size:clamp(40px,8.5vw,128px);line-height:.95;letter-spacing:-.04em;font-weight:900}
+.final p{position:relative;color:var(--muted);font-size:18px;max-width:580px;margin:28px auto 36px}
+.final .btn{position:relative;height:62px;padding:0 36px;font-size:16px}
+.final .note{position:relative;margin-top:18px;color:var(--faint)}
+.final .consent{max-width:620px;margin:22px auto 0;color:var(--faint);font-size:12px;line-height:1.5}
+
+footer{border-top:1px solid var(--line);padding:40px 0 48px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.foot a:hover{color:var(--fg)}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.legal{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.6}
+.legal b{color:var(--muted);font-weight:600}
+
+/* ---------- sticky mobile CTA ---------- */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;transform:translateY(130%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.sticky.show{transform:none}
+.sticky .btn{width:100%;height:56px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+
+/* ---------- custom cursor (только мышь) ---------- */
+html.has-cursor,html.has-cursor *{cursor:none!important}
+.cur-cross,.cur-frame{position:fixed;left:0;top:0;pointer-events:none;mix-blend-mode:difference;opacity:0;transition:opacity .3s;will-change:transform}
+html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
+.cur-cross{width:15px;height:15px;margin:-7.5px 0 0 -7.5px;z-index:10000}
+.cur-cross i{position:absolute;background:#fff}
+.cur-cross i:nth-child(1){left:50%;top:0;width:1.5px;height:100%;transform:translateX(-50%)}
+.cur-cross i:nth-child(2){top:50%;left:0;height:1.5px;width:100%;transform:translateY(-50%)}
+.cur-frame{z-index:9999;width:42px;height:42px;margin:-21px 0 0 -21px;transition:opacity .3s,width .45s cubic-bezier(.22,1,.36,1),height .45s cubic-bezier(.22,1,.36,1),margin .45s cubic-bezier(.22,1,.36,1)}
+.cur-frame i{position:absolute;width:10px;height:10px;border:1.4px solid #fff;transition:width .45s cubic-bezier(.22,1,.36,1),height .45s cubic-bezier(.22,1,.36,1)}
+.cur-frame i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.cur-frame i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.cur-frame i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.cur-frame i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+.cur-frame.big{width:76px;height:76px;margin:-38px 0 0 -38px}
+.cur-frame.big i{width:14px;height:14px}
+.cur-frame.press{width:30px;height:30px;margin:-15px 0 0 -15px}
+.cur-frame.big.press{width:62px;height:62px;margin:-31px 0 0 -31px}
+.glow{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.track{animation:none}.dot{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .nav-links{display:none}
+  .hero-bottom{grid-template-columns:1fr}
+  .hero-cta{justify-content:flex-start}
+  .hero-cta-note{text-align:left}
+  .case{grid-template-columns:1fr}
+  .plans{grid-template-columns:1fr;max-width:560px}
+  .founder{grid-template-columns:1fr}
+  .portrait{max-width:420px;aspect-ratio:1}
+  .guar{grid-template-columns:repeat(2,1fr)}
+  .offer .wrap{grid-template-columns:1fr}
+  .offer-cta{align-items:flex-start}
+}
+@media (max-width:760px){
+  .logo{font-size:18px}
+  .sec-head{grid-template-columns:1fr;gap:12px;margin-bottom:36px}
+  .services{grid-template-columns:1fr}
+  .svc{min-height:0}
+  .steps{grid-template-columns:1fr}
+  .step{min-height:200px}
+  .coords{display:none}
+  .stats{grid-template-columns:repeat(2,1fr);row-gap:20px}
+  .timeline{grid-template-columns:repeat(2,1fr);row-gap:18px}
+  .faq details p{padding-right:0}
+  .ba-label{top:8px;padding:3px 8px;font-size:10px}
+  .ba-label.l{left:8px}.ba-label.r{right:8px}
+  .ba-knob{width:44px;height:44px;font-size:16px}
+  .compare{grid-template-columns:1fr 1fr}
+  .compare .k{grid-column:1/-1;border-bottom:0;padding-bottom:4px;padding-top:16px;font-size:13px}
+  .compare .h.k{display:none}
+  .compare .old{border-left:0}
+  .guar{grid-template-columns:1fr}
+  .sticky{display:block}
+  footer{padding-bottom:96px}
+  .promo{font-size:12px}
+  .promo a{display:none}
+}
+@media (max-width:440px){
+  .nav .btn{display:none}
+  .btn{height:52px;padding:0 22px}
+  .hero-cta .btn{flex:1}
+  .offer .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="promo"><span data-i="promo"></span><a href="#plans" data-i="promoLink"></a></div>
+  <div class="wrap nav">
+    <a href="#" class="logo" aria-label="arhitector-ai.ru">arhitector<span>-ai.ru</span></a>
+    <nav class="nav-links">
+      <a href="#services" data-i="navServices"></a>
+      <a href="#cases" data-i="navCases"></a>
+      <a href="#plans" data-i="navPlans"></a>
+      <a href="#faq" data-i="navFaq"></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener" data-i="navCta"></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="grid-bg"></div>
+    <div class="glow"></div>
+    <div class="wrap">
+      <div class="hero-top">
+        <div class="hero-tag mono"><i class="dot"></i><span data-i="heroTag"></span></div>
+        <div class="coords mono" data-i="coords"></div>
+      </div>
+      <h1 class="rv">ARHITECTOR<span class="g">AI</span></h1>
+      <div class="hero-bottom">
+        <p class="hero-lead rv" data-i="heroLead"></p>
+        <div class="hero-cta rv">
+          <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta"></span> <span class="arr">↗</span></a>
+          <a class="btn btn-ghost" href="#cases" data-i="heroCta2"></a>
+          <div class="hero-cta-note mono" data-i="heroNote"></div>
+        </div>
+      </div>
+      <div class="stats rv">
+        <div class="stat"><b data-i="s1b"></b><span data-i="s1"></span></div>
+        <div class="stat"><b data-i="s2b"></b><span data-i="s2"></span></div>
+        <div class="stat"><b data-i="s3b"></b><span data-i="s3"></span></div>
+        <div class="stat"><b>RU / EN</b><span data-i="s4"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec1"></div>
+        <div><h2 data-i="svcH"></h2><p data-i="svcP"></p></div>
+      </div>
+      <div class="services" id="services-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= FREE OFFER ================= -->
+  <section class="offer">
+    <div class="offer-big" aria-hidden="true">0</div>
+    <div class="wrap">
+      <div class="rv">
+        <div class="mono" data-i="offerTag"></div>
+        <h3 style="margin-top:14px" data-i="offerH"></h3>
+        <p data-i="offerP"></p>
+      </div>
+      <div class="offer-cta rv">
+        <a class="btn tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="offerCta"></span> <span class="arr">↗</span></a>
+        <span class="mono" data-i="offerNote"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BEFORE / AFTER ================= -->
+  <section class="block" id="cases">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec2"></div>
+        <div><h2 data-i="casesH"></h2><p data-i="casesP"></p></div>
+      </div>
+      <div class="cases-tabs rv" role="tablist" id="tabs"></div>
+      <div class="case rv">
+        <div>
+          <div class="ba" id="ba">
+            <div class="ba-layer" id="baAfter"></div>
+            <div class="ba-layer ba-before" id="baBefore"></div>
+            <span class="ba-label l mono" data-i="before"></span>
+            <span class="ba-label r mono" data-i="after"></span>
+            <div class="ba-line"></div>
+            <div class="ba-knob" aria-hidden="true">⇆</div>
+            <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Before / After">
+          </div>
+          <div class="hint mono" data-i="hint"></div>
+        </div>
+        <div class="case-info">
+          <div class="mono muted" id="caseTag"></div>
+          <h3 id="caseTitle"></h3>
+          <div class="ba-rows">
+            <div class="ba-row"><span class="k mono" data-i="was"></span><span id="caseBefore"></span></div>
+            <div class="ba-row"><span class="k mono" data-i="now"></span><span id="caseAfter"></span></div>
+          </div>
+          <ul class="did" id="caseDid"></ul>
+          <div class="case-foot">
+            <div class="case-meta">
+              <div><span class="mono" data-i="caseTimeL"></span><b id="caseTime"></b></div>
+              <div><span class="mono" data-i="casePriceL"></span><b id="casePrice"></b></div>
+            </div>
+            <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="caseCta"></span> <span class="arr">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPARE ================= -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec3"></div>
+        <div><h2 data-i="cmpH"></h2><p data-i="cmpP"></p></div>
+      </div>
+      <div class="compare rv" id="compare"></div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="block tight" id="process">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec4"></div>
+        <div><h2 data-i="procH"></h2><p data-i="procP"></p></div>
+      </div>
+      <div class="steps">
+        <div class="step rv"><span class="free mono" data-i="freeBadge"></span><div class="step-n">01</div><h4 data-i="st1h"></h4><p data-i="st1"></p></div>
+        <div class="step rv"><div class="step-n">02</div><h4 data-i="st2h"></h4><p data-i="st2"></p></div>
+        <div class="step rv"><div class="step-n">03</div><h4 data-i="st3h"></h4><p data-i="st3"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLANS ================= -->
+  <section class="block tight" id="plans">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec5"></div>
+        <div><h2 data-i="plansH"></h2><p data-i="plansP"></p></div>
+      </div>
+      <div class="plans" id="plans-grid"></div>
+      <p class="plans-note mono rv" data-i="plansNote"></p>
+    </div>
+  </section>
+
+  <!-- ================= GUARANTEES ================= -->
+  <section class="block tight">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec6"></div>
+        <div><h2 data-i="guarH"></h2></div>
+      </div>
+      <div class="guar" id="guar"></div>
+    </div>
+  </section>
+
+  <!-- ================= FOUNDER ================= -->
+  <section class="block tight">
+    <div class="wrap founder">
+      <div class="portrait marks rv">
+        <img src="img/founder.png" alt="Владислав Архитьков — основатель arhitector-ai.ru" width="640" height="640" loading="lazy">
+        <div class="cap mono"><span data-i="founderCap"></span><span>@arkhitkov</span></div>
+      </div>
+      <div class="rv">
+        <div class="mono muted" style="margin-bottom:22px" data-i="sec7"></div>
+        <blockquote data-i="quote"></blockquote>
+        <p class="muted" style="margin-top:22px;max-width:560px" data-i="founderP"></p>
+        <div class="timeline">
+          <div><b>2024</b><small data-i="t1"></small></div>
+          <div><b>2025</b><small data-i="t2"></small></div>
+          <div><b>2026</b><small>ARHITECTOR AI</small></div>
+          <div><b>→</b><small data-i="t4"></small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="block tight" id="faq">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="sec-num mono" data-i="sec8"></div>
+        <div><h2 data-i="faqH"></h2></div>
+      </div>
+      <div class="faq rv" id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final">
+    <div class="grid-bg"></div>
+    <div class="wrap">
+      <h2 class="rv" data-i="finalH"></h2>
+      <p class="rv" data-i="finalP"></p>
+      <a class="btn btn-solid tg rv" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="finalCta"></span> <span class="arr">↗</span></a>
+      <div class="note mono rv" data-i="finalNote"></div>
+      <p class="consent" data-i="consent"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="logo">arhitector<span>-ai.ru</span></div>
+      <div class="foot-links">
+        <a class="tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Telegram @arkhitkov</a>
+        <a href="#services" data-i="navServices"></a>
+        <a href="#plans" data-i="navPlans"></a>
+        <a class="offer-link" href="offer.html" data-i="offerLink"></a>
+      </div>
+      <div>© <span id="year">2026</span> ARHITECTOR AI · arhitector-ai.ru</div>
+    </div>
+    <!-- Данные исполнителя (самозанятый) -->
+    <div class="legal">
+      <div>
+        <b data-i="legalWho"></b><br>
+        Архитьков Владислав Александрович · <span data-i="legalNpd"></span><br>
+        <span data-i="legalInn"></span> 245731471943<br><a href="mailto:vladislav.arkhitkov@gmail.com">vladislav.arkhitkov@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="cur-frame" id="curFrame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="cur-cross" id="curCross" aria-hidden="true"><i></i><i></i></div>
+
+<div class="sticky" id="sticky"><a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="stickyCta"></span> <span class="arr">↗</span></a></div>
+
+<script src="cases.js"></script>
+<script>
+/* ===================== НАСТРОЙКИ ===================== */
+const TELEGRAM = "https://t.me/arkhitkov";
+
+/* Цены: правь здесь. ru — в рублях, en — в долларах. *was — старая (зачёркнутая) цена в пакетах. */
+const PRICES = {
+  ru: { video:"3 900 ₽", creative:"990 ₽", site:"7 900 ₽", bot:"4 900 ₽",
+        p1:"4 900 ₽",  p1was:"9 900 ₽", p2:"14 900 ₽", p2was:"29 900 ₽", p3:"29 900 ₽", p3was:"59 900 ₽" },
+  en: { video:"$49", creative:"$15", site:"$99", bot:"$69",
+        p1:"$69", p1was:"$139", p2:"$199", p2was:"$399", p3:"$399", p3was:"$790" }
+};
+
+/* Кейсы «До / После». Сейчас показываются демо-сцены из cases.js.
+   Свои работы: положи картинки в site/img/cases/ и укажи before:"img/cases/1-before.jpg", after:"img/cases/1-after.jpg".
+   price — ключ из PRICES. */
+const CASES = [
+  { before:null, after:null, scene:"product", price:"creative",
+    ru:{ tab:"Креативы", tag:"Креативы · демо", title:"Карточка духов для маркетплейса",
+         was:"Фото на телефон: блёклые цвета, вспышка, кружка и провод в кадре.", now:"Студийная ИИ-съёмка: тёплый свет, подиум, блики на стекле, УТП и инфографика.",
+         did:["ИИ-предметка","Инфографика","10 вариантов для теста"], time:"24 часа" },
+    en:{ tab:"Creatives", tag:"Creatives · demo", title:"Perfume card for a marketplace",
+         was:"Phone photo: dull colours, harsh flash, a mug and a cable in the shot.", now:"AI studio shot: warm light, podium, glass highlights, key benefit and infographics.",
+         did:["AI product shot","Infographics","10 test variants"], time:"24 hours" } },
+  { before:null, after:null, scene:"video", price:"video",
+    ru:{ tab:"Видео", tag:"Рекламное видео · демо", title:"Reels-реклама кроссовок без съёмки",
+         was:"Статичное фото на сером полу — его пролистывают за секунду.", now:"Неоновый ролик 15 сек: движение, хук «Беги быстрее», оффер −20% и кнопка.",
+         did:["Сценарий и хук","ИИ-генерация","Монтаж и звук","9:16 и 1:1"], time:"2 дня" },
+    en:{ tab:"Video", tag:"Ad video · demo", title:"Sneaker Reels ad with no shoot",
+         was:"A static photo on a grey floor — scrolled past in a second.", now:"A 15-sec neon video: motion, a “Run faster” hook, a −20% offer and a button.",
+         did:["Script & hook","AI generation","Editing & sound","9:16 and 1:1"], time:"2 days" } },
+  { before:null, after:null, scene:"site", price:"site",
+    ru:{ tab:"Сайт", tag:"Сайт под ключ · демо", title:"Лендинг для кофейни",
+         was:"Только профиль в соцсети: «меню и цены — в директ», заказы теряются.", now:"Свой сайт: оффер на первом экране, меню с ценами, кнопка онлайн-заказа.",
+         did:["Структура и тексты","Дизайн","Адаптив","Заявки в Telegram"], time:"5 дней" },
+    en:{ tab:"Website", tag:"Turnkey website · demo", title:"Landing page for a coffee shop",
+         was:"Only a social profile: “menu and prices — DM us”, orders get lost.", now:"A real website: offer up front, menu with prices, an online order button.",
+         did:["Structure & copy","Design","Mobile-ready","Leads to Telegram"], time:"5 days" } },
+  { before:null, after:null, scene:"bot", price:"bot",
+    ru:{ tab:"ИИ-бот", tag:"Telegram ИИ-бот · демо", title:"ИИ-администратор салона красоты",
+         was:"Клиентка пишет вечером — ответ только утром, запись уходит к конкурентам.", now:"ИИ-ассистент отвечает за 2 секунды, показывает свободные окна и записывает сам.",
+         did:["Ответы по прайсу","Онлайн-запись","Напоминания","Передача менеджеру"], time:"5 дней" },
+    en:{ tab:"AI bot", tag:"Telegram AI bot · demo", title:"AI front desk for a beauty salon",
+         was:"A client writes in the evening — the reply comes next morning, and she books elsewhere.", now:"The AI assistant replies in 2 seconds, shows free slots and books her itself.",
+         did:["Price-list answers","Online booking","Reminders","Hand-off to manager"], time:"5 days" } }
+];
+
+/* ===================== ТЕКСТЫ RU / EN ===================== */
+const T = {
+ru:{
+  title:"ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты",
+  promo:"✦ <b>Стартовые цены</b> для первых 10 клиентов — скидка до 50%",
+  promoLink:"Смотреть цены",
+  navServices:"Услуги", navCases:"До / После", navPlans:"Цены", navFaq:"FAQ", navCta:"Обсудить",
+  heroTag:"Агентство ИИ-решений · Россия, СНГ и мир",
+  coords:"Видео · Креативы<br>Сайты · Боты<br>Автоматизация",
+  heroLead:"Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <em>приводят клиентов — в разы быстрее и дешевле обычного продакшна.</em>",
+  heroCta:"Получить бесплатный креатив", heroCta2:"Смотреть До / После",
+  heroNote:"Ответ в Telegram в течение 1 часа",
+  s1b:"от 24 ч", s1:"первые креативы после брифа",
+  s2b:"от 990 ₽", s2:"стартовая цена услуг",
+  s3b:"24/7", s3:"ИИ-боты отвечают вашим клиентам",
+  s4:"работаем на русском и английском",
+  marquee:["Рекламные ИИ-видео","Креативы","Сайты под ключ","ИИ-автоматизация","Telegram ИИ-боты"],
+  sec1:"01 / Услуги",
+  svcH:"Четыре направления.<br><span class='o'>Одна цель —</span> продажи.",
+  svcP:"Берём задачу целиком: от идеи и сценария до запуска. Каждое направление работает отдельно или в связке.",
+  from:"от", order:"Заказать",
+  services:[
+    {k:"video", icon:"▶", h:"Рекламные<br>ИИ-видео", p:"Ролики для таргета, Reels и маркетплейсов без съёмочной группы. Сценарий, генерация, монтаж, звук.", tags:["Reels / Shorts","Видео товара","Имиджевые ролики","Оживление фото"], term:"от 2 дней"},
+    {k:"creative", icon:"◐", h:"Креативы<br>для рекламы", p:"Пачки креативов для тестов: баннеры, визуал для соцсетей, карточки товаров. Десятки вариантов вместо одного.", tags:["Таргет и посевы","Карточки WB / Ozon","Соцсети","Предметка ИИ"], term:"от 24 часов"},
+    {k:"site", icon:"⌘", h:"Сайты<br>под ключ", p:"Лендинги и сайты, которые продают: структура, тексты, дизайн, разработка, заявки и аналитика.", tags:["Лендинги","Сайты услуг","Каталоги","Заявки в Telegram / CRM"], term:"от 5 дней"},
+    {k:"bot", icon:"✦", h:"ИИ-боты и<br>автоматизация", p:"Telegram-боты с ИИ: отвечают клиентам 24/7, принимают заявки, записывают. Плюс автоматизация рутины: заявки, CRM, отчёты.", tags:["Telegram ИИ-боты","Ответы по базе знаний","CRM и таблицы","n8n / Make"], term:"от 5 дней"}
+  ],
+  offerTag:"Без риска · для новых клиентов",
+  offerH:"Первый креатив —<br>бесплатно",
+  offerP:"Пришлите фото товара или описание бизнеса — сделаем тестовый креатив и покажем качество до оплаты.",
+  offerCta:"Забрать бесплатный креатив", offerNote:"Без предоплаты · без обязательств",
+  sec2:"02 / Кейсы", casesH:"До <span class='o'>/</span> После", casesP:"Потяни ползунок: слева — как обычно, справа — как делаем мы.",
+  caseTimeL:"Срок", casePriceL:"Цена", caseCta:"Хочу так же", from2:"от",
+  before:"До", after:"После", hint:"← тяни ползунок →", was:"Было", now:"Стало",
+  sec3:"03 / Сравнение", cmpH:"Почему <span class='o'>ИИ-продакшн</span>",
+  cmpP:"Тот же результат для рекламы — без съёмок, студий и недель ожидания.",
+  cmpHead:["","Обычный продакшн","ARHITECTOR AI"],
+  cmp:[["Сроки","2–4 недели","от 24 часов"],["Бюджет","съёмка, команда, локации","в разы дешевле"],["Вариантов для тестов","1–2","десятки"],["Правки","долго и дорого","быстро, включены в цену"],["Языки","обычно один","RU / EN и другие"]],
+  sec4:"04 / Процесс", procH:"Три шага<br><span class='o'>до результата</span>", procP:"Без долгих брифов и бесконечных согласований.",
+  freeBadge:"0 ₽",
+  st1h:"Бесплатный разбор", st1:"Созвон или переписка. Разбираем задачу и делаем бесплатный тестовый креатив.",
+  st2h:"План и цена", st2:"Фиксируем объём, сроки и стоимость. Вы заранее знаете, что получите.",
+  st3h:"Запуск и поддержка", st3:"Делаем, показываем промежуточные версии, запускаем. Дальше — сопровождение.",
+  sec5:"05 / Цены", plansH:"Стартовые цены<br><span class='o'>для первых клиентов</span>",
+  plansP:"Сейчас собираем портфолио, поэтому цены ниже рынка. Когда места закончатся — цены вырастут.",
+  plansNote:"Нужно что-то своё — соберём индивидуально · оплата 50 / 50",
+  choose:"Выбрать", rec:"Хит", sale:"−50%",
+  plans:[
+    {n:"Старт", h:"Реклама", items:["15 рекламных креативов","1 рекламное ИИ-видео","Тексты и хуки для рекламы","2 круга правок"]},
+    {n:"Рост", h:"Сайт + Бот", items:["Продающий лендинг под ключ","Telegram ИИ-бот для заявок","Заявки сразу в Telegram / CRM","10 креативов на запуск","2 недели поддержки"]},
+    {n:"Под ключ", h:"Система", items:["Сайт + ИИ-бот + автоматизация","3 рекламных видео + 20 креативов","Интеграция с CRM и таблицами","Инструкция для команды","Месяц поддержки"]}
+  ],
+  sec6:"06 / Гарантии", guarH:"Работаем<br><span class='o'>честно и официально</span>",
+  guar:[
+    ["◎","Тест бесплатно","Первый креатив — до оплаты, чтобы вы увидели качество."],
+    ["½","Оплата 50 / 50","Предоплата 50%, остаток — после того, как вам всё понравится."],
+    ["↺","Правки включены","Вносим правки до утверждения в рамках задачи."],
+    ["✓","Официальный чек","Работаю как самозанятый — чек «Мой налог» на каждую оплату."]
+  ],
+  sec7:"07 / Кто за этим стоит", founderCap:"Основатель",
+  quote:"«Я прошёл путь от дизайна до продюсирования. <span>Поэтому делаю не просто красиво — а так, чтобы продавало.»</span>",
+  founderP:"Влад Архитьков — основатель ARHITECTOR AI. Дизайн, маркетинг и продажи в одном человеке: понимаю, как визуал и технологии превращаются в заявки и деньги.",
+  t1:"Старт в дизайне", t2:"Продюсирование и продажи", t4:"Дальше — больше",
+  sec8:"08 / FAQ", faqH:"Частые<br><span class='o'>вопросы</span>",
+  faq:[
+    ["Почему такие низкие цены?","Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость."],
+    ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href='offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
+    ["Работаете с клиентами из других стран?","Да. Общаемся на русском или английском, цены для международных клиентов — в долларах. Способ оплаты подберём индивидуально."],
+    ["Какие сроки?","Креативы — от 24 часов, рекламное видео — от 2 дней, сайт и ИИ-бот — от 5 дней. Точные сроки фиксируем до старта."],
+    ["ИИ-видео не выглядит дёшево?","Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже."],
+    ["Кто платит за нейросети и хостинг?","Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт — обычно это небольшие суммы, расчёт покажем заранее."]
+  ],
+  finalH:"Спроектируем<br><span class='g'>ваш рост</span>",
+  finalP:"Напишите в Telegram — разберём задачу и сделаем бесплатный тестовый креатив.",
+  finalCta:"Написать в Telegram", finalNote:"Ответ в течение 1 часа · 0 ₽ · онлайн",
+  consent:"Переходя в Telegram, вы сами передаёте нам свои контактные данные для связи по вашему запросу. Сайт не собирает персональные данные и не использует cookie.",
+  stickyCta:"Бесплатный креатив",
+  legalWho:"Исполнитель", legalNpd:"самозанятый", legalInn:"ИНН",
+  offerLink:"Договор-оферта",
+},
+en:{
+  title:"ARHITECTOR AI — AI ad videos, creatives, websites and AI bots",
+  promo:"✦ <b>Launch pricing</b> for our first 10 clients — up to 50% off",
+  promoLink:"See pricing",
+  navServices:"Services", navCases:"Before / After", navPlans:"Pricing", navFaq:"FAQ", navCta:"Let's talk",
+  heroTag:"AI solutions agency · Worldwide",
+  coords:"Video · Creatives<br>Websites · Bots<br>Automation",
+  heroLead:"We create AI ad videos, creatives, websites and AI bots that <em>bring you clients — faster and cheaper than traditional production.</em>",
+  heroCta:"Get a free creative", heroCta2:"See Before / After",
+  heroNote:"Reply on Telegram within 1 hour",
+  s1b:"24 h", s1:"first creatives after the brief",
+  s2b:"from $15", s2:"starting price",
+  s3b:"24/7", s3:"AI bots answer your clients",
+  s4:"we work in English and Russian",
+  marquee:["AI ad videos","Creatives","Turnkey websites","AI automation","Telegram AI bots"],
+  sec1:"01 / Services",
+  svcH:"Four services.<br><span class='o'>One goal —</span> sales.",
+  svcP:"We own the whole task, from idea and script to launch. Each service works on its own or together.",
+  from:"from", order:"Order",
+  services:[
+    {k:"video", icon:"▶", h:"AI ad<br>videos", p:"Videos for paid ads, Reels and marketplaces with no film crew. Script, generation, editing, sound.", tags:["Reels / Shorts","Product videos","Brand films","Photo animation"], term:"from 2 days"},
+    {k:"creative", icon:"◐", h:"Ad<br>creatives", p:"Batches of creatives for testing: banners, social visuals, product cards. Dozens of options instead of one.", tags:["Paid social","Marketplace cards","Social media","AI product shots"], term:"from 24 hours"},
+    {k:"site", icon:"⌘", h:"Turnkey<br>websites", p:"Landing pages and websites that sell: structure, copy, design, development, lead capture and analytics.", tags:["Landing pages","Service websites","Catalogs","Leads to Telegram / CRM"], term:"from 5 days"},
+    {k:"bot", icon:"✦", h:"AI bots &amp;<br>automation", p:"Telegram AI bots that answer clients 24/7, capture leads and book appointments. Plus automation of routine work: leads, CRM, reports.", tags:["Telegram AI bots","Knowledge-base answers","CRM & sheets","n8n / Make"], term:"from 5 days"}
+  ],
+  offerTag:"Zero risk · for new clients",
+  offerH:"Your first creative<br>is free",
+  offerP:"Send a product photo or describe your business — we'll make a test creative so you see the quality before paying.",
+  offerCta:"Claim a free creative", offerNote:"No prepayment · no commitment",
+  sec2:"02 / Cases", casesH:"Before <span class='o'>/</span> After", casesP:"Drag the slider: left is the usual, right is how we do it.",
+  caseTimeL:"Timeline", casePriceL:"Price", caseCta:"I want this", from2:"from",
+  before:"Before", after:"After", hint:"← drag the slider →", was:"Before", now:"After",
+  sec3:"03 / Compare", cmpH:"Why <span class='o'>AI production</span>",
+  cmpP:"The same ad results — without shoots, studios or weeks of waiting.",
+  cmpHead:["","Traditional production","ARHITECTOR AI"],
+  cmp:[["Turnaround","2–4 weeks","from 24 hours"],["Budget","shoot, crew, locations","several times cheaper"],["Variants to test","1–2","dozens"],["Revisions","slow and costly","fast, included"],["Languages","usually one","EN / RU and more"]],
+  sec4:"04 / Process", procH:"Three steps<br><span class='o'>to results</span>", procP:"No endless briefs or approvals.",
+  freeBadge:"$0",
+  st1h:"Free consultation", st1:"A call or a chat. We review your task and make a free test creative.",
+  st2h:"Plan & price", st2:"We fix the scope, timeline and cost. You know exactly what you'll get.",
+  st3h:"Launch & support", st3:"We build, share drafts, launch. Then ongoing support.",
+  sec5:"05 / Pricing", plansH:"Launch pricing<br><span class='o'>for first clients</span>",
+  plansP:"We're building our portfolio, so prices are below market. Once the spots are gone, prices go up.",
+  plansNote:"Need something custom? We'll tailor it · 50 / 50 payment",
+  choose:"Choose", rec:"Popular", sale:"−50%",
+  plans:[
+    {n:"Start", h:"Ads", items:["15 ad creatives","1 AI ad video","Ad copy and hooks","2 rounds of revisions"]},
+    {n:"Growth", h:"Website + Bot", items:["Turnkey landing page","Telegram AI bot for leads","Leads straight to Telegram / CRM","10 launch creatives","2 weeks of support"]},
+    {n:"Full", h:"System", items:["Website + AI bot + automation","3 ad videos + 20 creatives","CRM & spreadsheet integration","Team guide","1 month of support"]}
+  ],
+  sec6:"06 / Guarantees", guarH:"Honest<br><span class='o'>and official</span>",
+  guar:[
+    ["◎","Free test","Your first creative comes before payment, so you see the quality."],
+    ["½","50 / 50 payment","50% upfront, the rest once you're happy with the result."],
+    ["↺","Revisions included","We revise until approval within the agreed scope."],
+    ["✓","Official receipts","Registered self-employed professional — an official receipt for every payment."]
+  ],
+  sec7:"07 / Who's behind it", founderCap:"Founder",
+  quote:"“I went from design to marketing and sales. <span>That's why I don't just make it beautiful — I make it sell.”</span>",
+  founderP:"Vlad Arkhitkov — founder of ARHITECTOR AI. Design, marketing and sales in one person: I know how visuals and technology turn into leads and revenue.",
+  t1:"Started in design", t2:"Marketing & sales", t4:"More to come",
+  sec8:"08 / FAQ", faqH:"Frequently<br><span class='o'>asked</span>",
+  faq:[
+    ["Why are prices so low?","We launched recently and are building our portfolio. Early clients get launch pricing in exchange for a review. The quality is the same as at full price."],
+    ["How do I pay? Do I get a receipt?","I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href='offer.html' style='text-decoration:underline'>Terms of Service</a>."],
+    ["Do you work with clients outside Russia?","Yes. We communicate in English or Russian, and international prices are in USD."],
+    ["What are the timelines?","Creatives from 24 hours, ad videos from 2 days, websites and AI bots from 5 days. We fix exact dates before starting."],
+    ["Doesn't AI video look cheap?","Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing."],
+    ["Who pays for AI services and hosting?","Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account — usually small amounts; we'll estimate them upfront."]
+  ],
+  finalH:"Let's design<br><span class='g'>your growth</span>",
+  finalP:"Message us on Telegram — we'll review your task and make a free test creative.",
+  finalCta:"Message on Telegram", finalNote:"Reply within 1 hour · free · online",
+  consent:"By opening Telegram you share your contact details with us so we can reply to your request. This website collects no personal data and uses no cookies.",
+  stickyCta:"Free creative",
+  legalWho:"Contractor", legalNpd:"self-employed", legalInn:"Tax ID (INN)",
+  offerLink:"Terms of Service",
+}};
+
+/* ===================== ЛОГИКА ===================== */
+const $ = id => document.getElementById(id);
+let lang = "ru", caseIdx = 0;
+
+function getStored(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function setStored(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+
+function detectLang(){
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "ru" || q === "en") return q;
+  const saved = getStored("lang");
+  if (saved === "ru" || saved === "en") return saved;
+  const nav = (navigator.languages || [navigator.language || "en"]).join(",").toLowerCase();
+  return /(^|,)(ru|uk|be|kk|ky|uz|tg|hy|az)/.test(nav) ? "ru" : "en";
+}
+
+function showCase(i){
+  caseIdx = i;
+  const c = CASES[i], t = c[lang];
+  [...$("tabs").children].forEach((b,j)=>{ b.classList.toggle("active", j===i); b.setAttribute("aria-selected", j===i); });
+  const layer = (src, kind) => src
+    ? `<img src="${src}" alt="${t.title} — ${T[lang][kind]}">`
+    : SCENES[c.scene][kind](`s${i}${kind[0]}${lang}`, lang);
+  $("baBefore").innerHTML = layer(c.before, "before");
+  $("baAfter").innerHTML  = layer(c.after, "after");
+  $("caseTag").textContent = t.tag;
+  $("caseTitle").textContent = t.title;
+  $("caseBefore").textContent = t.was;
+  $("caseAfter").textContent = t.now;
+  $("caseDid").innerHTML = t.did.map(x => `<li>${x}</li>`).join("");
+  $("caseTime").textContent = t.time;
+  $("casePrice").textContent = T[lang].from2 + " " + PRICES[lang][c.price];
+  $("baRange").value = 50; $("ba").style.setProperty("--pos","50%");
+}
+
+/* Подсказка: ползунок один раз «покачивается», когда блок появляется на экране */
+function hintSlider(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const keys = [[0,50],[500,72],[1100,28],[1600,50]], t0 = performance.now();
+  const step = now => {
+    const t = Math.max(0, now - t0), k = keys.findIndex(x => x[0] > t);
+    if (k === -1){ $("ba").style.setProperty("--pos","50%"); $("baRange").value = 50; return; }
+    const [ta,va] = keys[k-1], [tb,vb] = keys[k], e = (t-ta)/(tb-ta), v = va + (vb-va)*(.5-.5*Math.cos(Math.PI*e));
+    $("ba").style.setProperty("--pos", v + "%"); $("baRange").value = v;
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function render(){
+  const t = T[lang], P = PRICES[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title;
+  document.querySelectorAll("[data-i]").forEach(el => { const v = t[el.dataset.i]; if (typeof v === "string") el.innerHTML = v; });
+  document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+
+  const m = t.marquee.map(s => `<span>${s}</span>`).join("");
+  $("track").innerHTML = m + m;
+
+  $("services-grid").innerHTML = t.services.map((s,i) => `
+    <article class="svc">
+      <div class="svc-top"><span class="svc-num">/0${i+1}</span><span class="svc-icon" aria-hidden="true">${s.icon}</span></div>
+      <h3>${s.h}</h3><p>${s.p}</p>
+      <ul>${s.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="svc-foot">
+        <div><div class="price"><small>${t.from}</small>${P[s.k]}</div><div class="term mono">${s.term}</div></div>
+        <a class="btn btn-ghost" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order} ↗</a>
+      </div>
+    </article>`).join("");
+
+  $("compare").innerHTML =
+    t.cmpHead.map((h,i)=>`<div class="h ${["k","old","new"][i]}">${h}</div>`).join("") +
+    t.cmp.map(r => `<div class="k">${r[0]}</div><div class="old"><span class="x">✕</span>${r[1]}</div><div class="new">✓ ${r[2]}</div>`).join("");
+
+  $("plans-grid").innerHTML = t.plans.map((p,i) => `
+    <div class="plan${i===1 ? " hot" : ""}">
+      ${i===1 ? `<span class="plan-badge mono">${t.rec}</span>` : ""}
+      <span class="plan-sale mono">${t.sale}</span>
+      <div class="mono muted">${p.n}</div>
+      <h3>${p.h}</h3>
+      <div class="price"><span class="was">${P["p"+(i+1)+"was"]}</span><small>${t.from}</small>${P["p"+(i+1)]}</div>
+      <ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <a class="btn ${i===1 ? "btn-solid" : "btn-ghost"}" href="${TELEGRAM}" target="_blank" rel="noopener">${t.choose} ↗</a>
+    </div>`).join("");
+
+  $("guar").innerHTML = t.guar.map(g => `<div class="gu"><i>${g[0]}</i><b>${g[1]}</b><span>${g[2]}</span></div>`).join("");
+
+  $("faq-list").innerHTML = t.faq.map(f => `<details><summary>${f[0]}<span class="pm">+</span></summary><p>${f[1]}</p></details>`).join("");
+
+  $("tabs").innerHTML = "";
+  CASES.forEach((c,i) => {
+    const b = document.createElement("button");
+    b.className = "tab"; b.type = "button"; b.setAttribute("role","tab"); b.innerHTML = `<span class="tab-n">0${i+1}</span>${c[lang].tab}`;
+    b.onclick = () => showCase(i);
+    $("tabs").appendChild(b);
+  });
+  showCase(caseIdx);
+}
+
+function setLang(l){
+  lang = l; setStored("lang", l);
+  const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u);
+  render();
+}
+
+document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => setLang(b.dataset.lang));
+$("baRange").addEventListener("input", e => $("ba").style.setProperty("--pos", e.target.value + "%"));
+
+lang = detectLang();
+render();
+
+/* header / sticky CTA on scroll */
+const header = document.querySelector("header"), sticky = $("sticky"), hero = document.querySelector(".hero");
+const onScroll = () => {
+  header.classList.toggle("scrolled", scrollY > 20);
+  const nearEnd = innerHeight + scrollY > document.body.scrollHeight - 700;
+  sticky.classList.toggle("show", scrollY > hero.offsetHeight * .8 && !nearEnd);
+};
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+/* reveal */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+}), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".rv").forEach((el,i) => { el.style.transitionDelay = (i%4)*70 + "ms"; io.observe(el); });
+
+const baIo = new IntersectionObserver(es => { if (es[0].isIntersecting){ baIo.disconnect(); setTimeout(hintSlider, 600); } }, {threshold:.6});
+baIo.observe($("ba"));
+
+/* ===================== КУРСОР =====================
+   Тонкий крестик следует за мышью мгновенно, рамка из уголков — с плавной задержкой.
+   Над ссылками, кнопками и ползунком «До / После» рамка расширяется. Только для мыши. */
+(function(){
+  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  const root = document.documentElement, cross = $("curCross"), frame = $("curFrame");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const glow = document.querySelector(".hero .glow"), heroEl = document.querySelector(".hero");
+  let x = innerWidth / 2, y = innerHeight / 2, fx = x, fy = y, raf = 0;
+  root.classList.add("has-cursor");
+
+  const loop = () => {
+    const k = reduce ? 1 : .18;
+    fx += (x - fx) * k; fy += (y - fy) * k;
+    frame.style.transform = `translate3d(${fx}px,${fy}px,0)`;
+    raf = Math.abs(x - fx) + Math.abs(y - fy) > .1 ? requestAnimationFrame(loop) : 0;
+  };
+  addEventListener("mousemove", e => {
+    x = e.clientX; y = e.clientY;
+    cross.style.transform = `translate3d(${x}px,${y}px,0)`;
+    root.classList.add("cur-on");
+    if (!raf) raf = requestAnimationFrame(loop);
+    if (glow && !reduce){
+      const r = heroEl.getBoundingClientRect();
+      if (y < r.bottom) glow.style.transform = `translate(calc(-50% + ${(x - r.width/2) * .35}px), ${(y - r.top) * .35}px)`;
+    }
+  }, {passive:true});
+  document.addEventListener("mouseover", e => {
+    frame.classList.toggle("big", !!e.target.closest("a, button, summary, .tab, [role=tab], .ba"));
+  });
+  document.addEventListener("mouseleave", () => root.classList.remove("cur-on"));
+  addEventListener("mousedown", () => frame.classList.add("press"));
+  addEventListener("mouseup", () => frame.classList.remove("press"));
+})();
+
+$("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
