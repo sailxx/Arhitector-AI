@@ -141,6 +141,8 @@ section.tight{padding-top:0}
 .svc:hover .svc-icon{background:var(--fg);color:var(--bg)}
 .svc h3{font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
 .svc > p{color:var(--muted);max-width:460px}
+.svc-more{align-self:flex-start;font-size:14px;font-weight:600;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .2s}
+.svc-more:hover{border-color:var(--fg)}
 .svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .svc li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:rgba(244,244,242,.8)}
 .svc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px dashed var(--line)}
@@ -422,6 +424,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/01</span><span class="svc-icon" aria-hidden="true">▶</span></div>
       <h3>AI ad<br>videos</h3><p>Videos for paid ads, Reels and marketplaces with no film crew. Script, generation, editing, sound.</p>
       <ul><li>Reels / Shorts</li><li>Product videos</li><li>Brand films</li><li>Photo animation</li></ul>
+      
       <div class="svc-foot">
         <div><div class="price"><small>from</small>$49</div><div class="term mono">from 2 days</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
@@ -431,6 +434,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/02</span><span class="svc-icon" aria-hidden="true">◐</span></div>
       <h3>Ad<br>creatives</h3><p>Batches of creatives for testing: banners, social visuals, product cards. Dozens of options instead of one.</p>
       <ul><li>Paid social</li><li>Marketplace cards</li><li>Social media</li><li>AI product shots</li></ul>
+      
       <div class="svc-foot">
         <div><div class="price"><small>from</small>$15</div><div class="term mono">from 24 hours</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
@@ -440,6 +444,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/03</span><span class="svc-icon" aria-hidden="true">⌘</span></div>
       <h3>Turnkey<br>websites</h3><p>Landing pages and websites that sell: structure, copy, design, development, lead capture and analytics.</p>
       <ul><li>Landing pages</li><li>Service websites</li><li>Catalogs</li><li>Leads to Telegram / CRM</li></ul>
+      
       <div class="svc-foot">
         <div><div class="price"><small>from</small>$99</div><div class="term mono">from 5 days</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
@@ -449,6 +454,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/04</span><span class="svc-icon" aria-hidden="true">✦</span></div>
       <h3>AI bots &amp;<br>automation</h3><p>Telegram AI bots that answer clients 24/7, capture leads and book appointments. Plus automation of routine work: leads, CRM, reports.</p>
       <ul><li>Telegram AI bots</li><li>Knowledge-base answers</li><li>CRM &amp; sheets</li><li>n8n / Make</li></ul>
+      
       <div class="svc-foot">
         <div><div class="price"><small>from</small>$69</div><div class="term mono">from 5 days</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
@@ -721,6 +727,9 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <script>
 /* ===================== НАСТРОЙКИ ===================== */
 const TELEGRAM = "https://t.me/arkhitkov";
+
+/* Отдельные страницы услуг (пока только на русском), собираются из _src/services.mjs */
+const SERVICE_PAGES = { video:"/ii-video/", creative:"/kreativy/", site:"/sajt-pod-klyuch/", bot:"/telegram-ii-bot/" };
 
 /* Цены: правь здесь. ru — в рублях, en — в долларах. *was — старая (зачёркнутая) цена в пакетах. */
 const PRICES = {
@@ -995,6 +1004,7 @@ function render(){
       <div class="svc-top"><span class="svc-num">/0${i+1}</span><span class="svc-icon" aria-hidden="true">${s.icon}</span></div>
       <h3>${s.h}</h3><p>${s.p}</p>
       <ul>${s.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
+      ${lang === "ru" ? `<a class="svc-more" href="${SERVICE_PAGES[s.k]}">Подробнее об услуге →</a>` : ""}
       <div class="svc-foot">
         <div><div class="price"><small>${t.from}</small>${P[s.k]}</div><div class="term mono">${s.term}</div></div>
         <a class="btn btn-ghost" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order} ↗</a>

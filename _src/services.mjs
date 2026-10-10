@@ -1,0 +1,360 @@
+/* Страницы услуг (RU) для поиска по конкретным запросам.
+   Тексты — в SERVICES ниже, оформление — в page(). Собирает _tools/build.mjs → /<slug>/index.html.
+   Цены держите такими же, как PRICES в _src/index.html. */
+
+export const ORIGIN = "https://arhitector-ai.ru";
+const TG = "https://t.me/arkhitkov";
+
+export const SERVICES = [
+  {
+    slug: "ii-video", nav: "ИИ-видео",
+    title: "Рекламные ИИ-видео для бизнеса — от 3 900 ₽ | ARHITECTOR AI",
+    desc: "Создаём рекламные видео нейросетями: ролики для таргета, Reels, Shorts и маркетплейсов без съёмок. От 3 900 ₽, от 2 дней. Первый тест — бесплатно.",
+    h1: "Рекламные ИИ-видео<br><span class='o'>для бизнеса</span>",
+    name: "Рекламные ИИ-видео",
+    lead: "Ролики для таргета, Reels, Shorts и карточек маркетплейсов — без съёмочной группы, студии и актёров. Пишем сценарий, генерируем видео нейросетями, монтируем и озвучиваем под ключ.",
+    price: "3 900 ₽", term: "от 2 дней",
+    includes: [
+      ["Сценарий и хук", "Первые 2 секунды решают, досмотрят ли ролик. Придумываем зацепку и структуру под вашу аудиторию и площадку."],
+      ["ИИ-генерация", "Создаём сцены в видео-нейросетях в стиле вашего бренда: товар в движении, атмосфера, люди, локации."],
+      ["Монтаж и звук", "Собираем ролик, добавляем музыку, озвучку, субтитры и титры с оффером и призывом к действию."],
+      ["Все форматы", "9:16 для Reels, Shorts и Stories, 1:1 и 4:5 для ленты, 16:9 для YouTube и сайта."],
+      ["Правки включены", "Два круга правок входят в цену. Показываем промежуточные версии, чтобы не переделывать с нуля."],
+      ["Готовые файлы", "Отдаём исходные ролики в нужном разрешении — используете в любой рекламе и на любых площадках."]
+    ],
+    who: [
+      ["Селлерам Wildberries и Ozon", "Видео в карточку товара повышает внимание к ней в выдаче."],
+      ["Таргет и посевы", "Ролики для VK Рекламы, Telegram Ads, Яндекс Директа и зарубежных площадок."],
+      ["Блогам и брендам", "Регулярные Reels и Shorts без ежедневных съёмок."],
+      ["Запуск продукта", "Видео нового товара, которого ещё нет на фото, — по описанию или эскизу."]
+    ],
+    faq: [
+      ["Сколько стоит рекламное ИИ-видео?", "Ролик до 15 секунд — от 3 900 ₽. Цена зависит от длины, количества сцен и сложности: озвучка, персонажи, анимация товара. Точную стоимость называем до старта и не меняем по ходу работы."],
+      ["Чем ИИ-видео лучше обычной съёмки?", "Не нужны студия, оператор, актёры и локации, поэтому ролик выходит в разы дешевле и быстрее — от 2 дней вместо нескольких недель. И можно сделать несколько вариантов для тестов вместо одного."],
+      ["Можно сделать видео с моим товаром?", "Да. Пришлите фото товара с нескольких ракурсов — встроим его в сцены. Чем лучше исходные фото, тем точнее результат."],
+      ["Будет заметно, что это нейросеть?", "Мы делаем ролики с режиссурой: отбираем лучшие генерации, дорабатываем в монтаже и следим за деталями. Стиль подбираем так, чтобы видео выглядело как дорогая реклама, а не как эксперимент."],
+      ["Кому принадлежат права на ролик?", "Вам. После оплаты вы получаете готовые файлы и используете их в рекламе без ограничений."]
+    ]
+  },
+  {
+    slug: "kreativy", nav: "Креативы",
+    title: "ИИ-креативы для рекламы и маркетплейсов — от 990 ₽ | ARHITECTOR AI",
+    desc: "Рекламные креативы и карточки товаров с помощью нейросетей: баннеры для таргета, инфографика для Wildberries и Ozon, предметная ИИ-съёмка. От 990 ₽, от 24 часов.",
+    h1: "ИИ-креативы для рекламы<br><span class='o'>и маркетплейсов</span>",
+    name: "Креативы для рекламы",
+    lead: "Баннеры для таргета, карточки товаров с инфографикой и предметная съёмка без фотостудии. Делаем десятки вариантов для тестов — вы оставляете те, что приносят клики и продажи.",
+    price: "990 ₽", term: "от 24 часов",
+    includes: [
+      ["Баннеры для таргета", "Креативы для VK Рекламы, Telegram Ads, Яндекс Директа и соцсетей — с оффером и понятным призывом."],
+      ["Карточки WB и Ozon", "Главное фото и слайды с инфографикой: преимущества, размеры, состав, сравнение."],
+      ["Предметная ИИ-съёмка", "Ваш товар в студийном свете, на подиуме, в интерьере или в руках у модели — по обычному фото с телефона."],
+      ["Визуал для соцсетей", "Посты, сторис и обложки в едином стиле бренда."],
+      ["Пачки для тестов", "Несколько подходов и формулировок сразу, чтобы найти рабочую связку быстрее."],
+      ["Все размеры", "Адаптируем каждый креатив под нужные площадки и форматы."]
+    ],
+    who: [
+      ["Селлерам маркетплейсов", "Карточки, которые выделяются в выдаче и объясняют товар за секунды."],
+      ["Таргетологам и агентствам", "Быстрый поток креативов для тестов без своего дизайнера."],
+      ["Малому бизнесу", "Реклама кафе, салона, студии или магазина без фотосессии."],
+      ["Экспертам и блогерам", "Обложки, анонсы и рекламные посты в одном стиле."]
+    ],
+    faq: [
+      ["Сколько стоит рекламный креатив?", "От 990 ₽. Пачка креативов для тестов выходит дешевле в пересчёте на один. В пакете «Реклама» — 15 креативов и видео."],
+      ["Что нужно от меня?", "Фото товара (подойдёт снимок на телефон), ссылка на карточку или сайт и пара слов о вашей аудитории. Остальное — тексты, идеи, визуал — делаем мы."],
+      ["Подойдут ли карточки под требования маркетплейсов?", "Делаем в нужных размерах и по правилам оформления Wildberries и Ozon. Модерацию проводит сама площадка, поэтому перед работой сверяемся с её актуальными правилами."],
+      ["Как быстро будут готовы креативы?", "Первые варианты — от 24 часов после брифа. Большие пачки и карточки с инфографикой — 2–3 дня."],
+      ["Можно сначала посмотреть качество?", "Да. Первый креатив делаем бесплатно, чтобы вы увидели результат до оплаты."]
+    ]
+  },
+  {
+    slug: "sajt-pod-klyuch", nav: "Сайт под ключ",
+    title: "Сайт под ключ — продающий лендинг от 7 900 ₽ | ARHITECTOR AI",
+    desc: "Создание сайта под ключ: структура, тексты, дизайн, адаптив, заявки в Telegram и подключение к Яндексу. Лендинг от 7 900 ₽, от 5 дней.",
+    h1: "Сайт под ключ<br><span class='o'>для вашего бизнеса</span>",
+    name: "Сайт под ключ",
+    lead: "Продающий лендинг или сайт услуг: продумываем структуру, пишем тексты, рисуем дизайн и запускаем. Заявки приходят сразу вам в Telegram — без сложных админок.",
+    price: "7 900 ₽", term: "от 5 дней",
+    includes: [
+      ["Структура и тексты", "Разбираем ваш бизнес и пишем тексты, которые отвечают на вопросы клиента и ведут к заявке."],
+      ["Дизайн", "Современный дизайн под ваш стиль: чистый, быстрый и понятный на любом экране."],
+      ["Адаптив", "Сайт одинаково удобен на телефоне, планшете и компьютере — большинство клиентов приходят с телефона."],
+      ["Заявки в Telegram", "Кнопки и формы ведут в ваш Telegram, WhatsApp или CRM — ни одна заявка не теряется."],
+      ["Базовое SEO", "Мета-теги, карта сайта, быстрая загрузка, подключение к Яндекс Вебмастеру и Google."],
+      ["Домен и запуск", "Поможем купить домен на ваше имя, подключим его и опубликуем сайт."]
+    ],
+    who: [
+      ["Кафе, салонам, студиям", "Меню, прайс, запись и контакты в одном месте вместо «цены в директ»."],
+      ["Экспертам и специалистам", "Сайт-визитка с услугами, отзывами и записью на консультацию."],
+      ["Под рекламу", "Лендинг под одну услугу или товар, чтобы реклама окупалась."],
+      ["Новому бизнесу", "Быстрый старт: от идеи до работающего сайта за неделю."]
+    ],
+    faq: [
+      ["Сколько стоит сайт под ключ?", "Лендинг — от 7 900 ₽. Цена зависит от количества блоков и страниц, текстов и интеграций. Точную сумму называем после короткого разбора задачи."],
+      ["Сколько времени занимает разработка?", "Лендинг — от 5 дней. Сайт из нескольких страниц — 1–2 недели. Сроки фиксируем до старта."],
+      ["Кто платит за домен и хостинг?", "Домен оформляется на вас, обычно это несколько сотен рублей в год. Для простого лендинга хостинг может быть бесплатным или стоить совсем немного — подберём вариант заранее."],
+      ["Сайт будет моим?", "Да. Домен и сайт принадлежат вам, исходные файлы передаём после оплаты."],
+      ["Сайт будет находиться в Яндексе?", "Делаем техническую основу для поиска и подключаем Яндекс Вебмастер. Позиции зависят от конкуренции и содержания, поэтому для продвижения можно добавить отдельные страницы под каждую услугу."]
+    ]
+  },
+  {
+    slug: "telegram-ii-bot", nav: "ИИ-бот",
+    title: "Telegram ИИ-бот для бизнеса — от 4 900 ₽ | ARHITECTOR AI",
+    desc: "Разработка Telegram-ботов с искусственным интеллектом: отвечают клиентам 24/7, принимают заявки и записывают. Автоматизация заявок, CRM и отчётов. От 4 900 ₽.",
+    h1: "Telegram ИИ-бот<br><span class='o'>и автоматизация бизнеса</span>",
+    name: "Telegram ИИ-бот",
+    lead: "Бот с искусственным интеллектом отвечает клиентам за секунды в любое время, рассказывает о ценах, принимает заявки и записывает. А рутину — заявки, таблицы, отчёты — забирает автоматизация.",
+    price: "4 900 ₽", term: "от 5 дней",
+    includes: [
+      ["Ответы 24/7", "Бот отвечает на вопросы по вашему прайсу, услугам и правилам — по базе знаний, которую мы собираем вместе."],
+      ["Заявки и запись", "Собирает контакты, предлагает свободное время и записывает клиента без участия менеджера."],
+      ["Передача человеку", "Сложные вопросы бот передаёт вам или менеджеру вместе с историей переписки."],
+      ["Уведомления", "Напоминания о записи, рассылки по базе, новые заявки — вам в Telegram."],
+      ["Таблицы и CRM", "Заявки сразу попадают в Google Таблицы, amoCRM, Bitrix24 или другую систему."],
+      ["Автоматизация рутины", "Связываем сервисы через n8n или Make: отчёты, обработка заявок, перенос данных."]
+    ],
+    who: [
+      ["Салонам и студиям", "Запись клиентов вечером и в выходные, когда администратор не на связи."],
+      ["Онлайн-школам и экспертам", "Ответы на типовые вопросы и сбор заявок на курсы и консультации."],
+      ["Магазинам", "Консультации по товарам, статус заказа, сбор заказов."],
+      ["Любому бизнесу с заявками", "Ни одна заявка не теряется и не ждёт ответа до утра."]
+    ],
+    faq: [
+      ["Сколько стоит Telegram ИИ-бот?", "От 4 900 ₽ за бота с ответами по базе знаний и приёмом заявок. Запись по расписанию, интеграции с CRM и автоматизации считаем отдельно — сумму называем до старта."],
+      ["Есть ли ежемесячные расходы?", "Да, небольшие: оплата нейросети (API) и сервера идёт напрямую на ваш аккаунт. Обычно это немного, расчёт под ваш объём сообщений покажем заранее."],
+      ["Не будет ли бот отвечать ерунду?", "Бот отвечает только по вашей базе знаний и правилам. Если вопрос вне её — честно говорит об этом и передаёт диалог человеку."],
+      ["Можно бота для WhatsApp или VK?", "Основная специализация — Telegram. Другие мессенджеры обсуждаем индивидуально."],
+      ["Что нужно от меня?", "Прайс, ответы на частые вопросы клиентов и правила записи. Если их нет в готовом виде — поможем собрать."]
+    ]
+  }
+];
+
+const esc = s => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+const strip = s => s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+export function page(s) {
+  const url = `${ORIGIN}/${s.slug}/`;
+  const others = SERVICES.filter(x => x !== s);
+  const ld = [
+    { "@context": "https://schema.org", "@type": "Service", name: s.name, description: strip(s.lead), url,
+      areaServed: ["RU", "Worldwide"], provider: { "@type": "Organization", name: "ARHITECTOR AI", url: ORIGIN + "/" },
+      offers: { "@type": "Offer", priceCurrency: "RUB", price: s.price.replace(/\D/g, ""), url } },
+    { "@context": "https://schema.org", "@type": "FAQPage",
+      mainEntity: s.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Главная", item: ORIGIN + "/" },
+      { "@type": "ListItem", position: 2, name: s.name, item: url } ] }
+  ];
+  return `<!doctype html>
+<!-- Сгенерировано _tools/build.mjs из _src/services.mjs. Правьте исходник, а не этот файл. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(s.title)}</title>
+<meta name="description" content="${esc(s.desc)}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ARHITECTOR AI">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="${url}">
+<meta property="og:title" content="${esc(s.title)}">
+<meta property="og:description" content="${esc(s.desc)}">
+<meta property="og:image" content="${ORIGIN}/img/og-ru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
+<style>
+:root{--bg:#050505;--fg:#f4f4f2;--muted:rgba(244,244,242,.6);--faint:rgba(244,244,242,.34);--line:rgba(244,244,242,.1);--line-2:rgba(244,244,242,.18);--card:rgba(244,244,242,.03);--mono:"JetBrains Mono",ui-monospace,monospace;--pad:clamp(16px,4vw,48px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--fg);color:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.o{color:var(--faint)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15px;white-space:nowrap;transition:transform .2s,box-shadow .2s,border-color .2s}
+.btn-solid{background:var(--fg);color:var(--bg)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(244,244,242,.45)}
+.btn-ghost{border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--fg)}
+header{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:20px}
+.logo span{color:var(--muted);font-weight:500}
+.nav-links{display:flex;gap:24px;font-size:14px;color:var(--muted)}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--fg)}
+.nav .btn{height:42px;padding:0 20px;font-size:14px}
+.crumbs{padding-top:28px;color:var(--faint)}
+.crumbs a:hover{color:var(--fg)}
+.hero{position:relative;padding:clamp(40px,7vw,90px) 0 clamp(56px,8vw,100px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:88px 88px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 30% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 30% 30%,#000 20%,transparent 75%);pointer-events:none}
+.hero .wrap{position:relative}
+.tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;margin-bottom:28px}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--fg)}
+h1{font-size:clamp(40px,7.4vw,104px);line-height:.95;letter-spacing:-.045em;font-weight:900;max-width:1000px}
+.lead{margin-top:28px;font-size:clamp(18px,1.9vw,23px);line-height:1.4;max-width:720px;color:rgba(244,244,242,.85)}
+.offer{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.price{font-size:clamp(34px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1}
+.price small{font-size:16px;font-weight:500;color:var(--muted);margin-right:8px}
+.term{color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-left:auto}
+section.block{padding:clamp(64px,9vw,120px) 0;border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:44px}
+.head .mono{color:var(--faint);padding-top:10px}
+h2{font-size:clamp(30px,4.6vw,60px);line-height:1;letter-spacing:-.04em;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cell{padding:clamp(24px,2.8vw,36px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:12px;transition:background .3s}
+.cell:hover{background:var(--card)}
+.cell .n{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.cell h3{font-size:22px;letter-spacing:-.03em;font-weight:700;line-height:1.15}
+.cell p{color:var(--muted);font-size:15px}
+.who{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.who div{border:1px solid var(--line);padding:28px;background:var(--card)}
+.who b{display:block;font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.who span{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.steps div{border:1px solid var(--line);padding:28px;min-height:200px;display:flex;flex-direction:column}
+.steps div::before{counter-increment:s;content:"0" counter(s);font-size:56px;font-weight:900;letter-spacing:-.06em;line-height:1;color:rgba(244,244,242,.1)}
+.steps b{margin-top:auto;font-size:19px;letter-spacing:-.02em}
+.steps span{color:var(--muted);font-size:15px;margin-top:6px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-size:clamp(18px,1.8vw,22px);font-weight:600;letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{flex:none;width:36px;height:36px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:300;transition:transform .3s,background .3s,color .3s}
+.faq details[open] .pm{transform:rotate(45deg);background:var(--fg);color:var(--bg)}
+.faq details p{padding:0 56px 24px 0;color:var(--muted);max-width:820px}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.more a{border:1px solid var(--line);padding:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;font-size:18px;letter-spacing:-.02em;transition:background .2s,border-color .2s}
+.more a:hover{background:var(--card);border-color:var(--line-2)}
+.final{text-align:center;padding:clamp(80px,11vw,140px) 0;border-top:1px solid var(--line)}
+.final h2{font-size:clamp(36px,6.4vw,88px)}
+.final p{color:var(--muted);font-size:18px;max-width:560px;margin:24px auto 32px}
+.final .note{margin-top:16px;color:var(--faint)}
+footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot a:hover{color:var(--fg)}
+.legal{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.6}
+.legal b{color:var(--muted);font-weight:600}
+@media (max-width:1000px){.nav-links{display:none}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.cta{margin-left:0}}
+@media (max-width:700px){.head{grid-template-columns:1fr;gap:10px;margin-bottom:32px}.grid,.who,.more{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.steps div{min-height:0;gap:14px}.faq details p{padding-right:0}.cta,.cta .btn{width:100%}.logo{font-size:18px}}
+@media (max-width:420px){.nav .btn{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="/" class="logo" aria-label="arhitector-ai.ru — на главную">arhitector<span>-ai.ru</span></a>
+    <nav class="nav-links" aria-label="Услуги">
+      ${SERVICES.map(x => `<a href="/${x.slug}/"${x === s ? ' aria-current="page"' : ""}>${x.nav}</a>`).join("\n      ")}
+      <a href="/#plans">Цены</a>
+    </nav>
+    <a class="btn btn-solid" href="${TG}" target="_blank" rel="noopener">Обсудить</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Навигация"><a href="/">Главная</a> / <a href="/#services">Услуги</a> / <span>${s.name}</span></nav>
+      <div style="height:36px"></div>
+      <div class="tag mono"><i></i>Услуга · ARHITECTOR AI</div>
+      <h1>${s.h1}</h1>
+      <p class="lead">${s.lead}</p>
+      <div class="offer">
+        <div><div class="price"><small>от</small>${s.price}</div><div class="term mono">${s.term}</div></div>
+        <div class="cta">
+          <a class="btn btn-solid" href="${TG}" target="_blank" rel="noopener">Обсудить задачу ↗</a>
+          <a class="btn btn-ghost" href="/#cases">Смотреть До / После</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head"><div class="mono">01 / Что входит</div><h2>Делаем под ключ<br><span class="o">от идеи до результата</span></h2></div>
+      <div class="grid">
+        ${s.includes.map(([h, p], i) => `<div class="cell"><span class="n">/0${i + 1}</span><h3>${h}</h3><p>${p}</p></div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head"><div class="mono">02 / Кому подходит</div><h2>Для кого<br><span class="o">эта услуга</span></h2></div>
+      <div class="who">
+        ${s.who.map(([b, t]) => `<div><b>${b}</b><span>${t}</span></div>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head"><div class="mono">03 / Как работаем</div><h2>Четыре шага<br><span class="o">без лишних согласований</span></h2></div>
+      <div class="steps">
+        <div><b>Бесплатный разбор</b><span>Обсуждаем задачу в Telegram и делаем бесплатный тест.</span></div>
+        <div><b>Цена и сроки</b><span>Фиксируем объём, стоимость и дату сдачи до старта.</span></div>
+        <div><b>Работа и правки</b><span>Показываем промежуточные версии и вносим правки.</span></div>
+        <div><b>Сдача и чек</b><span>Отдаём результат и официальный чек самозанятого.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head"><div class="mono">04 / FAQ</div><h2>Частые<br><span class="o">вопросы</span></h2></div>
+      <div class="faq">
+        ${s.faq.map(([q, a]) => `<details><summary>${q}<span class="pm">+</span></summary><p>${a}</p></details>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="head"><div class="mono">05 / Ещё услуги</div><h2>Работают<br><span class="o">и в связке</span></h2></div>
+      <div class="more">
+        ${others.map(x => `<a href="/${x.slug}/">${x.name}<span>→</span></a>`).join("\n        ")}
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2>Начнём с<br><span class="o">бесплатного теста</span></h2>
+      <p>Напишите в Telegram — разберём задачу и покажем результат до оплаты.</p>
+      <a class="btn btn-solid" href="${TG}" target="_blank" rel="noopener">Написать в Telegram ↗</a>
+      <div class="note mono">Ответ в течение 1 часа · оплата 50 / 50</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="/" class="logo">arhitector<span>-ai.ru</span></a>
+      <div class="foot-links">
+        <a href="${TG}" target="_blank" rel="noopener">Telegram @arkhitkov</a>
+        <a href="/#services">Услуги</a>
+        <a href="/#plans">Цены</a>
+        <a href="/offer.html">Договор-оферта</a>
+      </div>
+      <div>© 2026 ARHITECTOR AI · arhitector-ai.ru</div>
+    </div>
+    <div class="legal"><b>Исполнитель</b><br>Архитьков Владислав Александрович · самозанятый<br>ИНН 245731471943<br><a href="mailto:vladislav.arkhitkov@gmail.com">vladislav.arkhitkov@gmail.com</a></div>
+  </div>
+</footer>
+</body>
+</html>
+`;
+}

@@ -142,6 +142,8 @@ section.tight{padding-top:0}
 .svc:hover .svc-icon{background:var(--fg);color:var(--bg)}
 .svc h3{font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
 .svc > p{color:var(--muted);max-width:460px}
+.svc-more{align-self:flex-start;font-size:14px;font-weight:600;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .2s}
+.svc-more:hover{border-color:var(--fg)}
 .svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .svc li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:rgba(244,244,242,.8)}
 .svc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px dashed var(--line)}
@@ -606,6 +608,9 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 /* ===================== НАСТРОЙКИ ===================== */
 const TELEGRAM = "https://t.me/arkhitkov";
 
+/* Отдельные страницы услуг (пока только на русском), собираются из _src/services.mjs */
+const SERVICE_PAGES = { video:"/ii-video/", creative:"/kreativy/", site:"/sajt-pod-klyuch/", bot:"/telegram-ii-bot/" };
+
 /* Цены: правь здесь. ru — в рублях, en — в долларах. *was — старая (зачёркнутая) цена в пакетах. */
 const PRICES = {
   ru: { video:"3 900 ₽", creative:"990 ₽", site:"7 900 ₽", bot:"4 900 ₽",
@@ -879,6 +884,7 @@ function render(){
       <div class="svc-top"><span class="svc-num">/0${i+1}</span><span class="svc-icon" aria-hidden="true">${s.icon}</span></div>
       <h3>${s.h}</h3><p>${s.p}</p>
       <ul>${s.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
+      ${lang === "ru" ? `<a class="svc-more" href="${SERVICE_PAGES[s.k]}">Подробнее об услуге →</a>` : ""}
       <div class="svc-foot">
         <div><div class="price"><small>${t.from}</small>${P[s.k]}</div><div class="term mono">${s.term}</div></div>
         <a class="btn btn-ghost" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order} ↗</a>

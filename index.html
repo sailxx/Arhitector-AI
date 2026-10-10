@@ -141,6 +141,8 @@ section.tight{padding-top:0}
 .svc:hover .svc-icon{background:var(--fg);color:var(--bg)}
 .svc h3{font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
 .svc > p{color:var(--muted);max-width:460px}
+.svc-more{align-self:flex-start;font-size:14px;font-weight:600;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .2s}
+.svc-more:hover{border-color:var(--fg)}
 .svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .svc li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:rgba(244,244,242,.8)}
 .svc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px dashed var(--line)}
@@ -422,6 +424,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/01</span><span class="svc-icon" aria-hidden="true">▶</span></div>
       <h3>Рекламные<br>ИИ-видео</h3><p>Ролики для таргета, Reels и маркетплейсов без съёмочной группы. Сценарий, генерация, монтаж, звук.</p>
       <ul><li>Reels / Shorts</li><li>Видео товара</li><li>Имиджевые ролики</li><li>Оживление фото</li></ul>
+      <a class="svc-more" href="/ii-video/">Подробнее об услуге →</a>
       <div class="svc-foot">
         <div><div class="price"><small>от</small>3 900 ₽</div><div class="term mono">от 2 дней</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
@@ -431,6 +434,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/02</span><span class="svc-icon" aria-hidden="true">◐</span></div>
       <h3>Креативы<br>для рекламы</h3><p>Пачки креативов для тестов: баннеры, визуал для соцсетей, карточки товаров. Десятки вариантов вместо одного.</p>
       <ul><li>Таргет и посевы</li><li>Карточки WB / Ozon</li><li>Соцсети</li><li>Предметка ИИ</li></ul>
+      <a class="svc-more" href="/kreativy/">Подробнее об услуге →</a>
       <div class="svc-foot">
         <div><div class="price"><small>от</small>990 ₽</div><div class="term mono">от 24 часов</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
@@ -440,6 +444,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/03</span><span class="svc-icon" aria-hidden="true">⌘</span></div>
       <h3>Сайты<br>под ключ</h3><p>Лендинги и сайты, которые продают: структура, тексты, дизайн, разработка, заявки и аналитика.</p>
       <ul><li>Лендинги</li><li>Сайты услуг</li><li>Каталоги</li><li>Заявки в Telegram / CRM</li></ul>
+      <a class="svc-more" href="/sajt-pod-klyuch/">Подробнее об услуге →</a>
       <div class="svc-foot">
         <div><div class="price"><small>от</small>7 900 ₽</div><div class="term mono">от 5 дней</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
@@ -449,6 +454,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="svc-top"><span class="svc-num">/04</span><span class="svc-icon" aria-hidden="true">✦</span></div>
       <h3>ИИ-боты и<br>автоматизация</h3><p>Telegram-боты с ИИ: отвечают клиентам 24/7, принимают заявки, записывают. Плюс автоматизация рутины: заявки, CRM, отчёты.</p>
       <ul><li>Telegram ИИ-боты</li><li>Ответы по базе знаний</li><li>CRM и таблицы</li><li>n8n / Make</li></ul>
+      <a class="svc-more" href="/telegram-ii-bot/">Подробнее об услуге →</a>
       <div class="svc-foot">
         <div><div class="price"><small>от</small>4 900 ₽</div><div class="term mono">от 5 дней</div></div>
         <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
@@ -721,6 +727,9 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <script>
 /* ===================== НАСТРОЙКИ ===================== */
 const TELEGRAM = "https://t.me/arkhitkov";
+
+/* Отдельные страницы услуг (пока только на русском), собираются из _src/services.mjs */
+const SERVICE_PAGES = { video:"/ii-video/", creative:"/kreativy/", site:"/sajt-pod-klyuch/", bot:"/telegram-ii-bot/" };
 
 /* Цены: правь здесь. ru — в рублях, en — в долларах. *was — старая (зачёркнутая) цена в пакетах. */
 const PRICES = {
@@ -995,6 +1004,7 @@ function render(){
       <div class="svc-top"><span class="svc-num">/0${i+1}</span><span class="svc-icon" aria-hidden="true">${s.icon}</span></div>
       <h3>${s.h}</h3><p>${s.p}</p>
       <ul>${s.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
+      ${lang === "ru" ? `<a class="svc-more" href="${SERVICE_PAGES[s.k]}">Подробнее об услуге →</a>` : ""}
       <div class="svc-foot">
         <div><div class="price"><small>${t.from}</small>${P[s.k]}</div><div class="term mono">${s.term}</div></div>
         <a class="btn btn-ghost" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order} ↗</a>

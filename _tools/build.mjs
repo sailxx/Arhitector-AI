@@ -2,11 +2,12 @@
    Берёт _src/index.html, выполняет его скрипт (как браузер) и сохраняет уже заполненный текстом HTML:
      index.html     — русская версия  (https://arhitector-ai.ru/)
      en/index.html  — английская версия (https://arhitector-ai.ru/en/)
-   Править нужно только _src/index.html, потом: cd _tools && npm install && node build.mjs */
+   Плюс страницы услуг из _src/services.mjs (/<slug>/index.html) и sitemap.xml.
+   Править нужно только _src/, потом: cd _tools && npm install && node build.mjs */
 import { JSDOM, ResourceLoader } from "jsdom";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ORIGIN = "https://arhitector-ai.ru";
@@ -67,3 +68,23 @@ async function build(lang) {
 }
 
 for (const lang of Object.keys(PAGES)) await build(lang);
+
+/* страницы услуг */
+const { SERVICES, page } = await import(pathToFileURL(path.join(SITE, "_src/services.mjs")).href);
+for (const s of SERVICES) {
+  fs.mkdirSync(path.join(SITE, s.slug), { recursive: true });
+  fs.writeFileSync(path.join(SITE, s.slug, "index.html"), page(s));
+  console.log(`${s.slug}/index.html`);
+}
+
+/* sitemap: главная RU/EN с hreflang, услуги, оферта */
+const today = new Date().toISOString().slice(0, 10);
+const hreflang = [["ru", "/"], ["en", "/en/"], ["x-default", "/"]]
+  .map(([l, u]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${ORIGIN}${u}"/>\n`).join("");
+const urls = [["/", hreflang], ["/en/", hreflang], ...SERVICES.map(s => [`/${s.slug}/`, ""]), ["/offer.html", ""]];
+fs.writeFileSync(path.join(SITE, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.map(([u, h]) => `  <url>\n    <loc>${ORIGIN}${u}</loc>\n${h}    <lastmod>${today}</lastmod>\n  </url>`).join("\n")}
+</urlset>
+`);
+console.log(`sitemap.xml: ${urls.length} адресов`);
