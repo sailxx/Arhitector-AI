@@ -7,6 +7,9 @@
 <meta name="description" content="Договор-оферта на оказание услуг arhitector-ai.ru: рекламные ИИ-видео, креативы, сайты, ИИ-боты и автоматизация.">
 <link rel="canonical" href="https://arhitector-ai.ru/offer.html">
 <meta name="theme-color" content="#050505">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,9 +53,9 @@ html[lang=ru] [data-l=ru],html[lang=en] [data-l=en]{display:block}
 <body>
 <header>
   <div class="nav">
-    <a class="logo" href="./">arhitector<span>-ai.ru</span></a>
+    <a class="logo" href="/">arhitector<span>-ai.ru</span></a>
     <div class="right">
-      <a class="back" href="./" data-back>← На сайт</a>
+      <a class="back" href="/" data-back>← На сайт</a>
       <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button></div>
     </div>
   </div>
@@ -300,8 +303,9 @@ function apply(l){
   document.documentElement.lang = l;
   document.title = l === "ru" ? "Договор-оферта — arhitector-ai.ru" : "Terms of Service — arhitector-ai.ru";
   document.querySelector("[data-back]").textContent = l === "ru" ? "← На сайт" : "← Back to site";
-  document.querySelector("[data-back]").href = "./?lang=" + l;
-  document.querySelector(".logo").href = "./?lang=" + l;
+  const home = l === "en" ? "/en/" : "/";
+  document.querySelector("[data-back]").href = home;
+  document.querySelector(".logo").href = home;
   document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === l));
 }
 document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => {

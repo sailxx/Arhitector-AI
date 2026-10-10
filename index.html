@@ -1,23 +1,30 @@
 <!doctype html>
-<html lang="ru">
-<head>
+<!-- Сгенерировано _tools/build.mjs из _src/index.html. Правьте исходник, а не этот файл. --><html lang="ru"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты</title>
 <meta name="description" content="ARHITECTOR AI — рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.">
 <link rel="canonical" href="https://arhitector-ai.ru/">
-<link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/?lang=ru">
-<link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/?lang=en">
+<link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/">
+<link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/en/">
 <link rel="alternate" hreflang="x-default" href="https://arhitector-ai.ru/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arhitector-ai.ru/">
-<meta property="og:title" content="ARHITECTOR AI">
-<meta property="og:description" content="AI ad videos, creatives, websites and Telegram AI bots. Рекламные ИИ-видео, креативы, сайты и ИИ-боты.">
+<meta property="og:site_name" content="ARHITECTOR AI">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты">
+<meta property="og:description" content="Рекламные ИИ-видео и креативы, сайты под ключ, автоматизация и Telegram ИИ-боты. Первый креатив — бесплатно.">
+<meta property="og:image" content="https://arhitector-ai.ru/img/og-ru.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#050505">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Crect x='4' y='4' width='24' height='24' fill='none' stroke='%23f4f4f2' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='15' fill='%23f4f4f2' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#050505;
@@ -86,8 +93,18 @@ header.scrolled .promo{display:none}
 .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px;position:relative}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
 .coords{text-align:right;color:var(--faint);line-height:1.8}
-.hero h1{position:relative;font-weight:900;font-size:clamp(46px,14.6vw,232px);line-height:.86;letter-spacing:-.035em;margin-left:-.03em}
-.hero h1 .g{display:block}
+/* Название агентства: «ARHITECTOR» ровно на всю ширину контейнера (cqw), буквы выезжают по одной */
+.hero .wrap{width:100%;container-type:inline-size}
+.brand{position:relative;font-weight:900;line-height:.84;letter-spacing:-.035em;font-size:clamp(46px,14.6vw,198px);font-size:calc(100cqw / var(--brand-em,6.16))}
+.brand-row{display:flex;align-items:flex-end;overflow:hidden;padding-bottom:.035em}
+.brand .ch{display:inline-block;transform:translateY(105%);animation:chUp 1s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(var(--i) * 55ms + 150ms)}
+@keyframes chUp{to{transform:none}}
+.brand-row2{gap:clamp(14px,2.4cqw,36px)}
+.brand-rule{flex:1;height:1px;background:var(--line-2);margin-bottom:.16em;transform-origin:left;transform:scaleX(0);animation:ruleIn 1.2s cubic-bezier(.16,1,.3,1) .85s forwards}
+@keyframes ruleIn{to{transform:none}}
+.brand-meta{flex:none;margin-bottom:.12em;font-size:clamp(10px,1.05cqw,13px);line-height:1.7;color:var(--muted);text-align:right;letter-spacing:.1em;opacity:0;animation:metaIn .8s ease 1.2s forwards}
+.brand-meta b{color:var(--fg);font-weight:500}
+@keyframes metaIn{to{opacity:1}}
 .hero-bottom{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:40px}
 .hero-lead{font-size:clamp(19px,2vw,26px);line-height:1.3;font-weight:500;max-width:640px;letter-spacing:-.01em}
 .hero-lead em{font-style:normal;color:var(--muted)}
@@ -289,7 +306,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.track{animation:none}.dot{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.brand .ch,.brand-rule,.brand-meta{animation:none;transform:none;opacity:1}.rv{opacity:1;transform:none;transition:none}.track{animation:none}.dot{animation:none}html{scroll-behavior:auto}}
 
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
@@ -340,21 +357,21 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <body>
 
 <header>
-  <div class="promo"><span data-i="promo"></span><a href="#plans" data-i="promoLink"></a></div>
+  <div class="promo"><span data-i="promo">✦ <b>Стартовые цены</b> для первых 10 клиентов — скидка до 50%</span><a href="#plans" data-i="promoLink">Смотреть цены</a></div>
   <div class="wrap nav">
     <a href="#" class="logo" aria-label="arhitector-ai.ru">arhitector<span>-ai.ru</span></a>
     <nav class="nav-links">
-      <a href="#services" data-i="navServices"></a>
-      <a href="#cases" data-i="navCases"></a>
-      <a href="#plans" data-i="navPlans"></a>
-      <a href="#faq" data-i="navFaq"></a>
+      <a href="#services" data-i="navServices">Услуги</a>
+      <a href="#cases" data-i="navCases">До / После</a>
+      <a href="#plans" data-i="navPlans">Цены</a>
+      <a href="#faq" data-i="navFaq">FAQ</a>
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="ru" class="on">RU</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener" data-i="navCta"></a>
+      <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener" data-i="navCta">Обсудить</a>
     </div>
   </div>
 </header>
@@ -366,38 +383,77 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     <div class="glow"></div>
     <div class="wrap">
       <div class="hero-top">
-        <div class="hero-tag mono"><i class="dot"></i><span data-i="heroTag"></span></div>
-        <div class="coords mono" data-i="coords"></div>
+        <div class="hero-tag mono"><i class="dot"></i><span data-i="heroTag">Агентство ИИ-решений · Россия, СНГ и мир</span></div>
+        <div class="coords mono" data-i="coords">Видео · Креативы<br>Сайты · Боты<br>Автоматизация</div>
       </div>
-      <h1 class="rv">ARHITECTOR<span class="g">AI</span></h1>
+      <h1 class="brand" aria-label="ARHITECTOR AI">
+        <span class="brand-row" aria-hidden="true"><span class="ch" style="--i:0">A</span><span class="ch" style="--i:1">R</span><span class="ch" style="--i:2">H</span><span class="ch" style="--i:3">I</span><span class="ch" style="--i:4">T</span><span class="ch" style="--i:5">E</span><span class="ch" style="--i:6">C</span><span class="ch" style="--i:7">T</span><span class="ch" style="--i:8">O</span><span class="ch" style="--i:9">R</span></span>
+        <span class="brand-row brand-row2" aria-hidden="true"><span><span class="ch g" style="--i:10">A</span><span class="ch g" style="--i:11">I</span></span><span class="brand-rule"></span><span class="brand-meta mono" data-i="brandMeta"><b>ИИ-агентство</b><br>полного цикла · с 2026</span></span>
+      </h1>
       <div class="hero-bottom">
-        <p class="hero-lead rv" data-i="heroLead"></p>
+        <p class="hero-lead rv" data-i="heroLead">Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <em>приводят клиентов — в разы быстрее и дешевле обычного продакшна.</em></p>
         <div class="hero-cta rv">
-          <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta"></span> <span class="arr">↗</span></a>
-          <a class="btn btn-ghost" href="#cases" data-i="heroCta2"></a>
-          <div class="hero-cta-note mono" data-i="heroNote"></div>
+          <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta">Получить бесплатный креатив</span> <span class="arr">↗</span></a>
+          <a class="btn btn-ghost" href="#cases" data-i="heroCta2">Смотреть До / После</a>
+          <div class="hero-cta-note mono" data-i="heroNote">Ответ в Telegram в течение 1 часа</div>
         </div>
       </div>
       <div class="stats rv">
-        <div class="stat"><b data-i="s1b"></b><span data-i="s1"></span></div>
-        <div class="stat"><b data-i="s2b"></b><span data-i="s2"></span></div>
-        <div class="stat"><b data-i="s3b"></b><span data-i="s3"></span></div>
-        <div class="stat"><b>RU / EN</b><span data-i="s4"></span></div>
+        <div class="stat"><b data-i="s1b">от 24 ч</b><span data-i="s1">первые креативы после брифа</span></div>
+        <div class="stat"><b data-i="s2b">от 990 ₽</b><span data-i="s2">стартовая цена услуг</span></div>
+        <div class="stat"><b data-i="s3b">24/7</b><span data-i="s3">ИИ-боты отвечают вашим клиентам</span></div>
+        <div class="stat"><b>RU / EN</b><span data-i="s4">работаем на русском и английском</span></div>
       </div>
     </div>
   </section>
 
   <!-- ================= MARQUEE ================= -->
-  <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"><span>Рекламные ИИ-видео</span><span>Креативы</span><span>Сайты под ключ</span><span>ИИ-автоматизация</span><span>Telegram ИИ-боты</span><span>Рекламные ИИ-видео</span><span>Креативы</span><span>Сайты под ключ</span><span>ИИ-автоматизация</span><span>Telegram ИИ-боты</span></div></div>
 
   <!-- ================= SERVICES ================= -->
   <section class="block" id="services">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec1"></div>
-        <div><h2 data-i="svcH"></h2><p data-i="svcP"></p></div>
+        <div class="sec-num mono" data-i="sec1">01 / Услуги</div>
+        <div><h2 data-i="svcH">Четыре направления.<br><span class="o">Одна цель —</span> продажи.</h2><p data-i="svcP">Берём задачу целиком: от идеи и сценария до запуска. Каждое направление работает отдельно или в связке.</p></div>
       </div>
-      <div class="services" id="services-grid"></div>
+      <div class="services" id="services-grid">
+    <article class="svc">
+      <div class="svc-top"><span class="svc-num">/01</span><span class="svc-icon" aria-hidden="true">▶</span></div>
+      <h3>Рекламные<br>ИИ-видео</h3><p>Ролики для таргета, Reels и маркетплейсов без съёмочной группы. Сценарий, генерация, монтаж, звук.</p>
+      <ul><li>Reels / Shorts</li><li>Видео товара</li><li>Имиджевые ролики</li><li>Оживление фото</li></ul>
+      <div class="svc-foot">
+        <div><div class="price"><small>от</small>3 900 ₽</div><div class="term mono">от 2 дней</div></div>
+        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="svc-top"><span class="svc-num">/02</span><span class="svc-icon" aria-hidden="true">◐</span></div>
+      <h3>Креативы<br>для рекламы</h3><p>Пачки креативов для тестов: баннеры, визуал для соцсетей, карточки товаров. Десятки вариантов вместо одного.</p>
+      <ul><li>Таргет и посевы</li><li>Карточки WB / Ozon</li><li>Соцсети</li><li>Предметка ИИ</li></ul>
+      <div class="svc-foot">
+        <div><div class="price"><small>от</small>990 ₽</div><div class="term mono">от 24 часов</div></div>
+        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="svc-top"><span class="svc-num">/03</span><span class="svc-icon" aria-hidden="true">⌘</span></div>
+      <h3>Сайты<br>под ключ</h3><p>Лендинги и сайты, которые продают: структура, тексты, дизайн, разработка, заявки и аналитика.</p>
+      <ul><li>Лендинги</li><li>Сайты услуг</li><li>Каталоги</li><li>Заявки в Telegram / CRM</li></ul>
+      <div class="svc-foot">
+        <div><div class="price"><small>от</small>7 900 ₽</div><div class="term mono">от 5 дней</div></div>
+        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="svc-top"><span class="svc-num">/04</span><span class="svc-icon" aria-hidden="true">✦</span></div>
+      <h3>ИИ-боты и<br>автоматизация</h3><p>Telegram-боты с ИИ: отвечают клиентам 24/7, принимают заявки, записывают. Плюс автоматизация рутины: заявки, CRM, отчёты.</p>
+      <ul><li>Telegram ИИ-боты</li><li>Ответы по базе знаний</li><li>CRM и таблицы</li><li>n8n / Make</li></ul>
+      <div class="svc-foot">
+        <div><div class="price"><small>от</small>4 900 ₽</div><div class="term mono">от 5 дней</div></div>
+        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Заказать ↗</a>
+      </div>
+    </article></div>
     </div>
   </section>
 
@@ -406,13 +462,13 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     <div class="offer-big" aria-hidden="true">0</div>
     <div class="wrap">
       <div class="rv">
-        <div class="mono" data-i="offerTag"></div>
-        <h3 style="margin-top:14px" data-i="offerH"></h3>
-        <p data-i="offerP"></p>
+        <div class="mono" data-i="offerTag">Без риска · для новых клиентов</div>
+        <h3 style="margin-top:14px" data-i="offerH">Первый креатив —<br>бесплатно</h3>
+        <p data-i="offerP">Пришлите фото товара или описание бизнеса — сделаем тестовый креатив и покажем качество до оплаты.</p>
       </div>
       <div class="offer-cta rv">
-        <a class="btn tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="offerCta"></span> <span class="arr">↗</span></a>
-        <span class="mono" data-i="offerNote"></span>
+        <a class="btn tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="offerCta">Забрать бесплатный креатив</span> <span class="arr">↗</span></a>
+        <span class="mono" data-i="offerNote">Без предоплаты · без обязательств</span>
       </div>
     </div>
   </section>
@@ -421,37 +477,91 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block" id="cases">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec2"></div>
-        <div><h2 data-i="casesH"></h2><p data-i="casesP"></p></div>
+        <div class="sec-num mono" data-i="sec2">02 / Кейсы</div>
+        <div><h2 data-i="casesH">До <span class="o">/</span> После</h2><p data-i="casesP">Потяни ползунок: слева — как обычно, справа — как делаем мы.</p></div>
       </div>
-      <div class="cases-tabs rv" role="tablist" id="tabs"></div>
+      <div class="cases-tabs rv" role="tablist" id="tabs"><button class="tab active" type="button" role="tab" aria-selected="true"><span class="tab-n">01</span>Креативы</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">02</span>Видео</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">03</span>Сайт</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">04</span>ИИ-бот</button></div>
       <div class="case rv">
         <div>
-          <div class="ba" id="ba">
-            <div class="ba-layer" id="baAfter"></div>
-            <div class="ba-layer ba-before" id="baBefore"></div>
-            <span class="ba-label l mono" data-i="before"></span>
-            <span class="ba-label r mono" data-i="after"></span>
+          <div class="ba" id="ba" style="--pos: 50%;">
+            <div class="ba-layer" id="baAfter"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs>
+      <radialGradient id="s0arubg" cx=".55" cy=".45" r=".8"><stop offset="0" stop-color="#ffcf7a"></stop><stop offset=".35" stop-color="#e0761c"></stop><stop offset=".72" stop-color="#5a1f06"></stop><stop offset="1" stop-color="#1c0902"></stop></radialGradient>
+      <linearGradient id="s0aruglass" x1="0" x2="1"><stop offset="0" stop-color="#5a2806"></stop><stop offset=".25" stop-color="#c86d14"></stop><stop offset=".45" stop-color="#ffc463"></stop><stop offset=".55" stop-color="#ffe2a3"></stop><stop offset=".75" stop-color="#d17a1a"></stop><stop offset="1" stop-color="#4a2005"></stop></linearGradient>
+      <linearGradient id="s0arugold" x1="0" x2="1"><stop offset="0" stop-color="#8a6420"></stop><stop offset=".3" stop-color="#f7e3a1"></stop><stop offset=".55" stop-color="#b8862b"></stop><stop offset=".8" stop-color="#f2d58a"></stop><stop offset="1" stop-color="#8a6420"></stop></linearGradient>
+      <linearGradient id="s0arupod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e2c7"></stop><stop offset="1" stop-color="#9c6d3c"></stop></linearGradient>
+      <radialGradient id="s0aruglow"><stop offset="0" stop-color="#fff" stop-opacity=".7"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></radialGradient>
+    </defs>
+    <rect width="800" height="600" fill="url(#s0arubg)"></rect>
+    <circle cx="400" cy="300" r="230" fill="url(#s0aruglow)" opacity=".55"></circle>
+    <ellipse cx="400" cy="500" rx="200" ry="30" fill="#1c0902" opacity=".5"></ellipse>
+    <rect x="230" y="430" width="340" height="60" fill="url(#s0arupod)"></rect>
+    <ellipse cx="400" cy="490" rx="170" ry="24" fill="#9c6d3c"></ellipse>
+    <ellipse cx="400" cy="430" rx="170" ry="24" fill="#f8ead3"></ellipse>
+    <ellipse cx="400" cy="432" rx="80" ry="8" fill="#c79a62" opacity=".5"></ellipse>
+    
+  <rect x="370" y="182" width="60" height="52" rx="6" fill="url(#s0arugold)"></rect>
+  <rect x="386" y="232" width="28" height="24" fill="url(#s0arugold)"></rect>
+  <rect x="332" y="252" width="136" height="180" rx="20" fill="url(#s0aruglass)"></rect>
+  <rect x="348" y="268" width="12" height="148" rx="6" fill="#fff" opacity=".55"></rect><rect x="446" y="282" width="5" height="120" rx="2.5" fill="#fff" opacity=".3"></rect>
+  <rect x="356" y="316" width="88" height="62" rx="3" fill="#140904"></rect>
+  <text x="400" y="348" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#f2d58a">AURA</text>
+  <text x="400" y="365" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-size="7" letter-spacing="2" fill="#e9c77a">EAU DE PARFUM</text>
+    <g fill="none" stroke="#fff" stroke-opacity=".55"><circle cx="292" cy="228" r="9"></circle><circle cx="508" cy="196" r="5"></circle><circle cx="520" cy="300" r="11"></circle><circle cx="276" cy="338" r="4"></circle><circle cx="470" cy="150" r="6"></circle></g>
+    <path d="M300 150l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#fff" opacity=".8"></path>
+    <rect x="560" y="74" width="158" height="34" rx="17" fill="#140904"></rect>
+    <text x="639" y="96" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#fff">ХИТ ПРОДАЖ</text>
+    <text x="560" y="172" font-family="Georgia,serif" font-size="56" fill="#fff">AURA</text>
+    <text x="562" y="214" font-family="Georgia,serif" font-style="italic" font-size="36" fill="#ffd9a0">No.5</text>
+    <text font-family="'Inter Tight',Arial,sans-serif" font-size="17" fill="#fff" opacity=".88"><tspan x="562" y="252">Аромат, который</tspan><tspan x="562" y="274">запоминают</tspan></text>
+    <circle cx="690" cy="342" r="44" fill="#fff"></circle>
+    <text x="690" y="351" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-weight="900" font-size="25" fill="#140904">−30%</text>
+    <rect x="470" y="512" width="300" height="60" rx="14" fill="#140904" opacity=".72"></rect>
+    <g font-family="'Inter Tight',Arial,sans-serif" fill="#fff" text-anchor="middle">
+      <text x="520" y="539" font-weight="800" font-size="15">100 мл</text><text x="520" y="557" font-size="10" opacity=".65">объём</text>
+      <text x="620" y="539" font-weight="800" font-size="15">12 ч</text><text x="620" y="557" font-size="10" opacity=".65">стойкость</text>
+      <text x="720" y="539" font-weight="800" font-size="15">1 день</text><text x="720" y="557" font-size="10" opacity=".65">доставка</text>
+    </g></svg></div>
+            <div class="ba-layer ba-before" id="baBefore"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img">
+    <defs><linearGradient id="s0bruw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc9bf"></stop><stop offset="1" stop-color="#b3aca0"></stop></linearGradient><filter id="s0brugr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter></defs>
+    <rect width="800" height="600" fill="url(#s0bruw)"></rect>
+    <rect y="410" width="800" height="190" fill="#a39a8c"></rect>
+    <path d="M0 410H800" stroke="#8d8477" stroke-width="2"></path>
+    <rect x="90" y="330" width="70" height="85" rx="8" fill="#8f8a83"></rect><path d="M160 350q30 0 30 25t-30 25" fill="none" stroke="#8f8a83" stroke-width="10"></path>
+    <path d="M560 600C600 520 700 560 760 470" stroke="#55514b" stroke-width="5" fill="none"></path>
+    <ellipse cx="425" cy="438" rx="95" ry="14" fill="#6f675c" opacity=".55"></ellipse>
+    <g transform="rotate(-4 400 340)">
+  <rect x="370" y="182" width="60" height="52" rx="6" fill="#4d4b48"></rect>
+  <rect x="386" y="232" width="28" height="24" fill="#9a958c"></rect>
+  <rect x="332" y="252" width="136" height="180" rx="20" fill="#c4b49a"></rect>
+  <ellipse cx="364" cy="300" rx="9" ry="26" fill="#fff" opacity=".4"></ellipse>
+  <rect x="356" y="316" width="88" height="62" rx="3" fill="#ece8e0"></rect>
+  <text x="400" y="348" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#8a857c">AURA</text>
+  <text x="400" y="365" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-size="7" letter-spacing="2" fill="#a5a097">EAU DE PARFUM</text></g>
+    <rect width="800" height="600" fill="#7d8ea3" opacity=".14"></rect>
+    <rect width="800" height="600" filter="url(#s0brugr)" opacity="0.1"></rect></svg></div>
+            <span class="ba-label l mono" data-i="before">До</span>
+            <span class="ba-label r mono" data-i="after">После</span>
             <div class="ba-line"></div>
             <div class="ba-knob" aria-hidden="true">⇆</div>
             <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Before / After">
           </div>
-          <div class="hint mono" data-i="hint"></div>
+          <div class="hint mono" data-i="hint">← тяни ползунок →</div>
         </div>
         <div class="case-info">
-          <div class="mono muted" id="caseTag"></div>
-          <h3 id="caseTitle"></h3>
+          <div class="mono muted" id="caseTag">Креативы · демо</div>
+          <h3 id="caseTitle">Карточка духов для маркетплейса</h3>
           <div class="ba-rows">
-            <div class="ba-row"><span class="k mono" data-i="was"></span><span id="caseBefore"></span></div>
-            <div class="ba-row"><span class="k mono" data-i="now"></span><span id="caseAfter"></span></div>
+            <div class="ba-row"><span class="k mono" data-i="was">Было</span><span id="caseBefore">Фото на телефон: блёклые цвета, вспышка, кружка и провод в кадре.</span></div>
+            <div class="ba-row"><span class="k mono" data-i="now">Стало</span><span id="caseAfter">Студийная ИИ-съёмка: тёплый свет, подиум, блики на стекле, УТП и инфографика.</span></div>
           </div>
-          <ul class="did" id="caseDid"></ul>
+          <ul class="did" id="caseDid"><li>ИИ-предметка</li><li>Инфографика</li><li>10 вариантов для теста</li></ul>
           <div class="case-foot">
             <div class="case-meta">
-              <div><span class="mono" data-i="caseTimeL"></span><b id="caseTime"></b></div>
-              <div><span class="mono" data-i="casePriceL"></span><b id="casePrice"></b></div>
+              <div><span class="mono" data-i="caseTimeL">Срок</span><b id="caseTime">24 часа</b></div>
+              <div><span class="mono" data-i="casePriceL">Цена</span><b id="casePrice">от 990 ₽</b></div>
             </div>
-            <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="caseCta"></span> <span class="arr">↗</span></a>
+            <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="caseCta">Хочу так же</span> <span class="arr">↗</span></a>
           </div>
         </div>
       </div>
@@ -462,10 +572,10 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec3"></div>
-        <div><h2 data-i="cmpH"></h2><p data-i="cmpP"></p></div>
+        <div class="sec-num mono" data-i="sec3">03 / Сравнение</div>
+        <div><h2 data-i="cmpH">Почему <span class="o">ИИ-продакшн</span></h2><p data-i="cmpP">Тот же результат для рекламы — без съёмок, студий и недель ожидания.</p></div>
       </div>
-      <div class="compare rv" id="compare"></div>
+      <div class="compare rv" id="compare"><div class="h k"></div><div class="h old">Обычный продакшн</div><div class="h new">ARHITECTOR AI</div><div class="k">Сроки</div><div class="old"><span class="x">✕</span>2–4 недели</div><div class="new">✓ от 24 часов</div><div class="k">Бюджет</div><div class="old"><span class="x">✕</span>съёмка, команда, локации</div><div class="new">✓ в разы дешевле</div><div class="k">Вариантов для тестов</div><div class="old"><span class="x">✕</span>1–2</div><div class="new">✓ десятки</div><div class="k">Правки</div><div class="old"><span class="x">✕</span>долго и дорого</div><div class="new">✓ быстро, включены в цену</div><div class="k">Языки</div><div class="old"><span class="x">✕</span>обычно один</div><div class="new">✓ RU / EN и другие</div></div>
     </div>
   </section>
 
@@ -473,13 +583,13 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="process">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec4"></div>
-        <div><h2 data-i="procH"></h2><p data-i="procP"></p></div>
+        <div class="sec-num mono" data-i="sec4">04 / Процесс</div>
+        <div><h2 data-i="procH">Три шага<br><span class="o">до результата</span></h2><p data-i="procP">Без долгих брифов и бесконечных согласований.</p></div>
       </div>
       <div class="steps">
-        <div class="step rv"><span class="free mono" data-i="freeBadge"></span><div class="step-n">01</div><h4 data-i="st1h"></h4><p data-i="st1"></p></div>
-        <div class="step rv"><div class="step-n">02</div><h4 data-i="st2h"></h4><p data-i="st2"></p></div>
-        <div class="step rv"><div class="step-n">03</div><h4 data-i="st3h"></h4><p data-i="st3"></p></div>
+        <div class="step rv"><span class="free mono" data-i="freeBadge">0 ₽</span><div class="step-n">01</div><h4 data-i="st1h">Бесплатный разбор</h4><p data-i="st1">Созвон или переписка. Разбираем задачу и делаем бесплатный тестовый креатив.</p></div>
+        <div class="step rv"><div class="step-n">02</div><h4 data-i="st2h">План и цена</h4><p data-i="st2">Фиксируем объём, сроки и стоимость. Вы заранее знаете, что получите.</p></div>
+        <div class="step rv"><div class="step-n">03</div><h4 data-i="st3h">Запуск и поддержка</h4><p data-i="st3">Делаем, показываем промежуточные версии, запускаем. Дальше — сопровождение.</p></div>
       </div>
     </div>
   </section>
@@ -488,11 +598,38 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="plans">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec5"></div>
-        <div><h2 data-i="plansH"></h2><p data-i="plansP"></p></div>
+        <div class="sec-num mono" data-i="sec5">05 / Цены</div>
+        <div><h2 data-i="plansH">Стартовые цены<br><span class="o">для первых клиентов</span></h2><p data-i="plansP">Сейчас собираем портфолио, поэтому цены ниже рынка. Когда места закончатся — цены вырастут.</p></div>
       </div>
-      <div class="plans" id="plans-grid"></div>
-      <p class="plans-note mono rv" data-i="plansNote"></p>
+      <div class="plans" id="plans-grid">
+    <div class="plan">
+      
+      <span class="plan-sale mono">−50%</span>
+      <div class="mono muted">Старт</div>
+      <h3>Реклама</h3>
+      <div class="price"><span class="was">9 900 ₽</span><small>от</small>4 900 ₽</div>
+      <ul><li>15 рекламных креативов</li><li>1 рекламное ИИ-видео</li><li>Тексты и хуки для рекламы</li><li>2 круга правок</li></ul>
+      <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Выбрать ↗</a>
+    </div>
+    <div class="plan hot">
+      <span class="plan-badge mono">Хит</span>
+      <span class="plan-sale mono">−50%</span>
+      <div class="mono muted">Рост</div>
+      <h3>Сайт + Бот</h3>
+      <div class="price"><span class="was">29 900 ₽</span><small>от</small>14 900 ₽</div>
+      <ul><li>Продающий лендинг под ключ</li><li>Telegram ИИ-бот для заявок</li><li>Заявки сразу в Telegram / CRM</li><li>10 креативов на запуск</li><li>2 недели поддержки</li></ul>
+      <a class="btn btn-solid" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Выбрать ↗</a>
+    </div>
+    <div class="plan">
+      
+      <span class="plan-sale mono">−50%</span>
+      <div class="mono muted">Под ключ</div>
+      <h3>Система</h3>
+      <div class="price"><span class="was">59 900 ₽</span><small>от</small>29 900 ₽</div>
+      <ul><li>Сайт + ИИ-бот + автоматизация</li><li>3 рекламных видео + 20 креативов</li><li>Интеграция с CRM и таблицами</li><li>Инструкция для команды</li><li>Месяц поддержки</li></ul>
+      <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Выбрать ↗</a>
+    </div></div>
+      <p class="plans-note mono rv" data-i="plansNote">Нужно что-то своё — соберём индивидуально · оплата 50 / 50</p>
     </div>
   </section>
 
@@ -500,10 +637,10 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec6"></div>
-        <div><h2 data-i="guarH"></h2></div>
+        <div class="sec-num mono" data-i="sec6">06 / Гарантии</div>
+        <div><h2 data-i="guarH">Работаем<br><span class="o">честно и официально</span></h2></div>
       </div>
-      <div class="guar" id="guar"></div>
+      <div class="guar" id="guar"><div class="gu"><i>◎</i><b>Тест бесплатно</b><span>Первый креатив — до оплаты, чтобы вы увидели качество.</span></div><div class="gu"><i>½</i><b>Оплата 50 / 50</b><span>Предоплата 50%, остаток — после того, как вам всё понравится.</span></div><div class="gu"><i>↺</i><b>Правки включены</b><span>Вносим правки до утверждения в рамках задачи.</span></div><div class="gu"><i>✓</i><b>Официальный чек</b><span>Работаю как самозанятый — чек «Мой налог» на каждую оплату.</span></div></div>
     </div>
   </section>
 
@@ -511,18 +648,18 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight">
     <div class="wrap founder">
       <div class="portrait marks rv">
-        <img src="img/founder.png" alt="Владислав Архитьков — основатель arhitector-ai.ru" width="640" height="640" loading="lazy">
-        <div class="cap mono"><span data-i="founderCap"></span><span>@arkhitkov</span></div>
+        <img src="/img/founder.png" alt="Владислав Архитьков — основатель arhitector-ai.ru" width="640" height="640" loading="lazy">
+        <div class="cap mono"><span data-i="founderCap">Основатель</span><span>@arkhitkov</span></div>
       </div>
       <div class="rv">
-        <div class="mono muted" style="margin-bottom:22px" data-i="sec7"></div>
-        <blockquote data-i="quote"></blockquote>
-        <p class="muted" style="margin-top:22px;max-width:560px" data-i="founderP"></p>
+        <div class="mono muted" style="margin-bottom:22px" data-i="sec7">07 / Кто за этим стоит</div>
+        <blockquote data-i="quote">«Я прошёл путь от дизайна до продюсирования. <span>Поэтому делаю не просто красиво — а так, чтобы продавало.»</span></blockquote>
+        <p class="muted" style="margin-top:22px;max-width:560px" data-i="founderP">Влад Архитьков — основатель ARHITECTOR AI. Дизайн, маркетинг и продажи в одном человеке: понимаю, как визуал и технологии превращаются в заявки и деньги.</p>
         <div class="timeline">
-          <div><b>2024</b><small data-i="t1"></small></div>
-          <div><b>2025</b><small data-i="t2"></small></div>
+          <div><b>2024</b><small data-i="t1">Старт в дизайне</small></div>
+          <div><b>2025</b><small data-i="t2">Продюсирование и продажи</small></div>
           <div><b>2026</b><small>ARHITECTOR AI</small></div>
-          <div><b>→</b><small data-i="t4"></small></div>
+          <div><b>→</b><small data-i="t4">Дальше — больше</small></div>
         </div>
       </div>
     </div>
@@ -532,10 +669,10 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="faq">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec8"></div>
-        <div><h2 data-i="faqH"></h2></div>
+        <div class="sec-num mono" data-i="sec8">08 / FAQ</div>
+        <div><h2 data-i="faqH">Частые<br><span class="o">вопросы</span></h2></div>
       </div>
-      <div class="faq rv" id="faq-list"></div>
+      <div class="faq rv" id="faq-list"><details><summary>Почему такие низкие цены?<span class="pm">+</span></summary><p>Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость.</p></details><details><summary>Как оплатить и будут ли документы?<span class="pm">+</span></summary><p>Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href="/offer.html" style="text-decoration:underline">договоре-оферте</a>.</p></details><details><summary>Работаете с клиентами из других стран?<span class="pm">+</span></summary><p>Да. Общаемся на русском или английском, цены для международных клиентов — в долларах. Способ оплаты подберём индивидуально.</p></details><details><summary>Какие сроки?<span class="pm">+</span></summary><p>Креативы — от 24 часов, рекламное видео — от 2 дней, сайт и ИИ-бот — от 5 дней. Точные сроки фиксируем до старта.</p></details><details><summary>ИИ-видео не выглядит дёшево?<span class="pm">+</span></summary><p>Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже.</p></details><details><summary>Кто платит за нейросети и хостинг?<span class="pm">+</span></summary><p>Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт — обычно это небольшие суммы, расчёт покажем заранее.</p></details></div>
     </div>
   </section>
 
@@ -543,11 +680,11 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="final">
     <div class="grid-bg"></div>
     <div class="wrap">
-      <h2 class="rv" data-i="finalH"></h2>
-      <p class="rv" data-i="finalP"></p>
-      <a class="btn btn-solid tg rv" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="finalCta"></span> <span class="arr">↗</span></a>
-      <div class="note mono rv" data-i="finalNote"></div>
-      <p class="consent" data-i="consent"></p>
+      <h2 class="rv" data-i="finalH">Спроектируем<br><span class="g">ваш рост</span></h2>
+      <p class="rv" data-i="finalP">Напишите в Telegram — разберём задачу и сделаем бесплатный тестовый креатив.</p>
+      <a class="btn btn-solid tg rv" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="finalCta">Написать в Telegram</span> <span class="arr">↗</span></a>
+      <div class="note mono rv" data-i="finalNote">Ответ в течение 1 часа · 0 ₽ · онлайн</div>
+      <p class="consent" data-i="consent">Переходя в Telegram, вы сами передаёте нам свои контактные данные для связи по вашему запросу. Сайт не собирает персональные данные и не использует cookie.</p>
     </div>
   </section>
 </main>
@@ -558,18 +695,18 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <div class="logo">arhitector<span>-ai.ru</span></div>
       <div class="foot-links">
         <a class="tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Telegram @arkhitkov</a>
-        <a href="#services" data-i="navServices"></a>
-        <a href="#plans" data-i="navPlans"></a>
-        <a class="offer-link" href="offer.html" data-i="offerLink"></a>
+        <a href="#services" data-i="navServices">Услуги</a>
+        <a href="#plans" data-i="navPlans">Цены</a>
+        <a class="offer-link" href="/offer.html" data-i="offerLink">Договор-оферта</a>
       </div>
       <div>© <span id="year">2026</span> ARHITECTOR AI · arhitector-ai.ru</div>
     </div>
     <!-- Данные исполнителя (самозанятый) -->
     <div class="legal">
       <div>
-        <b data-i="legalWho"></b><br>
-        Архитьков Владислав Александрович · <span data-i="legalNpd"></span><br>
-        <span data-i="legalInn"></span> 245731471943<br><a href="mailto:vladislav.arkhitkov@gmail.com">vladislav.arkhitkov@gmail.com</a>
+        <b data-i="legalWho">Исполнитель</b><br>
+        Архитьков Владислав Александрович · <span data-i="legalNpd">самозанятый</span><br>
+        <span data-i="legalInn">ИНН</span> 245731471943<br><a href="mailto:vladislav.arkhitkov@gmail.com">vladislav.arkhitkov@gmail.com</a>
       </div>
     </div>
   </div>
@@ -578,9 +715,9 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <div class="cur-frame" id="curFrame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <div class="cur-cross" id="curCross" aria-hidden="true"><i></i><i></i></div>
 
-<div class="sticky" id="sticky"><a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="stickyCta"></span> <span class="arr">↗</span></a></div>
+<div class="sticky" id="sticky"><a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="stickyCta">Бесплатный креатив</span> <span class="arr">↗</span></a></div>
 
-<script src="cases.js"></script>
+<script src="/cases.js"></script>
 <script>
 /* ===================== НАСТРОЙКИ ===================== */
 const TELEGRAM = "https://t.me/arkhitkov";
@@ -631,6 +768,7 @@ const CASES = [
 const T = {
 ru:{
   title:"ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты",
+  brandMeta:"<b>ИИ-агентство</b><br>полного цикла · с 2026",
   promo:"✦ <b>Стартовые цены</b> для первых 10 клиентов — скидка до 50%",
   promoLink:"Смотреть цены",
   navServices:"Услуги", navCases:"До / После", navPlans:"Цены", navFaq:"FAQ", navCta:"Обсудить",
@@ -693,7 +831,7 @@ ru:{
   sec8:"08 / FAQ", faqH:"Частые<br><span class='o'>вопросы</span>",
   faq:[
     ["Почему такие низкие цены?","Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость."],
-    ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href='offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
+    ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href='/offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
     ["Работаете с клиентами из других стран?","Да. Общаемся на русском или английском, цены для международных клиентов — в долларах. Способ оплаты подберём индивидуально."],
     ["Какие сроки?","Креативы — от 24 часов, рекламное видео — от 2 дней, сайт и ИИ-бот — от 5 дней. Точные сроки фиксируем до старта."],
     ["ИИ-видео не выглядит дёшево?","Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже."],
@@ -709,6 +847,7 @@ ru:{
 },
 en:{
   title:"ARHITECTOR AI — AI ad videos, creatives, websites and AI bots",
+  brandMeta:"<b>Full-cycle</b><br>AI agency · est. 2026",
   promo:"✦ <b>Launch pricing</b> for our first 10 clients — up to 50% off",
   promoLink:"See pricing",
   navServices:"Services", navCases:"Before / After", navPlans:"Pricing", navFaq:"FAQ", navCta:"Let's talk",
@@ -771,7 +910,7 @@ en:{
   sec8:"08 / FAQ", faqH:"Frequently<br><span class='o'>asked</span>",
   faq:[
     ["Why are prices so low?","We launched recently and are building our portfolio. Early clients get launch pricing in exchange for a review. The quality is the same as at full price."],
-    ["How do I pay? Do I get a receipt?","I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href='offer.html' style='text-decoration:underline'>Terms of Service</a>."],
+    ["How do I pay? Do I get a receipt?","I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href='/offer.html' style='text-decoration:underline'>Terms of Service</a>."],
     ["Do you work with clients outside Russia?","Yes. We communicate in English or Russian, and international prices are in USD."],
     ["What are the timelines?","Creatives from 24 hours, ad videos from 2 days, websites and AI bots from 5 days. We fix exact dates before starting."],
     ["Doesn't AI video look cheap?","Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing."],
@@ -788,16 +927,22 @@ en:{
 
 /* ===================== ЛОГИКА ===================== */
 const $ = id => document.getElementById(id);
-let lang = "ru", caseIdx = 0;
+const PAGE_LANG = document.documentElement.lang === "en" ? "en" : "ru";
+const LANG_URL = { ru:"/", en:"/en/" };
+let lang = PAGE_LANG, caseIdx = 0;
 
 function getStored(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
 function setStored(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
 
-function detectLang(){
+/* Куда отправить посетителя: ?lang= → выбор, сохранённый кнопкой RU/EN → язык браузера (только на главной).
+   Поисковых роботов не перенаправляем: они индексируют обе версии по своим адресам. */
+function wantedLang(){
   const q = new URLSearchParams(location.search).get("lang");
   if (q === "ru" || q === "en") return q;
+  if (PAGE_LANG === "en") return null;
   const saved = getStored("lang");
   if (saved === "ru" || saved === "en") return saved;
+  if (/bot|crawl|spider|slurp|yandex|google|bing|lighthouse|prerender|headless/i.test(navigator.userAgent)) return null;
   const nav = (navigator.languages || [navigator.language || "en"]).join(",").toLowerCase();
   return /(^|,)(ru|uk|be|kk|ky|uz|tg|hy|az)/.test(nav) ? "ru" : "en";
 }
@@ -886,15 +1031,15 @@ function render(){
 }
 
 function setLang(l){
-  lang = l; setStored("lang", l);
-  const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u);
-  render();
+  setStored("lang", l);
+  if (l !== PAGE_LANG) location.href = LANG_URL[l] + location.hash;
 }
 
 document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => setLang(b.dataset.lang));
 $("baRange").addEventListener("input", e => $("ba").style.setProperty("--pos", e.target.value + "%"));
 
-lang = detectLang();
+const want = wantedLang();
+if (want && want !== PAGE_LANG) location.replace(LANG_URL[want] + location.hash);
 render();
 
 /* header / sticky CTA on scroll */
@@ -952,5 +1097,6 @@ baIo.observe($("ba"));
 
 $("year").textContent = new Date().getFullYear();
 </script>
-</body>
-</html>
+
+
+</body></html>

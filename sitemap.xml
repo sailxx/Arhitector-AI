@@ -2,18 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://arhitector-ai.ru/</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/?lang=en"/>
-    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arhitector-ai.ru/"/>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
-    <loc>https://arhitector-ai.ru/?lang=en</loc>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/?lang=en"/>
-    <lastmod>2026-10-09</lastmod>
+    <loc>https://arhitector-ai.ru/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arhitector-ai.ru/"/>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://arhitector-ai.ru/offer.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
 </urlset>
