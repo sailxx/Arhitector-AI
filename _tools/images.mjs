@@ -72,6 +72,8 @@ fs.mkdirSync(path.join(SITE, "img"), { recursive: true });
 fs.writeFileSync(path.join(SITE, "favicon.svg"), favicon + "\n");
 for (const lang of ["ru", "en"]) shot(og(lang), path.join(SITE, `img/og-${lang}.png`), 1200, 630);
 shot(svgPage(touch, 180), path.join(SITE, "apple-touch-icon.png"), 180, 180);
+/* квадратный логотип для аватарок: Яндекс Бизнес, Kwork, Profi.ru, Авито, Telegram */
+shot(svgPage(touch, 1024), path.join(SITE, "img/logo-1024.png"), 1024, 1024);
 
 /* favicon.ico: PNG 16, 32 и 48 px внутри одного .ico (для Яндекса и старых браузеров) */
 const sizes = [16, 32, 48];
