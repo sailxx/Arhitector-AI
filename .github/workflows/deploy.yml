@@ -1,0 +1,36 @@
+# Выкладка сайта на хостинг Reg.ru по FTP при каждом push в main.
+# Нужны секреты репозитория: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+# и переменная FTP_ENABLED = true (пока её нет, workflow ничего не делает).
+# Папка сайта на хостинге — переменная FTP_DIR (по умолчанию www/arhitector-ai.ru/).
+name: Deploy to Reg.ru
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.FTP_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ vars.FTP_DIR || 'www/arhitector-ai.ru/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            _src/**
+            _tools/**
+            CNAME
