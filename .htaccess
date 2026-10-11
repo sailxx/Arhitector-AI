@@ -4,15 +4,14 @@ Options -Indexes
 
 RewriteEngine On
 
-# www → без www (после выпуска SSL поменять http на https)
+# www → без www
 RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^ http://arhitector-ai.ru%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://arhitector-ai.ru%{REQUEST_URI} [R=301,L]
 
-# http → https. Включить ТОЛЬКО после выпуска SSL-сертификата в панели хостинга,
-# иначе сайт перестанет открываться.
-# RewriteCond %{HTTPS} !=on
-# RewriteCond %{HTTP:X-Forwarded-Proto} !=https
-# RewriteRule ^ https://arhitector-ai.ru%{REQUEST_URI} [R=301,L]
+# http → https (сертификат Let's Encrypt выпущен в панели хостинга, продлевается сам)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://arhitector-ai.ru%{REQUEST_URI} [R=301,L]
 
 # Служебные папки сборки не отдаём
 RewriteRule ^(_src|_tools|\.github)(/|$) - [F,L]
