@@ -167,9 +167,8 @@ export function page(s) {
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/inter-tight-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <style>
 :root{--bg:#050505;--fg:#f4f4f2;--muted:rgba(244,244,242,.6);--faint:rgba(244,244,242,.34);--line:rgba(244,244,242,.1);--line-2:rgba(244,244,242,.18);--card:rgba(244,244,242,.03);--mono:"JetBrains Mono",ui-monospace,monospace;--pad:clamp(16px,4vw,48px)}
