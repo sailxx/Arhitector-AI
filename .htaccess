@@ -1,6 +1,7 @@
 # Хостинг Reg.ru (Apache за nginx). На GitHub Pages этот файл не используется.
 AddDefaultCharset utf-8
 Options -Indexes
+AddType application/manifest+json .webmanifest
 
 RewriteEngine On
 
