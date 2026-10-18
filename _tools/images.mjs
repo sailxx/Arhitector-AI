@@ -22,6 +22,8 @@ const corners = (s, inset, len, w) => {
   return `<path fill="none" stroke="#f4f4f2" stroke-width="${w}" d="M${a} ${a + len}V${a}h${len}M${b - len} ${a}h${len}v${len}M${a} ${b - len}v${len}h${len}M${b - len} ${b}h${len}v-${len}"/>`;
 };
 const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#050505"/>${A}</svg>`;
+/* Android: maskable-иконка — фон на всю форму, рамка и «A» внутри безопасного круга (80% диаметра) */
+const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${corners(64, 14.5, 4.5, 1.3)}<g transform="translate(32 32) scale(.55) translate(-32 -31)">${A}</g></svg>`;
 const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${corners(64, 7, 8, 1.6)}<g transform="translate(32 32) scale(.78) translate(-32 -31)">${A}</g></svg>`;
 
 const FONTS = `<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">`;
@@ -72,6 +74,18 @@ fs.mkdirSync(path.join(SITE, "img"), { recursive: true });
 fs.writeFileSync(path.join(SITE, "favicon.svg"), favicon + "\n");
 for (const lang of ["ru", "en"]) shot(og(lang), path.join(SITE, `img/og-${lang}.png`), 1200, 630);
 shot(svgPage(touch, 180), path.join(SITE, "apple-touch-icon.png"), 180, 180);
+for (const s of [192, 512]) {
+  shot(svgPage(touch, s), path.join(SITE, `img/icon-${s}.png`), s, s);
+  shot(svgPage(maskable, s), path.join(SITE, `img/icon-maskable-${s}.png`), s, s);
+}
+fs.writeFileSync(path.join(SITE, "manifest.webmanifest"), JSON.stringify({
+  name: "ARHITECTOR AI", short_name: "ARHITECTOR", start_url: "/", display: "browser",
+  background_color: "#050505", theme_color: "#050505",
+  icons: [192, 512].flatMap(s => [
+    { src: `/img/icon-${s}.png`, sizes: `${s}x${s}`, type: "image/png", purpose: "any" },
+    { src: `/img/icon-maskable-${s}.png`, sizes: `${s}x${s}`, type: "image/png", purpose: "maskable" }
+  ])
+}, null, 2) + "\n");
 /* квадратный логотип для аватарок: Яндекс Бизнес, Kwork, Profi.ru, Авито, Telegram */
 shot(svgPage(touch, 1024), path.join(SITE, "img/logo-1024.png"), 1024, 1024);
 
