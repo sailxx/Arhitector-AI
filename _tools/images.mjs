@@ -15,16 +15,12 @@ const CHROME = process.env.CHROME || [
 ].find(p => fs.existsSync(p));
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), "arh-img-"));
 
-/* Буква «A» и уголки рамки — как у курсора на сайте */
-const A = `<path fill-rule="evenodd" fill="#f4f4f2" d="M14 52 28 12h8l14 40h-8.4l-3-9H25.4l-3 9zM27.8 35.6h8.4L32 22.6z"/>`;
-const corners = (s, inset, len, w) => {
-  const a = inset, b = s - inset;
-  return `<path fill="none" stroke="#f4f4f2" stroke-width="${w}" d="M${a} ${a + len}V${a}h${len}M${b - len} ${a}h${len}v${len}M${a} ${b - len}v${len}h${len}M${b - len} ${b}h${len}v-${len}"/>`;
-};
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#050505"/>${A}</svg>`;
-/* Android: maskable-иконка — фон на всю форму, рамка и «A» внутри безопасного круга (80% диаметра) */
-const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${corners(64, 14.5, 4.5, 1.3)}<g transform="translate(32 32) scale(.55) translate(-32 -31)">${A}</g></svg>`;
-const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${corners(64, 7, 8, 1.6)}<g transform="translate(32 32) scale(.78) translate(-32 -31)">${A}</g></svg>`;
+/* Знак: «Λ» без перекладины и квадрат-узел на её месте (вариант 41 из brand/logo-min). Сетка 64, центр 32 */
+const mark = (k = 1) => `<g transform="translate(32 32) scale(${k}) translate(-32 -32)" fill="#f4f4f2"><path d="M22 44L30.2 20H33.8L42 44H38.4L32 25.27L25.6 44Z"/><rect x="30.6" y="35" width="2.8" height="2.8"/></g>`;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#050505"/>${mark(1.5)}</svg>`;
+/* Android: maskable-иконка — фон на всю форму, знак внутри безопасного круга (80% диаметра) */
+const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1)}</svg>`;
+const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1.3)}</svg>`;
 
 const FONTS = `<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">`;
 const og = (lang) => {
