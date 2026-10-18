@@ -1,6 +1,7 @@
 /* Картинки бренда: превью для ссылок (img/og-ru.png, img/og-en.png), favicon.svg / favicon.ico, apple-touch-icon.png.
    Рисуются из HTML в Google Chrome без окна: cd _tools && node images.mjs */
 import { execFileSync } from "node:child_process";
+import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -21,6 +22,9 @@ const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><re
 /* Android: maskable-иконка — фон на всю форму, знак внутри безопасного круга (80% диаметра) */
 const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1)}</svg>`;
 const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1.3)}</svg>`;
+
+/* Версия иконок в адресах (?v=…): картинки кэшируются на 30+ дней, а с новым адресом браузер и Android берут свежие */
+const V = crypto.createHash("sha1").update(favicon + touch + maskable).digest("hex").slice(0, 8);
 
 const FONTS = `<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">`;
 const og = (lang) => {
@@ -79,8 +83,8 @@ fs.writeFileSync(path.join(SITE, "manifest.webmanifest"), JSON.stringify({
   lang: "ru", start_url: "/", scope: "/", display: "standalone",
   background_color: "#050505", theme_color: "#050505",
   icons: [192, 512].flatMap(s => [
-    { src: `/img/icon-${s}.png`, sizes: `${s}x${s}`, type: "image/png", purpose: "any" },
-    { src: `/img/icon-maskable-${s}.png`, sizes: `${s}x${s}`, type: "image/png", purpose: "maskable" }
+    { src: `/img/icon-${s}.png?v=${V}`, sizes: `${s}x${s}`, type: "image/png", purpose: "any" },
+    { src: `/img/icon-maskable-${s}.png?v=${V}`, sizes: `${s}x${s}`, type: "image/png", purpose: "maskable" }
   ])
 }, null, 2) + "\n");
 /* квадратный логотип для аватарок: Яндекс Бизнес, Kwork, Profi.ru, Авито, Telegram */
@@ -100,4 +104,12 @@ sizes.forEach((s, i) => {
 });
 fs.writeFileSync(path.join(SITE, "favicon.ico"), Buffer.concat([head, ...pngs]));
 console.log("favicon.ico", sizes.join("/"));
+/* Ссылки на иконки и manifest во всех страницах — с той же версией */
+const pages = ["index.html", "offer.html", "_src/index.html", ...fs.readdirSync(SITE).filter(d => fs.existsSync(path.join(SITE, d, "index.html")) && d !== "_src").map(d => d + "/index.html")];
+for (const f of new Set(pages)) {
+  const file = path.join(SITE, f), html = fs.readFileSync(file, "utf8");
+  const out = html.replace(/(href="\/(?:favicon\.ico|favicon\.svg|apple-touch-icon\.png|manifest\.webmanifest))(?:\?v=[0-9a-f]+)?"/g, `$1?v=${V}"`);
+  if (out !== html) fs.writeFileSync(file, out);
+}
+console.log("icons v=" + V, [...new Set(pages)].length, "pages");
 fs.rmSync(TMP, { recursive: true, force: true });
