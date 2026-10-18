@@ -79,7 +79,8 @@ for (const s of [192, 512]) {
   shot(svgPage(maskable, s), path.join(SITE, `img/icon-maskable-${s}.png`), s, s);
 }
 fs.writeFileSync(path.join(SITE, "manifest.webmanifest"), JSON.stringify({
-  name: "ARHITECTOR AI", short_name: "ARHITECTOR", start_url: "/", display: "browser",
+  id: "/", name: "ARHITECTOR AI", short_name: "ARHITECTOR", description: "ИИ-агентство полного цикла",
+  lang: "ru", start_url: "/", scope: "/", display: "standalone",
   background_color: "#050505", theme_color: "#050505",
   icons: [192, 512].flatMap(s => [
     { src: `/img/icon-${s}.png`, sizes: `${s}x${s}`, type: "image/png", purpose: "any" },

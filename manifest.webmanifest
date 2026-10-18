@@ -1,8 +1,12 @@
 {
+  "id": "/",
   "name": "ARHITECTOR AI",
   "short_name": "ARHITECTOR",
+  "description": "ИИ-агентство полного цикла",
+  "lang": "ru",
   "start_url": "/",
-  "display": "browser",
+  "scope": "/",
+  "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#050505",
   "icons": [
