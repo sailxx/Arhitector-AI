@@ -18,274 +18,358 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#050505">
-<link rel="icon" href="/favicon.ico?v=4cb3e9c0" sizes="48x48">
-<link rel="icon" href="/favicon.svg?v=4cb3e9c0" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4cb3e9c0">
-<link rel="manifest" href="/manifest.webmanifest?v=4cb3e9c0">
-<link rel="preload" href="/fonts/inter-tight-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#050507">
+<link rel="icon" href="/favicon.ico?v=a7be686a" sizes="48x48">
+<link rel="icon" href="/favicon.svg?v=a7be686a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=a7be686a">
+<link rel="manifest" href="/manifest.webmanifest?v=a7be686a">
+<link rel="preload" href="/fonts/inter-tight-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin="">
 <link rel="stylesheet" href="/fonts/fonts.css">
+<script>/* тема до первой отрисовки, чтобы не мигало */try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
 <style>
 :root{
-  --bg:#050505;
-  --bg-2:#0b0b0b;
-  --fg:#f4f4f2;
-  --muted:rgba(244,244,242,.58);
-  --faint:rgba(244,244,242,.34);
-  --line:rgba(244,244,242,.10);
-  --line-2:rgba(244,244,242,.18);
-  --card:rgba(244,244,242,.03);
+  --bg:#050507;
+  --bg-2:#0b0b0d;
+  --fg:#f5f4f2;
+  --muted:rgba(245,244,242,.6);
+  --faint:rgba(245,244,242,.36);
+  --line:rgba(245,244,242,.09);
+  --line-2:rgba(245,244,242,.2);
+  --card:#111115;
+  --grid:rgba(255,255,255,.055);
+  --red:#ff3b30;
+  --glow:rgba(232,36,28,.16);
+  --plashka:radial-gradient(70% 90% at 85% 0%,#ff6a3d 0%,transparent 60%),radial-gradient(60% 80% at 0% 100%,#b5101a 0%,transparent 65%),#e8241c;
   --mono:"JetBrains Mono",ui-monospace,monospace;
   --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
   --pad:clamp(16px,4vw,48px);
   --max:1320px;
-  --grad:linear-gradient(180deg,var(--fg) 10%,rgba(244,244,242,.14) 95%);
+}
+[data-theme="light"]{
+  --bg:#f7f6f3;
+  --bg-2:#efeeea;
+  --fg:#0b0b0d;
+  --muted:rgba(11,11,13,.62);
+  --faint:rgba(11,11,13,.42);
+  --line:rgba(11,11,13,.1);
+  --line-2:rgba(11,11,13,.22);
+  --card:#ffffff;
+  --grid:rgba(0,0,0,.065);
+  --red:#d42a20;
+  --glow:rgba(212,42,32,.1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color .4s,color .4s}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit}
-::selection{background:var(--fg);color:var(--bg)}
+::selection{background:#e8241c;color:#fff}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .muted{color:var(--muted)}
-.o{color:var(--faint)}
-.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.todo{outline:1px dashed rgba(255,200,0,.6);outline-offset:2px}
+.r{color:var(--red)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em}
+.redtext{background:var(--plashka);-webkit-background-clip:text;background-clip:text;color:transparent}
+.outline{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.sq{display:inline-block;width:7px;height:7px;background:var(--red);flex:none}
 
-/* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s,background .2s,color .2s,border-color .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;border:0}
-.btn-solid{background:var(--fg);color:var(--bg)}
-.btn-solid:hover{transform:translateY(-2px);box-shadow:0 10px 40px -8px rgba(244,244,242,.45)}
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:999px;font-weight:600;font-size:16px;transition:transform .2s,box-shadow .2s,border-color .2s,background .2s;white-space:nowrap;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--plashka);color:#fff;box-shadow:0 20px 60px -20px rgba(255,59,48,.7)}
 .btn-ghost{border:1px solid var(--line-2);background:transparent}
 .btn-ghost:hover{border-color:var(--fg)}
+.btn-dark{background:#0b0b0d;color:#fff}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translate(2px,-2px)}
 
-/* ---------- promo bar ---------- */
-.promo{background:var(--fg);color:var(--bg);text-align:center;font-size:13px;font-weight:600;padding:9px 16px;letter-spacing:.01em}
-.promo b{font-weight:800}
-.promo a{text-decoration:underline;text-underline-offset:3px;margin-left:6px}
-
-/* ---------- header ---------- */
-header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-header.scrolled{background:rgba(5,5,5,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-header.scrolled .promo{display:none}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
-.logo{font-weight:800;letter-spacing:-.03em;font-size:21px;display:flex;align-items:baseline}
-.logo span{color:var(--muted);font-weight:500}
-.nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+/* ---------- шапка ---------- */
+header{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{display:inline-flex;align-items:center;gap:12px;font-weight:900;font-size:19px;letter-spacing:-.03em}
+.logo svg{flex:none}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--muted);transition:color .2s}
 .nav-links a:hover{color:var(--fg)}
 .nav-right{display:flex;align-items:center;gap:12px}
 .lang{display:flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
 .lang button{background:none;border:0;cursor:pointer;font:600 12px var(--mono);letter-spacing:.06em;color:var(--muted);padding:6px 11px;border-radius:999px;transition:all .2s}
 .lang button.on{background:var(--fg);color:var(--bg)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--fg);flex:none;box-shadow:0 0 0 0 rgba(244,244,242,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(244,244,242,0)}100%{box-shadow:0 0 0 0 rgba(244,244,242,0)}}
-.nav .btn{height:42px;padding:0 20px;font-size:14px}
+.theme{position:relative;width:58px;height:44px;border:0;background:none;cursor:pointer;display:flex;align-items:center}
+.theme span{position:relative;display:block;width:58px;height:30px;border-radius:999px;border:1px solid var(--line-2)}
+.theme span::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--fg);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+[data-theme="light"] .theme span::after{transform:translateX(28px)}
+.theme:focus-visible span{outline:2px solid var(--red);outline-offset:2px}
+.nav .btn{height:44px;padding:0 20px;font-size:13px;font-family:var(--mono);letter-spacing:.08em;font-weight:700}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:150px 0 48px;overflow:hidden}
-.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:88px 88px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 80%);pointer-events:none}
-.glow{position:absolute;width:900px;height:900px;left:50%;top:-30%;transform:translateX(-50%);background:radial-gradient(circle,rgba(244,244,242,.10),transparent 60%);pointer-events:none}
-.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:28px;position:relative}
-.hero-tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px}
-.coords{text-align:right;color:var(--faint);line-height:1.8}
-/* Название агентства: «ARHITECTOR» ровно на всю ширину контейнера (cqw), буквы выезжают по одной */
-.hero .wrap{width:100%;container-type:inline-size}
+/* ---------- первый экран ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:150px 0 56px}
+.layer{position:absolute;inset:0;pointer-events:none}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:112px 112px}
+.hero .glow{background:radial-gradient(45% 40% at 62% 0%,rgba(255,255,255,.06),transparent 70%),radial-gradient(40% 35% at 25% 55%,var(--glow),transparent 70%)}
+.scan{position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,transparent,rgba(255,59,48,.06) 85%,rgba(255,59,48,.3) 100%);animation:scan 7s cubic-bezier(.6,0,.4,1) infinite;pointer-events:none}
+@keyframes scan{from{transform:translateY(-120px)}to{transform:translateY(1100px)}}
+.globe-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+#globe{position:absolute;right:-6%;top:70px;width:min(760px,80vw);aspect-ratio:1;opacity:.6;cursor:grab;touch-action:pan-y;pointer-events:auto;animation:fadeIn 2s ease .4s both}
+@keyframes fadeIn{from{opacity:0}}
+.hero .wrap{position:relative;width:100%;container-type:inline-size}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:40px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--fg) 4%,transparent);border-radius:999px;padding:10px 18px}
+.coords{text-align:right;color:var(--faint);line-height:2.1}
+/* «ARHITECTOR» ровно на всю ширину контейнера (cqw), буквы выезжают по одной */
 .brand{position:relative;font-weight:900;line-height:.84;letter-spacing:-.035em;font-size:clamp(46px,14.6vw,198px);font-size:calc(100cqw / var(--brand-em,6.16))}
 .brand-row{display:flex;align-items:flex-end;overflow:hidden;padding-bottom:.035em}
 .brand .ch{display:inline-block;transform:translateY(105%);animation:chUp 1s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(var(--i) * 55ms + 150ms)}
 @keyframes chUp{to{transform:none}}
 .brand-row2{gap:clamp(14px,2.4cqw,36px)}
-.brand-rule{flex:1;height:1px;background:var(--line-2);margin-bottom:.16em;transform-origin:left;transform:scaleX(0);animation:ruleIn 1.2s cubic-bezier(.16,1,.3,1) .85s forwards}
+.brand-rule{flex:1;height:2px;background:linear-gradient(90deg,#e8241c,transparent);margin-bottom:.16em;transform-origin:left;transform:scaleX(0);animation:ruleIn 1.2s cubic-bezier(.16,1,.3,1) .85s forwards}
 @keyframes ruleIn{to{transform:none}}
-.brand-meta{flex:none;margin-bottom:.12em;font-size:clamp(10px,1.05cqw,13px);line-height:1.7;color:var(--muted);text-align:right;letter-spacing:.1em;opacity:0;animation:metaIn .8s ease 1.2s forwards}
-.brand-meta b{color:var(--fg);font-weight:500}
+.brand-meta{flex:none;margin-bottom:.12em;font-size:clamp(10px,1.05cqw,13px);line-height:1.8;color:var(--muted);text-align:right;letter-spacing:.12em;opacity:0;animation:metaIn .8s ease 1.2s forwards}
+.brand-meta b{color:var(--red);font-weight:500}
 @keyframes metaIn{to{opacity:1}}
-.hero-bottom{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:40px}
-.hero-lead{font-size:clamp(19px,2vw,26px);line-height:1.3;font-weight:500;max-width:640px;letter-spacing:-.01em}
+.hero-bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;margin-top:48px}
+.hero-lead{font-size:clamp(20px,2vw,28px);line-height:1.3;font-weight:500;max-width:640px;letter-spacing:-.02em}
+.hero-lead b{font-weight:500;color:var(--red)}
 .hero-lead em{font-style:normal;color:var(--muted)}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.hero-cta .btn{height:64px;padding:0 34px;font-size:17px}
 .hero-cta-note{width:100%;text-align:right;color:var(--faint);margin-top:4px}
-.stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:48px}
-.stat{padding:22px 20px 0 0}
-.stat b{display:block;font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1}
-.stat span{display:block;color:var(--muted);font-size:14px;margin-top:8px;line-height:1.35}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:56px}
+.stat{padding:26px 20px 0 0}
+.stat b{display:block;font-size:clamp(30px,3.4vw,50px);font-weight:800;letter-spacing:-.05em;line-height:1}
+.stat:nth-child(2) b{color:var(--red)}
+.stat span{display:block;color:var(--muted);font-size:15px;margin-top:10px;line-height:1.35}
 
-/* ---------- marquee ---------- */
-.marquee{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg-2)}
-.track{display:flex;gap:56px;width:max-content;animation:run 38s linear infinite}
-.track span{font-weight:800;font-size:clamp(22px,3vw,36px);letter-spacing:-.03em;display:flex;align-items:center;gap:56px;white-space:nowrap}
-.track span::after{content:"✦";font-size:.5em;color:var(--faint)}
-.track span:nth-child(even){color:var(--faint)}
+/* ---------- бегущие строки ---------- */
+.mq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;align-items:center;width:max-content;animation:run 45s linear infinite}
 @keyframes run{to{transform:translateX(-50%)}}
+.marquee{padding:26px 0 30px;border-block:1px solid var(--line)}
+.marquee .track{gap:56px}
+.marquee .track span{display:flex;align-items:center;gap:56px;white-space:nowrap;color:var(--muted)}
+.marquee .track span::after{content:"";width:7px;height:7px;background:var(--red)}
 
-/* ---------- sections ---------- */
+/* ---------- секции ---------- */
 section.block{padding:clamp(80px,11vw,140px) 0}
 section.tight{padding-top:0}
-.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px;margin-bottom:52px}
-.sec-head h2{font-size:clamp(34px,5.4vw,76px);line-height:1;letter-spacing:-.035em;font-weight:800}
-.sec-head p{margin-top:20px;color:var(--muted);font-size:18px;max-width:620px}
-.sec-num{padding-top:10px;color:var(--faint)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:56px}
+.sec-tag{display:block;color:var(--red);margin-bottom:20px}
+.sec-head h2{font-size:clamp(42px,6.4vw,96px);line-height:.88;letter-spacing:-.055em;font-weight:900;text-transform:uppercase}
+.sec-head h2 .serif{font-size:1.05em;color:var(--muted)}
+.sec-head p{color:var(--muted);font-size:16px;max-width:340px;line-height:1.55}
 
-/* ---------- services ---------- */
-.services{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-.svc{position:relative;padding:clamp(28px,3.4vw,48px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:22px;min-height:440px;transition:background .3s;overflow:hidden}
-.svc:hover{background:var(--card)}
-.svc-top{display:flex;justify-content:space-between;align-items:center}
-.svc-num{font-family:var(--mono);font-size:13px;color:var(--faint)}
-.svc-icon{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:background .3s,color .3s}
-.svc:hover .svc-icon{background:var(--fg);color:var(--bg)}
-.svc h3{font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.035em;font-weight:800}
-.svc > p{color:var(--muted);max-width:460px}
-.svc-more{align-self:flex-start;font-size:14px;font-weight:600;border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:border-color .2s}
-.svc-more:hover{border-color:var(--fg)}
-.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-.svc li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:rgba(244,244,242,.8)}
-.svc-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;border-top:1px dashed var(--line)}
-.price{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.price small{font-size:14px;font-weight:500;color:var(--muted);margin-right:6px}
-.svc-foot .term{color:var(--muted);font-size:13px;margin-top:4px}
-.svc-foot .btn{height:44px;padding:0 18px;font-size:14px}
+/* ---------- услуги: список + живая сцена ---------- */
+.svc-layout{display:flex;flex-wrap:wrap;gap:40px;align-items:stretch}
+.svc-list{flex:1 1 340px;border-top:1px solid var(--line)}
+.svc-item{position:relative;border-bottom:1px solid var(--line)}
+.svc-tab{width:100%;display:flex;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;color:var(--muted);text-align:left;transition:color .3s}
+.svc-tab:hover{color:var(--fg)}
+.svc-num{width:24px;font-family:var(--mono);font-size:12px;color:var(--red)}
+.svc-title{flex:1;font-size:clamp(22px,2.2vw,32px);font-weight:800;letter-spacing:-.035em;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.svc-arr{font-size:22px;opacity:0;transform:translateX(-10px);transition:opacity .3s,transform .3s;color:var(--red)}
+.svc-item.act .svc-tab{color:var(--fg)}
+.svc-item.act .svc-title{transform:translateX(6px)}
+.svc-item.act .svc-arr{opacity:1;transform:none}
+.svc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+.svc-item.act .svc-body{grid-template-rows:1fr}
+.svc-body > div{overflow:hidden}
+.svc-in{padding:0 0 28px 44px;display:flex;flex-direction:column;gap:16px}
+.svc-in p{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li,.chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted)}
+.svc-price{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.svc-price b{font-size:30px;font-weight:900;letter-spacing:-.04em}
+.svc-price small{font-size:14px;font-weight:600;margin-right:6px}
+.svc-more{border-bottom:1px solid currentColor;padding-bottom:3px;transition:color .2s}
+.svc-more:hover{color:var(--red)}
+.svc-fill{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:#e8241c}
+.svc-item.act .svc-fill{animation:fill 7s linear forwards}
+@keyframes fill{to{width:100%}}
+.stage{position:relative;isolation:isolate;overflow:hidden;flex:1.6 1 560px;min-width:0;min-height:620px;border-radius:24px;border:1px solid var(--line);background:var(--bg-2)}
+.stage .grid-bg{background-size:40px 40px}
+.stage .glow{background:radial-gradient(55% 45% at 50% 100%,var(--glow),transparent 70%)}
+.coord{position:absolute;top:16px;color:var(--faint);font-size:11px;display:flex;align-items:center}
+.rec{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff3b30;margin-right:8px;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.scene{position:absolute;inset:48px 24px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:28px;color:#f5f4f2}
+.ap{animation:ap .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ap{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.glass{display:flex;flex-direction:column;gap:16px;padding:20px;border-radius:18px;background:rgba(15,15,20,.78);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#f5f4f2;animation:ap .6s .2s cubic-bezier(.2,.7,.2,1) both}
+.glass .chip{border-color:rgba(255,255,255,.2);color:rgba(245,244,242,.75)}
+/* видео */
+.phone{width:240px;height:480px;padding:10px;border-radius:40px;background:#0b0b0d;border:1px solid #2a2a30;box-shadow:0 40px 90px -30px rgba(255,59,48,.6);animation:ap .6s cubic-bezier(.2,.7,.2,1) both}
+.screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:linear-gradient(160deg,#1a0508,#e8241c 50%,#ff8a3d);background-size:220% 220%;animation:bgm 6s ease-in-out infinite alternate}
+@keyframes bgm{to{background-position:100% 100%}}
+.vid-bar{position:absolute;left:14px;right:14px;top:14px;height:3px;border-radius:3px;background:rgba(255,255,255,.3);overflow:hidden}
+.vid-bar span{display:block;height:100%;width:0;background:#fff;animation:fill 7s linear forwards}
+.vid-line{position:absolute;left:-40%;width:40%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8));animation:vl 1.4s linear infinite}
+@keyframes vl{to{left:110%}}
+.vid-shoe{position:absolute;left:50%;top:44%;width:150px;height:62px;margin-left:-75px;border-radius:40px 60px 14px 14px;background:linear-gradient(180deg,#fff,#d9d9d9);box-shadow:0 24px 30px -12px rgba(0,0,0,.5);animation:shoe 2.4s ease-in-out infinite}
+.vid-shoe::after{content:"";position:absolute;left:24px;right:40px;top:22px;height:8px;border-radius:8px;background:#e8241c;transform:skewX(-20deg)}
+@keyframes shoe{50%{transform:translateY(-12px) rotate(-6deg)}}
+.vid-hook{position:absolute;left:18px;top:52px;font-weight:900;font-size:32px;line-height:.9;letter-spacing:-.05em;color:#fff;animation:hook .6s .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes hook{from{opacity:0;transform:translateX(-40px)}}
+.vid-offer{position:absolute;right:18px;top:62%;padding:8px 12px;border-radius:12px;background:#0b0b0d;color:#fff;font-weight:900;font-size:26px;letter-spacing:-.04em;animation:pop .5s 1.8s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{opacity:0;transform:scale(.3) rotate(-12deg)}}
+.vid-cta{position:absolute;left:18px;right:18px;bottom:22px;padding:12px;border-radius:999px;background:#fff;color:#0b0b0d;text-align:center;font-weight:700;font-size:14px;animation:ap .5s 2.8s cubic-bezier(.2,.7,.2,1) both}
+.tl-head{display:flex;justify-content:space-between;color:rgba(245,244,242,.6);font-size:11px}
+.tracks{position:relative;display:flex;flex-direction:column;gap:10px}
+.trk{display:flex;align-items:center;gap:10px}
+.trk > span{width:48px;font-size:9px;color:rgba(245,244,242,.6)}
+.trk > div{position:relative;flex:1;height:22px;border-radius:6px;background:rgba(255,255,255,.06)}
+.trk i{position:absolute;top:3px;bottom:3px;border-radius:4px;background:linear-gradient(90deg,#e8241c,#ff6a3d)}
+.trk i.snd{background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 2px,transparent 2px 5px);top:6px;bottom:6px}
+.trk i.txt{background:rgba(255,255,255,.75)}
+.playhead{position:absolute;top:-6px;bottom:-6px;left:58px;width:2px;background:#fff;box-shadow:0 0 12px #ff3b30;animation:ph 7s linear forwards}
+@keyframes ph{to{left:100%}}
+/* креативы */
+.fan{position:relative;width:520px;max-width:100%;height:330px}
+.pcard{position:absolute;left:50%;top:0;width:190px;margin-left:-95px;padding:10px 10px 14px;border-radius:16px;background:#f4f4f2;color:#0b0b0d;display:flex;flex-direction:column;gap:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.pcard i{display:block;height:8px;border-radius:4px;background:#d6d6d2}
+.pcard b{font-size:18px;font-weight:900;letter-spacing:-.03em}
+.pimg{position:relative;height:190px;border-radius:10px;display:grid;place-items:center;overflow:hidden}
+.bottle{position:relative;width:56px;height:96px;border-radius:12px 12px 16px 16px;background:linear-gradient(180deg,#3a2a20,#120b08);box-shadow:0 18px 24px -10px rgba(0,0,0,.5)}
+.bottle::before{content:"";position:absolute;left:18px;top:-16px;width:20px;height:16px;border-radius:4px;background:#1a1a1a}
+.pstar{position:absolute;left:8px;bottom:8px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:4px 6px;border-radius:6px;background:#0b0b0d;color:#fff}
+.pbadge{position:absolute;right:-8px;top:-8px;z-index:1;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#0b0b0d;color:#fff;font-family:var(--mono);font-size:12px;font-weight:700}
+.fan-l{animation:fanl .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.fan-r{animation:fanr .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.fan-c{animation:fanc .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fanl{from{transform:none;opacity:0}to{transform:translate(-150px,26px) rotate(-10deg)}}
+@keyframes fanr{from{transform:none;opacity:0}to{transform:translate(150px,26px) rotate(10deg)}}
+@keyframes fanc{from{transform:translateY(30px) scale(.9);opacity:0}to{transform:translateY(-6px) scale(1.04)}}
+/* сайт */
+.browser{position:relative;width:540px;max-width:100%;height:440px;border-radius:16px;background:#0b0b0d;border:1px solid #2a2a30;overflow:hidden;box-shadow:0 40px 90px -30px rgba(255,59,48,.5);animation:ap .6s cubic-bezier(.2,.7,.2,1) both}
+.bbar{display:flex;align-items:center;gap:7px;padding:12px 14px;background:#141418;border-bottom:1px solid #2a2a30}
+.bbar > span{width:10px;height:10px;border-radius:50%;background:#3a3a40}
+.bbar > span:first-child{background:#ff3b30}
+.bbar em{margin-left:14px;font-style:normal;font-size:11px;color:#a09fa6;padding:4px 12px;border-radius:999px;background:#0b0b0d}
+.bview{position:relative;height:calc(100% - 45px);overflow:hidden}
+.bscroll{display:flex;flex-direction:column;gap:14px;padding:18px;animation:bscroll 7s cubic-bezier(.6,0,.4,1) both}
+@keyframes bscroll{0%,20%{transform:none}70%,100%{transform:translateY(-200px)}}
+.bhero{display:flex;flex-direction:column;gap:8px;min-height:190px;padding:22px;border-radius:12px;background:var(--plashka)}
+.bhero i{display:block;height:10px;border-radius:5px;background:rgba(255,255,255,.55)}
+.bhero i.t{height:24px;background:#f4f4f2}
+.bbtn{align-self:flex-start;margin-top:auto;padding:9px 14px;border-radius:999px;background:#0b0b0d;color:#fff;font-size:12px;font-weight:600}
+.bgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bgrid > div{display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:10px;background:#141418}
+.bgrid span{height:56px;border-radius:8px;background:linear-gradient(160deg,#3a2a20,#120b08)}
+.bgrid i{height:6px;width:70%;border-radius:3px;background:#3a3a40}
+.bgrid b{font-size:13px}
+.toast{position:absolute;right:16px;bottom:16px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:#f4f4f2;color:#0b0b0d;box-shadow:0 20px 40px -10px rgba(0,0,0,.6);animation:toast .5s 3.4s cubic-bezier(.2,1.4,.4,1) both}
+.toast div{display:flex;flex-direction:column;font-size:12px}
+.toast b{font-size:14px}
+@keyframes toast{from{opacity:0;transform:translateY(30px) scale(.9)}}
+/* бот */
+.chat{width:340px;max-width:100%;height:500px;border-radius:24px;overflow:hidden;background:#0e1014;border:1px solid #2a2a30;display:flex;flex-direction:column;box-shadow:0 40px 90px -30px rgba(255,59,48,.5);animation:ap .6s cubic-bezier(.2,.7,.2,1) both}
+.chead{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#16181e;border-bottom:1px solid #24262c}
+.chead div{display:flex;flex-direction:column;font-size:12px;color:#8fd18f}
+.chead b{color:#f5f4f2;font-size:15px}
+.cav{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#e8241c;flex:none}
+.cbody{flex:1;display:flex;flex-direction:column;gap:10px;padding:16px;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1.5px);background-size:18px 18px}
+.msg{max-width:78%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.4}
+.msg.me{align-self:flex-end;background:#e8241c;color:#fff;border-bottom-right-radius:4px}
+.msg.bot{align-self:flex-start;background:#1f2229;border-bottom-left-radius:4px}
+.typing{position:absolute;left:0;top:0;display:flex;gap:4px;background:#1f2229;animation:typ 1s both}
+.typing span{width:6px;height:6px;border-radius:50%;background:#a09fa6;animation:blink .6s steps(2) infinite}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes typ{0%{opacity:0}15%,85%{opacity:1}100%{opacity:0}}
+.slots{display:flex;gap:6px;margin-top:10px}
+.slots span{padding:6px 10px;border-radius:10px;border:1px solid #3a3d45;font-size:13px}
+.slots .pick{border-color:#e8241c;color:#ff6a5d}
 
-/* ---------- free offer band ---------- */
-.offer{position:relative;background:var(--fg);color:var(--bg);overflow:hidden}
-.offer .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;padding-block:clamp(48px,6vw,80px)}
-.offer h3{font-size:clamp(30px,4.4vw,60px);line-height:1;letter-spacing:-.04em;font-weight:900}
-.offer p{margin-top:16px;font-size:18px;color:rgba(5,5,5,.66);max-width:560px}
-.offer-cta{position:relative;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.offer .btn{background:var(--bg);color:var(--fg);height:60px;padding:0 34px;font-size:16px}
-.offer .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px -10px rgba(0,0,0,.6)}
-.offer .mono{color:rgba(5,5,5,.5)}
-.offer-big{position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-size:clamp(160px,26vw,420px);font-weight:900;letter-spacing:-.06em;line-height:.8;color:rgba(5,5,5,.05);pointer-events:none}
+/* ---------- почему мы: слайдер красных карточек ---------- */
+.why-nav{display:flex;align-items:center;gap:14px}
+.why-nav span{min-width:64px;color:var(--muted)}
+.arrow{width:52px;height:52px;border-radius:999px;border:1px solid var(--line-2);background:transparent;font-size:20px;cursor:pointer;transition:background .2s,border-color .2s}
+.arrow:hover{border-color:var(--fg)}
+.why-view{overflow:hidden}
+.why-track{display:flex;gap:24px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.why{position:relative;isolation:isolate;overflow:hidden;flex:0 0 min(420px,82vw);min-height:340px;border-radius:24px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;background:var(--plashka);color:#fff;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.why::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.why:hover{transform:translateY(-6px)}
+.why-n{font-weight:900;font-size:72px;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px #fff}
+.why:first-child .why-n{color:#0b0b0d;-webkit-text-stroke:0}
+.why h3{font-size:28px;font-weight:800;letter-spacing:-.03em;margin-bottom:12px}
+.why p{color:rgba(255,255,255,.86)}
+.why-bar{height:2px;background:var(--line);margin-top:32px;overflow:hidden}
+.why-bar i{display:block;height:100%;background:#e8241c;transition:width .6s cubic-bezier(.2,.7,.2,1)}
 
-/* ---------- before / after ---------- */
-.cases-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.tab{background:none;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;font:500 14px var(--sans);cursor:pointer;transition:all .2s}
-.tab:hover{color:var(--fg)}
-.tab.active{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.case{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(20px,3vw,40px);align-items:stretch}
-.ba{position:relative;aspect-ratio:4/3;border:1px solid var(--line-2);overflow:hidden;user-select:none;--pos:50%;background:#111}
-.ba-layer{position:absolute;inset:0}
-.ba-layer>svg,.ba-layer>img{width:100%;height:100%;display:block;object-fit:cover;animation:fadeIn .5s ease}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
-.ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:var(--fg);transform:translateX(-1px);pointer-events:none}
-.ba-knob{position:absolute;top:50%;left:var(--pos);width:54px;height:54px;border-radius:50%;background:var(--fg);color:var(--bg);display:grid;place-items:center;transform:translate(-50%,-50%);pointer-events:none;font-size:18px;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,.5)}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.ba-label{position:absolute;top:16px;padding:6px 12px;background:rgba(5,5,5,.7);backdrop-filter:blur(6px);border:1px solid var(--line-2);border-radius:999px;pointer-events:none;z-index:2}
-.ba-label.l{left:16px}.ba-label.r{right:16px}
-.case-info{border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:24px;background:var(--card)}
-.case-info h3{font-size:clamp(24px,2.4vw,34px);letter-spacing:-.035em;line-height:1.05;font-weight:800}
-.ba-rows{display:flex;flex-direction:column;gap:14px}
-.ba-row{display:grid;grid-template-columns:76px 1fr;gap:14px;padding-bottom:14px;border-bottom:1px dashed var(--line)}
-.ba-row:last-child{border:0;padding:0}
-.ba-row .k{color:var(--faint);padding-top:3px}
-.did{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-.did li{font-size:13px;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;color:rgba(244,244,242,.85)}
-.case-foot{margin-top:auto;display:flex;flex-direction:column;gap:18px;padding-top:20px;border-top:1px dashed var(--line)}
-.case-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.case-meta span{display:block;color:var(--faint);margin-bottom:4px}
-.case-meta b{font-size:24px;letter-spacing:-.03em}
-.case-foot .btn{width:100%}
-.tab-n{font-family:var(--mono);font-size:11px;opacity:.5;margin-right:8px}
-.hint{margin-top:14px;color:var(--faint)}
+/* ---------- по миру ---------- */
+.world-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px}
+.world-head p{max-width:520px;font-weight:700;font-size:24px;line-height:1.2;letter-spacing:-.02em}
+.world-mq{margin:56px 0;padding:8px 0}
+.world-mq .track{gap:.32em;font-weight:900;font-size:clamp(64px,11vw,170px);line-height:1;letter-spacing:-.06em;text-transform:uppercase;white-space:nowrap;animation-duration:38s}
+.world-mq .amp{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.8em;color:var(--red)}
+.clocks{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.clock{padding:28px 24px;display:flex;flex-direction:column;gap:8px;background:var(--card);border-right:1px solid var(--line)}
+.clock:last-child{border-right:0}
+.clock span{color:var(--muted)}
+.clock b{font-size:clamp(40px,4vw,56px);font-weight:300;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
 
-/* ---------- compare ---------- */
-.compare{border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr 1fr}
-.compare > div{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
-.compare .h{padding-block:24px;font-weight:700;font-size:18px}
-.compare .k{color:var(--muted)}
-.compare .old{color:var(--muted);border-left:1px solid var(--line)}
-.compare .new{background:var(--fg);color:var(--bg);font-weight:600}
-.compare .new.h{font-weight:800}
-.compare > div:nth-last-child(-n+3){border-bottom:0}
-.compare .x{color:var(--faint);font-weight:700}
-
-/* ---------- process ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{position:relative;border:1px solid var(--line);padding:32px;min-height:260px;display:flex;flex-direction:column;background:var(--card)}
-.step-n{font-size:84px;font-weight:900;letter-spacing:-.06em;line-height:1;color:rgba(244,244,242,.08)}
-.step h4{font-size:24px;letter-spacing:-.03em;margin:auto 0 10px;font-weight:700}
+/* ---------- процесс ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.step{display:flex;flex-direction:column;gap:14px}
+.step-n{font-weight:900;font-size:110px;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.step:last-child .step-n{color:var(--red);-webkit-text-stroke:0}
+.step h3{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-top:10px}
 .step p{color:var(--muted)}
-.step .free{position:absolute;top:28px;right:28px;background:var(--fg);color:var(--bg);border-radius:999px;padding:5px 12px;font-weight:600}
 
-/* ---------- packages ---------- */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;padding-top:12px}
-.plan{border:1px solid var(--line);padding:38px 32px 32px;display:flex;flex-direction:column;gap:20px;position:relative}
-.plan.hot{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.plan.hot .muted,.plan.hot li{color:rgba(5,5,5,.7)}
-.plan.hot li::before{background:var(--bg)}
-.plan.hot .price small,.plan.hot .was{color:rgba(5,5,5,.45)}
-.plan-badge{position:absolute;top:-13px;left:32px;background:var(--bg);color:var(--fg);border:1px solid var(--fg);border-radius:999px;padding:4px 12px}
-.plan-sale{position:absolute;top:22px;right:22px;border:1px solid currentColor;border-radius:999px;padding:4px 10px;font-weight:600;opacity:.8}
-.plan h3{font-size:30px;letter-spacing:-.035em;font-weight:800}
-.plan .price{font-size:42px}
-.was{color:var(--faint);text-decoration:line-through;font-size:16px;font-weight:500;display:block;margin-bottom:2px}
-.plan ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px}
-.plan li{position:relative;padding-left:22px;color:rgba(244,244,242,.8)}
-.plan li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1.5px;background:var(--fg)}
-.plan .btn{margin-top:auto}
-.plan.hot .btn-solid{background:var(--bg);color:var(--fg)}
-.plans-note{margin-top:28px;color:var(--faint);text-align:center}
-
-/* ---------- guarantees ---------- */
+/* ---------- гарантии ---------- */
 .guar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gu{border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px}
-.gu i{font-style:normal;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:18px}
-.gu b{font-size:19px;letter-spacing:-.02em}
-.gu span{color:var(--muted);font-size:15px}
+.gu{position:relative;isolation:isolate;overflow:hidden;min-height:270px;padding:32px 30px;border:1px solid var(--line);border-radius:20px;background:var(--card);display:flex;flex-direction:column;gap:12px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s,color .3s}
+.gu::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .35s;background:var(--plashka)}
+.gu:hover{transform:translateY(-6px);border-color:transparent;color:#fff}
+.gu:hover::before{opacity:1}
+.gu i{font-style:normal;width:52px;height:52px;margin-bottom:auto;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--red);font-weight:700;transition:background .3s,color .3s,border-color .3s}
+.gu:hover i{background:#0b0b0d;border-color:#0b0b0d;color:#fff}
+.gu b{font-size:22px;font-weight:800;letter-spacing:-.03em;margin-top:28px}
+.gu span{color:var(--muted);font-size:15px;transition:color .3s}
+.gu:hover span{color:rgba(255,255,255,.86)}
 
-/* ---------- founder ---------- */
-.founder{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(24px,5vw,80px);align-items:center}
-.portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line-2);background:radial-gradient(circle at 50% 35%,#2a2a2a,#0c0c0c 70%);display:grid;place-items:center;overflow:hidden}
-.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 30%}
-.portrait::after{content:"";position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,rgba(5,5,5,.85));pointer-events:none}
-.portrait .cap{z-index:1;position:absolute;left:18px;bottom:18px;right:18px;display:flex;justify-content:space-between;color:var(--muted)}
-.founder blockquote{font-size:clamp(22px,2.6vw,36px);line-height:1.18;letter-spacing:-.03em;font-weight:600}
-.founder blockquote span{color:var(--muted)}
-.timeline{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.timeline div{padding:18px 16px 0 0}
-.timeline b{display:block;font-size:22px;letter-spacing:-.03em}
-.timeline small{color:var(--muted);font-size:13px;line-height:1.4;display:block;margin-top:4px}
-.marks::before{content:"";position:absolute;z-index:2;width:14px;height:14px;border-color:var(--faint);border-style:solid}
-.marks::before{top:-8px;left:-8px;border-width:1px 0 0 1px}
-.marks{overflow:visible}
-
-
-/* ---------- faq ---------- */
+/* ---------- FAQ ---------- */
 .faq{border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;font-size:clamp(18px,1.8vw,23px);font-weight:600;letter-spacing:-.02em}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:28px 0;font-size:clamp(19px,1.8vw,24px);font-weight:700;letter-spacing:-.02em;transition:color .2s}
+.faq summary:hover{color:var(--red)}
 .faq summary::-webkit-details-marker{display:none}
-.faq .pm{flex:none;width:38px;height:38px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;transition:transform .3s,background .3s,color .3s;font-size:20px;font-weight:300}
-.faq details[open] .pm{transform:rotate(45deg);background:var(--fg);color:var(--bg)}
-.faq details p{padding:0 60px 26px 0;color:var(--muted);max-width:820px}
+.faq summary .n{width:28px;font-family:var(--mono);font-size:12px;color:var(--red);font-weight:400}
+.faq summary .q{flex:1}
+.faq .pm{flex:none;width:44px;height:44px;border:1px solid var(--line-2);border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:300;color:var(--fg);transition:transform .35s,background .3s,border-color .3s,color .3s}
+.faq details[open] .pm{transform:rotate(45deg);background:#e8241c;border-color:#e8241c;color:#fff}
+.faq details p{padding:0 72px 28px 44px;color:var(--muted);max-width:860px;font-size:17px}
 
-/* ---------- final cta ---------- */
-.final{position:relative;text-align:center;padding:clamp(90px,13vw,170px) 0;overflow:hidden;border-top:1px solid var(--line)}
-.final h2{position:relative;font-size:clamp(40px,8.5vw,128px);line-height:.95;letter-spacing:-.04em;font-weight:900}
-.final p{position:relative;color:var(--muted);font-size:18px;max-width:580px;margin:28px auto 36px}
-.final .btn{position:relative;height:62px;padding:0 36px;font-size:16px}
-.final .note{position:relative;margin-top:18px;color:var(--faint)}
-.final .consent{max-width:620px;margin:22px auto 0;color:var(--faint);font-size:12px;line-height:1.5}
+/* ---------- финальная плашка ---------- */
+.cta{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:var(--plashka);color:#fff;padding:56px 48px 40px;display:flex;flex-direction:column;gap:48px;box-shadow:0 40px 120px -30px rgba(255,59,48,.55)}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.cta-mark{position:absolute;right:48px;top:48px;width:300px;height:240px;opacity:.16;z-index:-1}
+.cta-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:#0b0b0d}
+.cta-link{display:flex;align-items:center;gap:.12em;font-weight:900;font-size:clamp(56px,11.5vw,176px);line-height:.82;letter-spacing:-.065em;text-transform:uppercase}
+.cta-link .arr{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.cta-link:hover .arr{transform:translate(.08em,-.08em)}
+.cta-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.35);font-weight:500}
+.consent{max-width:640px;margin-top:20px;color:var(--faint);font-size:12px;line-height:1.5}
 
-footer{border-top:1px solid var(--line);padding:40px 0 48px;color:var(--muted);font-size:14px}
-.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-.foot a:hover{color:var(--fg)}
-.foot-links{display:flex;gap:24px;flex-wrap:wrap}
-.legal{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--faint);line-height:1.6}
-.legal b{color:var(--muted);font-weight:600}
+/* ---------- подвал ---------- */
+footer{padding:48px 0 56px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px 28px}
+.foot-links a{transition:color .2s}
+.foot-links a:hover{color:var(--red)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:28px;font-size:14px;line-height:1.6;color:var(--muted)}
+.legal b{color:var(--fg);font-weight:600}
+.legal a{text-decoration:underline;text-underline-offset:3px}
+.legal .mono{font-size:11px;max-width:420px;text-align:right;line-height:1.7}
 
-/* ---------- sticky mobile CTA ---------- */
+/* ---------- плавающая кнопка на телефоне ---------- */
 .sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none;transform:translateY(130%);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .sticky.show{transform:none}
-.sticky .btn{width:100%;height:56px;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.sticky .btn{width:100%;height:56px}
 
-/* ---------- custom cursor (только мышь) ---------- */
+/* ---------- курсор (только мышь) ---------- */
 html.has-cursor,html.has-cursor *{cursor:none!important}
 .cur-cross,.cur-frame{position:fixed;left:0;top:0;pointer-events:none;mix-blend-mode:difference;opacity:0;transition:opacity .3s;will-change:transform}
 html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
@@ -303,100 +387,98 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 .cur-frame.big i{width:14px;height:14px}
 .cur-frame.press{width:30px;height:30px;margin:-15px 0 0 -15px}
 .cur-frame.big.press{width:62px;height:62px;margin:-31px 0 0 -31px}
-.glow{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 
-/* ---------- reveal ---------- */
+/* ---------- появление при прокрутке ---------- */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.brand .ch,.brand-rule,.brand-meta{animation:none;transform:none;opacity:1}.rv{opacity:1;transform:none;transition:none}.track{animation:none}.dot{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){
+  .brand .ch,.brand-rule,.brand-meta{animation:none;transform:none;opacity:1}
+  .rv{opacity:1;transform:none;transition:none}
+  .track,.scan,.rec,.svc-item.act .svc-fill,#globe{animation:none}
+  html{scroll-behavior:auto}
+}
 
-/* ---------- responsive ---------- */
+/* ---------- адаптив ---------- */
 @media (max-width:1100px){
   .nav-links{display:none}
   .hero-bottom{grid-template-columns:1fr}
   .hero-cta{justify-content:flex-start}
   .hero-cta-note{text-align:left}
-  .case{grid-template-columns:1fr}
-  .plans{grid-template-columns:1fr;max-width:560px}
-  .founder{grid-template-columns:1fr}
-  .portrait{max-width:420px;aspect-ratio:1}
   .guar{grid-template-columns:repeat(2,1fr)}
-  .offer .wrap{grid-template-columns:1fr}
-  .offer-cta{align-items:flex-start}
+  .clocks{grid-template-columns:repeat(2,1fr)}
+  .clock:nth-child(2){border-right:0}
+  .clock:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width:760px){
-  .logo{font-size:18px}
-  .sec-head{grid-template-columns:1fr;gap:12px;margin-bottom:36px}
-  .services{grid-template-columns:1fr}
-  .svc{min-height:0}
-  .steps{grid-template-columns:1fr}
-  .step{min-height:200px}
+  .logo{font-size:17px}
+  .nav .btn{display:none}
   .coords{display:none}
-  .stats{grid-template-columns:repeat(2,1fr);row-gap:20px}
-  .timeline{grid-template-columns:repeat(2,1fr);row-gap:18px}
-  .faq details p{padding-right:0}
-  .ba-label{top:8px;padding:3px 8px;font-size:10px}
-  .ba-label.l{left:8px}.ba-label.r{right:8px}
-  .ba-knob{width:44px;height:44px;font-size:16px}
-  .compare{grid-template-columns:1fr 1fr}
-  .compare .k{grid-column:1/-1;border-bottom:0;padding-bottom:4px;padding-top:16px;font-size:13px}
-  .compare .h.k{display:none}
-  .compare .old{border-left:0}
+  .stats{grid-template-columns:repeat(2,1fr);row-gap:24px}
+  .stage{min-height:600px}
+  .scene{inset:44px 12px 12px}
+  .steps{grid-template-columns:1fr;gap:32px}
   .guar{grid-template-columns:1fr}
+  .faq details p{padding:0 0 24px 44px}
+  .cta{padding:40px 24px 28px;gap:36px}
+  .cta-mark{display:none}
+  .legal .mono{text-align:left}
   .sticky{display:block}
   footer{padding-bottom:96px}
-  .promo{font-size:12px}
-  .promo a{display:none}
 }
 @media (max-width:440px){
-  .nav .btn{display:none}
   .btn{height:52px;padding:0 22px}
-  .hero-cta .btn{flex:1}
-  .offer .btn{width:100%}
+  .hero-cta .btn{flex:1;height:58px;padding:0 20px;font-size:15px}
+  .clocks{grid-template-columns:1fr 1fr}
+  .clock{padding:20px 16px}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="promo"><span data-i="promo">✦ <b>Launch pricing</b> for our first 10 clients — up to 50% off</span><a href="#plans" data-i="promoLink">See pricing</a></div>
   <div class="wrap nav">
-    <a href="#" class="logo" aria-label="arhitector-ai.ru">arhitector<span>-ai.ru</span></a>
-    <nav class="nav-links">
-      <a href="#services" data-i="navServices">Services</a>
-      <a href="#cases" data-i="navCases">Before / After</a>
-      <a href="#plans" data-i="navPlans">Pricing</a>
-      <a href="#faq" data-i="navFaq">FAQ</a>
+    <a href="#" class="logo" aria-label="ARHITECTOR AI — arhitector-ai.ru">
+      <svg aria-hidden="true" width="30" height="24" viewBox="0 0 50 40"><g fill="#ff3b30"><rect x="20" y="0" width="10" height="10"></rect><rect x="10" y="10" width="10" height="10"></rect><rect x="30" y="10" width="10" height="10"></rect><rect x="0" y="20" width="10" height="10"></rect><rect x="40" y="20" width="10" height="10"></rect><rect x="0" y="30" width="10" height="10"></rect><rect x="20" y="30" width="10" height="10"></rect><rect x="40" y="30" width="10" height="10"></rect></g></svg>
+      ARHITECTOR AI
+    </a>
+    <nav class="nav-links mono">
+      <a href="#services" data-i="navServices">/Services</a>
+      <a href="#why" data-i="navWhy">/Why us</a>
+      <a href="#world" data-i="navWorld">/Worldwide</a>
+      <a href="#faq" data-i="navFaq">/FAQ</a>
     </nav>
     <div class="nav-right">
+      <button class="theme" type="button" id="theme" role="switch" aria-checked="false" data-i-label="themeL" aria-label="Light theme"><span></span></button>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="ru">RU</button>
         <button type="button" data-lang="en" class="on">EN</button>
       </div>
-      <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener" data-i="navCta">Let's talk</a>
+      <a class="btn btn-red tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="navCta">Get in touch</span> ↪</a>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- ================= HERO ================= -->
+  <!-- ================= ПЕРВЫЙ ЭКРАН ================= -->
   <section class="hero">
-    <div class="grid-bg"></div>
-    <div class="glow"></div>
+    <div class="layer grid-bg"></div>
+    <div class="layer glow"></div>
+    <div class="layer" style="overflow:hidden"><div class="scan"></div></div>
+    <div class="globe-wrap"><canvas id="globe" role="img" data-i-label="globeL" aria-label="Dotted globe, drag to rotate"></canvas></div>
     <div class="wrap">
       <div class="hero-top">
-        <div class="hero-tag mono"><i class="dot"></i><span data-i="heroTag">AI solutions agency · Worldwide</span></div>
+        <div class="hero-tag mono"><span class="sq"></span><span data-i="heroTag">AI solutions agency · Worldwide</span></div>
         <div class="coords mono" data-i="coords">Video · Creatives<br>Websites · Bots<br>Automation</div>
       </div>
       <h1 class="brand" aria-label="ARHITECTOR AI">
         <span class="brand-row" aria-hidden="true"><span class="ch" style="--i:0">A</span><span class="ch" style="--i:1">R</span><span class="ch" style="--i:2">H</span><span class="ch" style="--i:3">I</span><span class="ch" style="--i:4">T</span><span class="ch" style="--i:5">E</span><span class="ch" style="--i:6">C</span><span class="ch" style="--i:7">T</span><span class="ch" style="--i:8">O</span><span class="ch" style="--i:9">R</span></span>
-        <span class="brand-row brand-row2" aria-hidden="true"><span><span class="ch g" style="--i:10">A</span><span class="ch g" style="--i:11">I</span></span><span class="brand-rule"></span><span class="brand-meta mono" data-i="brandMeta"><b>Full-cycle</b><br>AI agency · est. 2026</span></span>
+        <span class="brand-row brand-row2" aria-hidden="true"><span><span class="ch redtext" style="--i:10">A</span><span class="ch redtext" style="--i:11">I</span></span><span class="brand-rule"></span><span class="brand-meta mono" data-i="brandMeta"><b>Full-cycle</b><br>AI agency · est. 2026</span></span>
       </h1>
       <div class="hero-bottom">
-        <p class="hero-lead rv" data-i="heroLead">We create AI ad videos, creatives, websites and AI bots that <em>bring you clients — faster and cheaper than traditional production.</em></p>
+        <p class="hero-lead rv" data-i="heroLead">We create AI ad videos, creatives, websites and AI bots that <b>bring you clients</b> <em>— faster and cheaper than traditional production.</em></p>
         <div class="hero-cta rv">
-          <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta">Get a free creative</span> <span class="arr">↗</span></a>
-          <a class="btn btn-ghost" href="#cases" data-i="heroCta2">See Before / After</a>
+          <a class="btn btn-red tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta">Get a free creative</span> <span class="arr">↗</span></a>
+          <a class="btn btn-ghost" href="#services" data-i="heroCta2">Services &amp; pricing</a>
           <div class="hero-cta-note mono" data-i="heroNote">Reply on Telegram within 1 hour</div>
         </div>
       </div>
@@ -409,287 +491,157 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     </div>
   </section>
 
-  <!-- ================= MARQUEE ================= -->
-  <div class="marquee" aria-hidden="true"><div class="track" id="track"><span>AI ad videos</span><span>Creatives</span><span>Turnkey websites</span><span>AI automation</span><span>Telegram AI bots</span><span>AI ad videos</span><span>Creatives</span><span>Turnkey websites</span><span>AI automation</span><span>Telegram AI bots</span></div></div>
+  <div class="marquee mq-wrap mono" aria-hidden="true"><div class="track" id="track"><span>AI videos</span><span>Marketplace creatives</span><span>Turnkey websites</span><span>Telegram AI bots</span><span>Automation</span><span>EN / RU</span><span>$ / ₽</span><span>AI videos</span><span>Marketplace creatives</span><span>Turnkey websites</span><span>Telegram AI bots</span><span>Automation</span><span>EN / RU</span><span>$ / ₽</span></div></div>
 
-  <!-- ================= SERVICES ================= -->
+  <!-- ================= УСЛУГИ ================= -->
   <section class="block" id="services">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec1">01 / Services</div>
-        <div><h2 data-i="svcH">Four services.<br><span class="o">One goal —</span> sales.</h2><p data-i="svcP">We own the whole task, from idea and script to launch. Each service works on its own or together.</p></div>
+        <div><span class="sec-tag mono" data-i="sec1">/Services</span><h2 data-i="svcH">Four services.<br><span class="serif">one goal — sales</span></h2></div>
+        <p data-i="svcP">Launch pricing for our first clients. 50/50 payment, official receipts.</p>
       </div>
-      <div class="services" id="services-grid">
-    <article class="svc">
-      <div class="svc-top"><span class="svc-num">/01</span><span class="svc-icon" aria-hidden="true">▶</span></div>
-      <h3>AI ad<br>videos</h3><p>Videos for paid ads, Reels and marketplaces with no film crew. Script, generation, editing, sound.</p>
-      <ul><li>Reels / Shorts</li><li>Product videos</li><li>Brand films</li><li>Photo animation</li></ul>
-      
-      <div class="svc-foot">
-        <div><div class="price"><small>from</small>$49</div><div class="term mono">from 2 days</div></div>
-        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="svc-top"><span class="svc-num">/02</span><span class="svc-icon" aria-hidden="true">◐</span></div>
-      <h3>Ad<br>creatives</h3><p>Batches of creatives for testing: banners, social visuals, product cards. Dozens of options instead of one.</p>
-      <ul><li>Paid social</li><li>Marketplace cards</li><li>Social media</li><li>AI product shots</li></ul>
-      
-      <div class="svc-foot">
-        <div><div class="price"><small>from</small>$15</div><div class="term mono">from 24 hours</div></div>
-        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="svc-top"><span class="svc-num">/03</span><span class="svc-icon" aria-hidden="true">⌘</span></div>
-      <h3>Turnkey<br>websites</h3><p>Landing pages and websites that sell: structure, copy, design, development, lead capture and analytics.</p>
-      <ul><li>Landing pages</li><li>Service websites</li><li>Catalogs</li><li>Leads to Telegram / CRM</li></ul>
-      
-      <div class="svc-foot">
-        <div><div class="price"><small>from</small>$99</div><div class="term mono">from 5 days</div></div>
-        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="svc-top"><span class="svc-num">/04</span><span class="svc-icon" aria-hidden="true">✦</span></div>
-      <h3>AI bots &amp;<br>automation</h3><p>Telegram AI bots that answer clients 24/7, capture leads and book appointments. Plus automation of routine work: leads, CRM, reports.</p>
-      <ul><li>Telegram AI bots</li><li>Knowledge-base answers</li><li>CRM &amp; sheets</li><li>n8n / Make</li></ul>
-      
-      <div class="svc-foot">
-        <div><div class="price"><small>from</small>$69</div><div class="term mono">from 5 days</div></div>
-        <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
-      </div>
-    </article></div>
-    </div>
-  </section>
-
-  <!-- ================= FREE OFFER ================= -->
-  <section class="offer">
-    <div class="offer-big" aria-hidden="true">0</div>
-    <div class="wrap">
-      <div class="rv">
-        <div class="mono" data-i="offerTag">Zero risk · for new clients</div>
-        <h3 style="margin-top:14px" data-i="offerH">Your first creative<br>is free</h3>
-        <p data-i="offerP">Send a product photo or describe your business — we'll make a test creative so you see the quality before paying.</p>
-      </div>
-      <div class="offer-cta rv">
-        <a class="btn tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="offerCta">Claim a free creative</span> <span class="arr">↗</span></a>
-        <span class="mono" data-i="offerNote">No prepayment · no commitment</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= BEFORE / AFTER ================= -->
-  <section class="block" id="cases">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec2">02 / Cases</div>
-        <div><h2 data-i="casesH">Before <span class="o">/</span> After</h2><p data-i="casesP">Drag the slider: left is the usual, right is how we do it.</p></div>
-      </div>
-      <div class="cases-tabs rv" role="tablist" id="tabs"><button class="tab active" type="button" role="tab" aria-selected="true"><span class="tab-n">01</span>Creatives</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">02</span>Video</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">03</span>Website</button><button class="tab" type="button" role="tab" aria-selected="false"><span class="tab-n">04</span>AI bot</button></div>
-      <div class="case rv">
-        <div>
-          <div class="ba" id="ba" style="--pos: 50%;">
-            <div class="ba-layer" id="baAfter"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img">
-    <defs>
-      <radialGradient id="s0aenbg" cx=".55" cy=".45" r=".8"><stop offset="0" stop-color="#ffcf7a"></stop><stop offset=".35" stop-color="#e0761c"></stop><stop offset=".72" stop-color="#5a1f06"></stop><stop offset="1" stop-color="#1c0902"></stop></radialGradient>
-      <linearGradient id="s0aenglass" x1="0" x2="1"><stop offset="0" stop-color="#5a2806"></stop><stop offset=".25" stop-color="#c86d14"></stop><stop offset=".45" stop-color="#ffc463"></stop><stop offset=".55" stop-color="#ffe2a3"></stop><stop offset=".75" stop-color="#d17a1a"></stop><stop offset="1" stop-color="#4a2005"></stop></linearGradient>
-      <linearGradient id="s0aengold" x1="0" x2="1"><stop offset="0" stop-color="#8a6420"></stop><stop offset=".3" stop-color="#f7e3a1"></stop><stop offset=".55" stop-color="#b8862b"></stop><stop offset=".8" stop-color="#f2d58a"></stop><stop offset="1" stop-color="#8a6420"></stop></linearGradient>
-      <linearGradient id="s0aenpod" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e2c7"></stop><stop offset="1" stop-color="#9c6d3c"></stop></linearGradient>
-      <radialGradient id="s0aenglow"><stop offset="0" stop-color="#fff" stop-opacity=".7"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></radialGradient>
-    </defs>
-    <rect width="800" height="600" fill="url(#s0aenbg)"></rect>
-    <circle cx="400" cy="300" r="230" fill="url(#s0aenglow)" opacity=".55"></circle>
-    <ellipse cx="400" cy="500" rx="200" ry="30" fill="#1c0902" opacity=".5"></ellipse>
-    <rect x="230" y="430" width="340" height="60" fill="url(#s0aenpod)"></rect>
-    <ellipse cx="400" cy="490" rx="170" ry="24" fill="#9c6d3c"></ellipse>
-    <ellipse cx="400" cy="430" rx="170" ry="24" fill="#f8ead3"></ellipse>
-    <ellipse cx="400" cy="432" rx="80" ry="8" fill="#c79a62" opacity=".5"></ellipse>
-    
-  <rect x="370" y="182" width="60" height="52" rx="6" fill="url(#s0aengold)"></rect>
-  <rect x="386" y="232" width="28" height="24" fill="url(#s0aengold)"></rect>
-  <rect x="332" y="252" width="136" height="180" rx="20" fill="url(#s0aenglass)"></rect>
-  <rect x="348" y="268" width="12" height="148" rx="6" fill="#fff" opacity=".55"></rect><rect x="446" y="282" width="5" height="120" rx="2.5" fill="#fff" opacity=".3"></rect>
-  <rect x="356" y="316" width="88" height="62" rx="3" fill="#140904"></rect>
-  <text x="400" y="348" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#f2d58a">AURA</text>
-  <text x="400" y="365" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-size="7" letter-spacing="2" fill="#e9c77a">EAU DE PARFUM</text>
-    <g fill="none" stroke="#fff" stroke-opacity=".55"><circle cx="292" cy="228" r="9"></circle><circle cx="508" cy="196" r="5"></circle><circle cx="520" cy="300" r="11"></circle><circle cx="276" cy="338" r="4"></circle><circle cx="470" cy="150" r="6"></circle></g>
-    <path d="M300 150l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#fff" opacity=".8"></path>
-    <rect x="560" y="74" width="158" height="34" rx="17" fill="#140904"></rect>
-    <text x="639" y="96" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-weight="700" font-size="13" letter-spacing="1.5" fill="#fff">BESTSELLER</text>
-    <text x="560" y="172" font-family="Georgia,serif" font-size="56" fill="#fff">AURA</text>
-    <text x="562" y="214" font-family="Georgia,serif" font-style="italic" font-size="36" fill="#ffd9a0">No.5</text>
-    <text font-family="'Inter Tight',Arial,sans-serif" font-size="17" fill="#fff" opacity=".88"><tspan x="562" y="252">A scent people</tspan><tspan x="562" y="274">remember</tspan></text>
-    <circle cx="690" cy="342" r="44" fill="#fff"></circle>
-    <text x="690" y="351" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-weight="900" font-size="25" fill="#140904">−30%</text>
-    <rect x="470" y="512" width="300" height="60" rx="14" fill="#140904" opacity=".72"></rect>
-    <g font-family="'Inter Tight',Arial,sans-serif" fill="#fff" text-anchor="middle">
-      <text x="520" y="539" font-weight="800" font-size="15">100 ml</text><text x="520" y="557" font-size="10" opacity=".65">volume</text>
-      <text x="620" y="539" font-weight="800" font-size="15">12 h</text><text x="620" y="557" font-size="10" opacity=".65">lasting</text>
-      <text x="720" y="539" font-weight="800" font-size="15">1 day</text><text x="720" y="557" font-size="10" opacity=".65">delivery</text>
-    </g></svg></div>
-            <div class="ba-layer ba-before" id="baBefore"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img">
-    <defs><linearGradient id="s0benw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc9bf"></stop><stop offset="1" stop-color="#b3aca0"></stop></linearGradient><filter id="s0bengr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter></defs>
-    <rect width="800" height="600" fill="url(#s0benw)"></rect>
-    <rect y="410" width="800" height="190" fill="#a39a8c"></rect>
-    <path d="M0 410H800" stroke="#8d8477" stroke-width="2"></path>
-    <rect x="90" y="330" width="70" height="85" rx="8" fill="#8f8a83"></rect><path d="M160 350q30 0 30 25t-30 25" fill="none" stroke="#8f8a83" stroke-width="10"></path>
-    <path d="M560 600C600 520 700 560 760 470" stroke="#55514b" stroke-width="5" fill="none"></path>
-    <ellipse cx="425" cy="438" rx="95" ry="14" fill="#6f675c" opacity=".55"></ellipse>
-    <g transform="rotate(-4 400 340)">
-  <rect x="370" y="182" width="60" height="52" rx="6" fill="#4d4b48"></rect>
-  <rect x="386" y="232" width="28" height="24" fill="#9a958c"></rect>
-  <rect x="332" y="252" width="136" height="180" rx="20" fill="#c4b49a"></rect>
-  <ellipse cx="364" cy="300" rx="9" ry="26" fill="#fff" opacity=".4"></ellipse>
-  <rect x="356" y="316" width="88" height="62" rx="3" fill="#ece8e0"></rect>
-  <text x="400" y="348" text-anchor="middle" font-family="Georgia,serif" font-size="22" fill="#8a857c">AURA</text>
-  <text x="400" y="365" text-anchor="middle" font-family="'Inter Tight',Arial,sans-serif" font-size="7" letter-spacing="2" fill="#a5a097">EAU DE PARFUM</text></g>
-    <rect width="800" height="600" fill="#7d8ea3" opacity=".14"></rect>
-    <rect width="800" height="600" filter="url(#s0bengr)" opacity="0.1"></rect></svg></div>
-            <span class="ba-label l mono" data-i="before">Before</span>
-            <span class="ba-label r mono" data-i="after">After</span>
-            <div class="ba-line"></div>
-            <div class="ba-knob" aria-hidden="true">⇆</div>
-            <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Before / After">
-          </div>
-          <div class="hint mono" data-i="hint">← drag the slider →</div>
+      <div class="svc-layout">
+        <div class="svc-list" id="svc-list">
+    <div class="svc-item act">
+      <button type="button" class="svc-tab" aria-expanded="true" data-svc="0"><span class="svc-num">01</span><span class="svc-title">AI videos</span><span class="svc-arr" aria-hidden="true">→</span></button>
+      <div class="svc-body"><div><div class="svc-in">
+        <p>Videos for Reels, Shorts and marketplaces — with no film crew or actors.</p>
+        <ul class="chips"><li>Script &amp; hook</li><li>AI generation</li><li>Editing &amp; sound</li><li>9:16 and 1:1</li></ul>
+        <div class="svc-price">
+          <div><b class="redtext"><small>from</small>$49</b> <span class="mono muted">from 2 days</span></div>
+          <a class="svc-more mono tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
         </div>
-        <div class="case-info">
-          <div class="mono muted" id="caseTag">Creatives · demo</div>
-          <h3 id="caseTitle">Perfume card for a marketplace</h3>
-          <div class="ba-rows">
-            <div class="ba-row"><span class="k mono" data-i="was">Before</span><span id="caseBefore">Phone photo: dull colours, harsh flash, a mug and a cable in the shot.</span></div>
-            <div class="ba-row"><span class="k mono" data-i="now">After</span><span id="caseAfter">AI studio shot: warm light, podium, glass highlights, key benefit and infographics.</span></div>
-          </div>
-          <ul class="did" id="caseDid"><li>AI product shot</li><li>Infographics</li><li>10 test variants</li></ul>
-          <div class="case-foot">
-            <div class="case-meta">
-              <div><span class="mono" data-i="caseTimeL">Timeline</span><b id="caseTime">24 hours</b></div>
-              <div><span class="mono" data-i="casePriceL">Price</span><b id="casePrice">from $15</b></div>
-            </div>
-            <a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="caseCta">I want this</span> <span class="arr">↗</span></a>
-          </div>
+      </div></div></div>
+      <span class="svc-fill"></span>
+    </div>
+    <div class="svc-item">
+      <button type="button" class="svc-tab" aria-expanded="false" data-svc="1"><span class="svc-num">02</span><span class="svc-title">Creatives</span><span class="svc-arr" aria-hidden="true">→</span></button>
+      <div class="svc-body"><div><div class="svc-in">
+        <p>Marketplace cards, banners and infographics — ten variants to test.</p>
+        <ul class="chips"><li>AI product shots</li><li>Infographics</li><li>10 variants</li></ul>
+        <div class="svc-price">
+          <div><b class="redtext"><small>from</small>$15</b> <span class="mono muted">from 24 hours</span></div>
+          <a class="svc-more mono tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
+        </div>
+      </div></div></div>
+      <span class="svc-fill"></span>
+    </div>
+    <div class="svc-item">
+      <button type="button" class="svc-tab" aria-expanded="false" data-svc="2"><span class="svc-num">03</span><span class="svc-title">Turnkey website</span><span class="svc-arr" aria-hidden="true">→</span></button>
+      <div class="svc-body"><div><div class="svc-in">
+        <p>A landing page with your offer, prices and leads sent to Telegram — in a few days.</p>
+        <ul class="chips"><li>Structure &amp; copy</li><li>Design</li><li>Mobile-ready</li><li>Leads to Telegram</li></ul>
+        <div class="svc-price">
+          <div><b class="redtext"><small>from</small>$99</b> <span class="mono muted">from 5 days</span></div>
+          <a class="svc-more mono tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
+        </div>
+      </div></div></div>
+      <span class="svc-fill"></span>
+    </div>
+    <div class="svc-item">
+      <button type="button" class="svc-tab" aria-expanded="false" data-svc="3"><span class="svc-num">04</span><span class="svc-title">Telegram AI bots</span><span class="svc-arr" aria-hidden="true">→</span></button>
+      <div class="svc-body"><div><div class="svc-in">
+        <p>They answer clients in seconds, book appointments and pass tricky questions to you.</p>
+        <ul class="chips"><li>Price-list answers</li><li>Online booking</li><li>Reminders</li><li>Hand-off to manager</li></ul>
+        <div class="svc-price">
+          <div><b class="redtext"><small>from</small>$69</b> <span class="mono muted">from 5 days</span></div>
+          <a class="svc-more mono tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Order ↗</a>
+        </div>
+      </div></div></div>
+      <span class="svc-fill"></span>
+    </div></div>
+        <div class="stage">
+          <div class="layer grid-bg"></div>
+          <div class="layer glow"></div>
+          <span class="coord mono" style="left:20px" id="stage-label">/Example · AI videos</span>
+          <span class="coord mono" style="right:20px"><span class="rec"></span>LIVE</span>
+          <div id="scene"><div class="scene">
+    <div class="phone"><div class="screen">
+      <div class="vid-bar"><span></span></div>
+      <span class="vid-line" style="top:30%;animation-delay:.2s"></span><span class="vid-line" style="top:46%;animation-delay:.9s"></span><span class="vid-line" style="top:62%;animation-delay:1.5s"></span>
+      <div class="vid-shoe"></div>
+      <div class="vid-hook">RUN<br>FASTER</div>
+      <div class="vid-offer">−20%</div>
+      <div class="vid-cta">Buy now →</div>
+    </div></div>
+    <div class="glass" style="width:260px">
+      <div class="tl-head mono"><span>/Editing</span><span>00:15</span></div>
+      <div class="tracks">
+        <div class="trk"><span class="mono">Video</span><div><i style="left:0;width:34%"></i><i style="left:36%;width:28%"></i><i style="left:66%;width:34%"></i></div></div>
+        <div class="trk"><span class="mono">Audio</span><div><i class="snd" style="left:0;width:100%"></i></div></div>
+        <div class="trk"><span class="mono">Text</span><div><i class="txt" style="left:8%;width:22%"></i><i class="txt" style="left:58%;width:30%"></i></div></div>
+        <span class="playhead"></span>
+      </div>
+      <div class="chips"><span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">Subtitles</span></div>
+    </div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= COMPARE ================= -->
-  <section class="block tight">
+  <!-- ================= ПОЧЕМУ МЫ ================= -->
+  <section class="block tight" id="why">
     <div class="wrap">
       <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec3">03 / Compare</div>
-        <div><h2 data-i="cmpH">Why <span class="o">AI production</span></h2><p data-i="cmpP">The same ad results — without shoots, studios or weeks of waiting.</p></div>
+        <div><span class="sec-tag mono" data-i="sec2">/Why us</span><h2 data-i="whyH">Results —<br><span class="serif">before you pay</span></h2></div>
+        <div class="why-nav">
+          <span class="mono" id="why-count">01 / 05</span>
+          <button class="arrow" type="button" id="why-prev" data-i-label="prevL" aria-label="Previous reason">←</button>
+          <button class="arrow" type="button" id="why-next" data-i-label="nextL" aria-label="Next reason">→</button>
+        </div>
       </div>
-      <div class="compare rv" id="compare"><div class="h k"></div><div class="h old">Traditional production</div><div class="h new">ARHITECTOR AI</div><div class="k">Turnaround</div><div class="old"><span class="x">✕</span>2–4 weeks</div><div class="new">✓ from 24 hours</div><div class="k">Budget</div><div class="old"><span class="x">✕</span>shoot, crew, locations</div><div class="new">✓ several times cheaper</div><div class="k">Variants to test</div><div class="old"><span class="x">✕</span>1–2</div><div class="new">✓ dozens</div><div class="k">Revisions</div><div class="old"><span class="x">✕</span>slow and costly</div><div class="new">✓ fast, included</div><div class="k">Languages</div><div class="old"><span class="x">✕</span>usually one</div><div class="new">✓ EN / RU and more</div></div>
+      <div class="why-view rv"><div class="why-track" id="why-track" style="transform: translateX(calc(0 * (min(420px, 82vw) + 24px)));"><article class="why"><span class="why-n">01</span><div><h3>We show first</h3><p>Your first creative is free. You only pay if you like it.</p></div></article><article class="why"><span class="why-n">02</span><div><h3>Faster than production</h3><p>AI instead of a shoot day: creatives from 24 hours, videos from 2 days.</p></div></article><article class="why"><span class="why-n">03</span><div><h3>No middlemen</h3><p>You talk directly to the founder — no account managers.</p></div></article><article class="why"><span class="why-n">04</span><div><h3>Below-market prices</h3><p>Launch pricing for first clients, no subscriptions or markups.</p></div></article><article class="why"><span class="why-n">05</span><div><h3>Official</h3><p>50/50 payment and an official receipt for every job.</p></div></article></div></div>
+      <div class="why-bar"><i id="why-bar" style="width: 20%;"></i></div>
     </div>
   </section>
 
-  <!-- ================= PROCESS ================= -->
+  <!-- ================= ПО МИРУ ================= -->
+  <section class="block tight" id="world">
+    <div class="wrap world-head rv">
+      <span class="mono r" data-i="sec3">/Worldwide</span>
+      <p data-i="worldP">Russia, CIS and the rest of the world. Wherever you are — we reply on Telegram within an hour.</p>
+    </div>
+    <div class="world-mq mq-wrap" aria-hidden="true"><div class="track" id="world-track"><span>International</span><span class="amp">&amp;</span><span class="outline">Worldwide</span><span class="amp">&amp;</span><span>International</span><span class="amp">&amp;</span><span class="outline">Worldwide</span><span class="amp">&amp;</span></div></div>
+    <div class="wrap"><div class="clocks rv" id="clocks"><div class="clock"><span class="mono">/Moscow</span><b>12:13</b></div><div class="clock"><span class="mono">/Dubai</span><b>13:13</b></div><div class="clock"><span class="mono">/Berlin</span><b>11:13</b></div><div class="clock"><span class="mono">/New York</span><b>05:13</b></div></div></div>
+  </section>
+
+  <!-- ================= ПРОЦЕСС ================= -->
   <section class="block tight" id="process">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec4">04 / Process</div>
-        <div><h2 data-i="procH">Three steps<br><span class="o">to results</span></h2><p data-i="procP">No endless briefs or approvals.</p></div>
-      </div>
+      <div class="sec-head rv"><div><span class="sec-tag mono" data-i="sec4">/Process</span><h2 data-i="procH">Three steps<br><span class="serif">to results</span></h2></div></div>
       <div class="steps">
-        <div class="step rv"><span class="free mono" data-i="freeBadge">$0</span><div class="step-n">01</div><h4 data-i="st1h">Free consultation</h4><p data-i="st1">A call or a chat. We review your task and make a free test creative.</p></div>
-        <div class="step rv"><div class="step-n">02</div><h4 data-i="st2h">Plan &amp; price</h4><p data-i="st2">We fix the scope, timeline and cost. You know exactly what you'll get.</p></div>
-        <div class="step rv"><div class="step-n">03</div><h4 data-i="st3h">Launch &amp; support</h4><p data-i="st3">We build, share drafts, launch. Then ongoing support.</p></div>
+        <div class="step rv"><span class="step-n">01</span><h3 data-i="st1h">Message us on Telegram</h3><p data-i="st1">Describe the task — we reply within an hour.</p></div>
+        <div class="step rv"><span class="step-n">02</span><h3 data-i="st2h">Free test</h3><p data-i="st2">Your first creative comes before payment.</p></div>
+        <div class="step rv"><span class="step-n">03</span><h3 data-i="st3h">50/50 payment</h3><p data-i="st3">Half upfront, half on delivery.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= PLANS ================= -->
-  <section class="block tight" id="plans">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec5">05 / Pricing</div>
-        <div><h2 data-i="plansH">Launch pricing<br><span class="o">for first clients</span></h2><p data-i="plansP">We're building our portfolio, so prices are below market. Once the spots are gone, prices go up.</p></div>
-      </div>
-      <div class="plans" id="plans-grid">
-    <div class="plan">
-      
-      <span class="plan-sale mono">−50%</span>
-      <div class="mono muted">Start</div>
-      <h3>Ads</h3>
-      <div class="price"><span class="was">$139</span><small>from</small>$69</div>
-      <ul><li>15 ad creatives</li><li>1 AI ad video</li><li>Ad copy and hooks</li><li>2 rounds of revisions</li></ul>
-      <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Choose ↗</a>
-    </div>
-    <div class="plan hot">
-      <span class="plan-badge mono">Popular</span>
-      <span class="plan-sale mono">−50%</span>
-      <div class="mono muted">Growth</div>
-      <h3>Website + Bot</h3>
-      <div class="price"><span class="was">$399</span><small>from</small>$199</div>
-      <ul><li>Turnkey landing page</li><li>Telegram AI bot for leads</li><li>Leads straight to Telegram / CRM</li><li>10 launch creatives</li><li>2 weeks of support</li></ul>
-      <a class="btn btn-solid" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Choose ↗</a>
-    </div>
-    <div class="plan">
-      
-      <span class="plan-sale mono">−50%</span>
-      <div class="mono muted">Full</div>
-      <h3>System</h3>
-      <div class="price"><span class="was">$790</span><small>from</small>$399</div>
-      <ul><li>Website + AI bot + automation</li><li>3 ad videos + 20 creatives</li><li>CRM &amp; spreadsheet integration</li><li>Team guide</li><li>1 month of support</li></ul>
-      <a class="btn btn-ghost" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Choose ↗</a>
-    </div></div>
-      <p class="plans-note mono rv" data-i="plansNote">Need something custom? We'll tailor it · 50 / 50 payment</p>
-    </div>
-  </section>
-
-  <!-- ================= GUARANTEES ================= -->
+  <!-- ================= ГАРАНТИИ ================= -->
   <section class="block tight">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec6">06 / Guarantees</div>
-        <div><h2 data-i="guarH">Honest<br><span class="o">and official</span></h2></div>
-      </div>
-      <div class="guar" id="guar"><div class="gu"><i>◎</i><b>Free test</b><span>Your first creative comes before payment, so you see the quality.</span></div><div class="gu"><i>½</i><b>50 / 50 payment</b><span>50% upfront, the rest once you're happy with the result.</span></div><div class="gu"><i>↺</i><b>Revisions included</b><span>We revise until approval within the agreed scope.</span></div><div class="gu"><i>✓</i><b>Official receipts</b><span>Registered self-employed professional — an official receipt for every payment.</span></div></div>
-    </div>
-  </section>
-
-  <!-- ================= FOUNDER ================= -->
-  <section class="block tight">
-    <div class="wrap founder">
-      <div class="portrait marks rv">
-        <img src="/img/founder.png" alt="Владислав Архитьков — основатель arhitector-ai.ru" width="640" height="640" loading="lazy">
-        <div class="cap mono"><span data-i="founderCap">Founder</span><span>@arkhitkov</span></div>
-      </div>
-      <div class="rv">
-        <div class="mono muted" style="margin-bottom:22px" data-i="sec7">07 / Who's behind it</div>
-        <blockquote data-i="quote">“I went from design to marketing and sales. <span>That's why I don't just make it beautiful — I make it sell.”</span></blockquote>
-        <p class="muted" style="margin-top:22px;max-width:560px" data-i="founderP">Vlad Arkhitkov — founder of ARHITECTOR AI. Design, marketing and sales in one person: I know how visuals and technology turn into leads and revenue.</p>
-        <div class="timeline">
-          <div><b>2024</b><small data-i="t1">Started in design</small></div>
-          <div><b>2025</b><small data-i="t2">Marketing &amp; sales</small></div>
-          <div><b>2026</b><small>ARHITECTOR AI</small></div>
-          <div><b>→</b><small data-i="t4">More to come</small></div>
-        </div>
-      </div>
+      <div class="sec-head rv"><div><span class="sec-tag mono" data-i="sec5">/Guarantees</span><h2 data-i="guarH">Honest<br><span class="serif">and official</span></h2></div></div>
+      <div class="guar rv" id="guar"><div class="gu"><i>◎</i><b>Free test</b><span>Your first creative comes before payment, so you see the quality.</span></div><div class="gu"><i>½</i><b>50 / 50 payment</b><span>50% upfront, the rest once you're happy with the result.</span></div><div class="gu"><i>↺</i><b>Revisions included</b><span>We revise until approval within the agreed scope.</span></div><div class="gu"><i>✓</i><b>Official receipts</b><span>Registered self-employed professional — an official receipt for every payment.</span></div></div>
     </div>
   </section>
 
   <!-- ================= FAQ ================= -->
   <section class="block tight" id="faq">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="sec-num mono" data-i="sec8">08 / FAQ</div>
-        <div><h2 data-i="faqH">Frequently<br><span class="o">asked</span></h2></div>
-      </div>
-      <div class="faq rv" id="faq-list"><details><summary>Why are prices so low?<span class="pm">+</span></summary><p>We launched recently and are building our portfolio. Early clients get launch pricing in exchange for a review. The quality is the same as at full price.</p></details><details><summary>How do I pay? Do I get a receipt?<span class="pm">+</span></summary><p>I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href="/offer.html" style="text-decoration:underline">Terms of Service</a>.</p></details><details><summary>Do you work with clients outside Russia?<span class="pm">+</span></summary><p>Yes. We communicate in English or Russian, and international prices are in USD.</p></details><details><summary>What are the timelines?<span class="pm">+</span></summary><p>Creatives from 24 hours, ad videos from 2 days, websites and AI bots from 5 days. We fix exact dates before starting.</p></details><details><summary>Doesn't AI video look cheap?<span class="pm">+</span></summary><p>Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing.</p></details><details><summary>Who pays for AI services and hosting?<span class="pm">+</span></summary><p>Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account — usually small amounts; we'll estimate them upfront.</p></details></div>
+      <div class="sec-head rv"><div><span class="sec-tag mono" data-i="sec6">/FAQ</span><h2 data-i="faqH">Frequently<br><span class="serif">asked</span></h2></div></div>
+      <div class="faq rv" id="faq-list"><details open=""><summary><span class="n">01</span><span class="q">Why are prices so low?</span><span class="pm" aria-hidden="true">+</span></summary><p>We launched recently and are building our portfolio. Early clients get launch pricing in exchange for a review. The quality is the same as at full price.</p></details><details><summary><span class="n">02</span><span class="q">How do I pay? Do I get a receipt?</span><span class="pm" aria-hidden="true">+</span></summary><p>I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href="/offer.html" style="text-decoration:underline">Terms of Service</a>.</p></details><details><summary><span class="n">03</span><span class="q">Do you work with clients outside Russia?</span><span class="pm" aria-hidden="true">+</span></summary><p>Yes. We communicate in English or Russian, and international prices are in USD.</p></details><details><summary><span class="n">04</span><span class="q">What are the timelines?</span><span class="pm" aria-hidden="true">+</span></summary><p>Creatives from 24 hours, ad videos from 2 days, websites and AI bots from 5 days. We fix exact dates before starting.</p></details><details><summary><span class="n">05</span><span class="q">Doesn't AI video look cheap?</span><span class="pm" aria-hidden="true">+</span></summary><p>Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing.</p></details><details><summary><span class="n">06</span><span class="q">Who pays for AI services and hosting?</span><span class="pm" aria-hidden="true">+</span></summary><p>Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account — usually small amounts; we'll estimate them upfront.</p></details></div>
     </div>
   </section>
 
-  <!-- ================= FINAL CTA ================= -->
-  <section class="final">
-    <div class="grid-bg"></div>
+  <!-- ================= НАПИСАТЬ ================= -->
+  <section class="block tight">
     <div class="wrap">
-      <h2 class="rv" data-i="finalH">Let's design<br><span class="g">your growth</span></h2>
-      <p class="rv" data-i="finalP">Message us on Telegram — we'll review your task and make a free test creative.</p>
-      <a class="btn btn-solid tg rv" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="finalCta">Message on Telegram</span> <span class="arr">↗</span></a>
-      <div class="note mono rv" data-i="finalNote">Reply within 1 hour · free · online</div>
+      <div class="cta rv">
+        <svg class="cta-mark" aria-hidden="true" viewBox="0 0 50 40"><g fill="#fff"><rect x="20" y="0" width="10" height="10"></rect><rect x="10" y="10" width="10" height="10"></rect><rect x="30" y="10" width="10" height="10"></rect><rect x="0" y="20" width="10" height="10"></rect><rect x="40" y="20" width="10" height="10"></rect><rect x="0" y="30" width="10" height="10"></rect><rect x="20" y="30" width="10" height="10"></rect><rect x="40" y="30" width="10" height="10"></rect></g></svg>
+        <span class="cta-badge mono"><span class="sq" style="background:#ff3b30"></span><span data-i="ctaBadge">Your first creative is free</span></span>
+        <a class="cta-link tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="ctaBig">Message us</span> <span class="arr">↗</span></a>
+        <div class="cta-meta mono"><span>Telegram @arkhitkov</span><span data-i="ctaNote">Reply within 1 hour</span><span>RU / EN · ₽ / $</span></div>
+      </div>
       <p class="consent" data-i="consent">By opening Telegram you share your contact details with us so we can reply to your request. This website collects no personal data and uses no cookies.</p>
     </div>
   </section>
@@ -698,22 +650,26 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div class="logo">arhitector<span>-ai.ru</span></div>
-      <div class="foot-links">
-        <a class="tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">Telegram @arkhitkov</a>
-        <a href="#services" data-i="navServices">Services</a>
-        <a href="#plans" data-i="navPlans">Pricing</a>
-        <a class="offer-link" href="/offer.html" data-i="offerLink">Terms of Service</a>
-      </div>
-      <div>© <span id="year">2026</span> ARHITECTOR AI · arhitector-ai.ru</div>
+      <a href="#" class="logo">
+        <svg aria-hidden="true" width="30" height="24" viewBox="0 0 50 40"><g fill="#ff3b30"><rect x="20" y="0" width="10" height="10"></rect><rect x="10" y="10" width="10" height="10"></rect><rect x="30" y="10" width="10" height="10"></rect><rect x="0" y="20" width="10" height="10"></rect><rect x="40" y="20" width="10" height="10"></rect><rect x="0" y="30" width="10" height="10"></rect><rect x="20" y="30" width="10" height="10"></rect><rect x="40" y="30" width="10" height="10"></rect></g></svg>
+        arhitector-ai<span class="muted">.ru</span>
+      </a>
+      <nav class="foot-links mono">
+        <a class="tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">/Telegram @arkhitkov</a>
+        <a href="#services" data-i="footServices">/Services</a>
+        <a href="#faq">/FAQ</a>
+        <a href="/offer.html" data-i="offerLink">/Terms of Service</a>
+      </nav>
+      <span class="mono muted">© <span id="year">2026</span> ARHITECTOR AI</span>
     </div>
     <!-- Данные исполнителя (самозанятый) -->
     <div class="legal">
       <div>
-        <b data-i="legalWho">Contractor</b><br>
-        Архитьков Владислав Александрович · <span data-i="legalNpd">self-employed</span><br>
+        <span class="mono r" data-i="legalWho">/Contractor</span><br>
+        <b>Архитьков Владислав Александрович · <span data-i="legalNpd">self-employed</span></b><br>
         <span data-i="legalInn">Tax ID (INN)</span> 245731471943<br><a href="mailto:vladislav.arkhitkov@gmail.com">vladislav.arkhitkov@gmail.com</a>
       </div>
+      <span class="mono" data-i="cookieNote">This website collects no personal data and uses no cookies</span>
     </div>
   </div>
 </footer>
@@ -721,9 +677,8 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 <div class="cur-frame" id="curFrame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 <div class="cur-cross" id="curCross" aria-hidden="true"><i></i><i></i></div>
 
-<div class="sticky" id="sticky"><a class="btn btn-solid tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="stickyCta">Free creative</span> <span class="arr">↗</span></a></div>
+<div class="sticky" id="sticky"><a class="btn btn-red tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="stickyCta">Free creative</span> <span class="arr">↗</span></a></div>
 
-<script src="/cases.js"></script>
 <script>
 /* ===================== НАСТРОЙКИ ===================== */
 const TELEGRAM = "https://t.me/arkhitkov";
@@ -731,113 +686,72 @@ const TELEGRAM = "https://t.me/arkhitkov";
 /* Отдельные страницы услуг (пока только на русском), собираются из _src/services.mjs */
 const SERVICE_PAGES = { video:"/ii-video/", creative:"/kreativy/", site:"/sajt-pod-klyuch/", bot:"/telegram-ii-bot/" };
 
-/* Цены: правь здесь. ru — в рублях, en — в долларах. *was — старая (зачёркнутая) цена в пакетах. */
+/* Цены: правь здесь. ru — в рублях, en — в долларах. */
 const PRICES = {
-  ru: { video:"3 900 ₽", creative:"990 ₽", site:"7 900 ₽", bot:"4 900 ₽",
-        p1:"4 900 ₽",  p1was:"9 900 ₽", p2:"14 900 ₽", p2was:"29 900 ₽", p3:"29 900 ₽", p3was:"59 900 ₽" },
-  en: { video:"$49", creative:"$15", site:"$99", bot:"$69",
-        p1:"$69", p1was:"$139", p2:"$199", p2was:"$399", p3:"$399", p3was:"$790" }
+  ru: { video:"3 900 ₽", creative:"990 ₽", site:"7 900 ₽", bot:"4 900 ₽" },
+  en: { video:"$49", creative:"$15", site:"$99", bot:"$69" }
 };
 
-/* Кейсы «До / После». Сейчас показываются демо-сцены из cases.js.
-   Свои работы: положи картинки в site/img/cases/ и укажи before:"img/cases/1-before.jpg", after:"img/cases/1-after.jpg".
-   price — ключ из PRICES. */
-const CASES = [
-  { before:null, after:null, scene:"product", price:"creative",
-    ru:{ tab:"Креативы", tag:"Креативы · демо", title:"Карточка духов для маркетплейса",
-         was:"Фото на телефон: блёклые цвета, вспышка, кружка и провод в кадре.", now:"Студийная ИИ-съёмка: тёплый свет, подиум, блики на стекле, УТП и инфографика.",
-         did:["ИИ-предметка","Инфографика","10 вариантов для теста"], time:"24 часа" },
-    en:{ tab:"Creatives", tag:"Creatives · demo", title:"Perfume card for a marketplace",
-         was:"Phone photo: dull colours, harsh flash, a mug and a cable in the shot.", now:"AI studio shot: warm light, podium, glass highlights, key benefit and infographics.",
-         did:["AI product shot","Infographics","10 test variants"], time:"24 hours" } },
-  { before:null, after:null, scene:"video", price:"video",
-    ru:{ tab:"Видео", tag:"Рекламное видео · демо", title:"Reels-реклама кроссовок без съёмки",
-         was:"Статичное фото на сером полу — его пролистывают за секунду.", now:"Неоновый ролик 15 сек: движение, хук «Беги быстрее», оффер −20% и кнопка.",
-         did:["Сценарий и хук","ИИ-генерация","Монтаж и звук","9:16 и 1:1"], time:"2 дня" },
-    en:{ tab:"Video", tag:"Ad video · demo", title:"Sneaker Reels ad with no shoot",
-         was:"A static photo on a grey floor — scrolled past in a second.", now:"A 15-sec neon video: motion, a “Run faster” hook, a −20% offer and a button.",
-         did:["Script & hook","AI generation","Editing & sound","9:16 and 1:1"], time:"2 days" } },
-  { before:null, after:null, scene:"site", price:"site",
-    ru:{ tab:"Сайт", tag:"Сайт под ключ · демо", title:"Лендинг для кофейни",
-         was:"Только профиль в соцсети: «меню и цены — в директ», заказы теряются.", now:"Свой сайт: оффер на первом экране, меню с ценами, кнопка онлайн-заказа.",
-         did:["Структура и тексты","Дизайн","Адаптив","Заявки в Telegram"], time:"5 дней" },
-    en:{ tab:"Website", tag:"Turnkey website · demo", title:"Landing page for a coffee shop",
-         was:"Only a social profile: “menu and prices — DM us”, orders get lost.", now:"A real website: offer up front, menu with prices, an online order button.",
-         did:["Structure & copy","Design","Mobile-ready","Leads to Telegram"], time:"5 days" } },
-  { before:null, after:null, scene:"bot", price:"bot",
-    ru:{ tab:"ИИ-бот", tag:"Telegram ИИ-бот · демо", title:"ИИ-администратор салона красоты",
-         was:"Клиентка пишет вечером — ответ только утром, запись уходит к конкурентам.", now:"ИИ-ассистент отвечает за 2 секунды, показывает свободные окна и записывает сам.",
-         did:["Ответы по прайсу","Онлайн-запись","Напоминания","Передача менеджеру"], time:"5 дней" },
-    en:{ tab:"AI bot", tag:"Telegram AI bot · demo", title:"AI front desk for a beauty salon",
-         was:"A client writes in the evening — the reply comes next morning, and she books elsewhere.", now:"The AI assistant replies in 2 seconds, shows free slots and books her itself.",
-         did:["Price-list answers","Online booking","Reminders","Hand-off to manager"], time:"5 days" } }
-];
+/* Часовые пояса в блоке «По миру» */
+const ZONES = ["Europe/Moscow", "Asia/Dubai", "Europe/Berlin", "America/New_York"];
 
 /* ===================== ТЕКСТЫ RU / EN ===================== */
 const T = {
 ru:{
   title:"ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты",
   brandMeta:"<b>ИИ-агентство</b><br>полного цикла · с 2026",
-  promo:"✦ <b>Стартовые цены</b> для первых 10 клиентов — скидка до 50%",
-  promoLink:"Смотреть цены",
-  navServices:"Услуги", navCases:"До / После", navPlans:"Цены", navFaq:"FAQ", navCta:"Обсудить",
+  navServices:"/Услуги", navWhy:"/Почему мы", navWorld:"/По миру", navFaq:"/FAQ", navCta:"Оставить заявку",
+  themeL:"Светлая тема", globeL:"Земля из точек, её можно повернуть", prevL:"Предыдущая причина", nextL:"Следующая причина",
   heroTag:"Агентство ИИ-решений · Россия, СНГ и мир",
   coords:"Видео · Креативы<br>Сайты · Боты<br>Автоматизация",
-  heroLead:"Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <em>приводят клиентов — в разы быстрее и дешевле обычного продакшна.</em>",
-  heroCta:"Получить бесплатный креатив", heroCta2:"Смотреть До / После",
+  heroLead:"Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <b>приводят клиентов</b> <em>— в разы быстрее и дешевле обычного продакшна.</em>",
+  heroCta:"Получить бесплатный креатив", heroCta2:"Услуги и цены",
   heroNote:"Ответ в Telegram в течение 1 часа",
   s1b:"от 24 ч", s1:"первые креативы после брифа",
   s2b:"от 990 ₽", s2:"стартовая цена услуг",
   s3b:"24/7", s3:"ИИ-боты отвечают вашим клиентам",
   s4:"работаем на русском и английском",
-  marquee:["Рекламные ИИ-видео","Креативы","Сайты под ключ","ИИ-автоматизация","Telegram ИИ-боты"],
-  sec1:"01 / Услуги",
-  svcH:"Четыре направления.<br><span class='o'>Одна цель —</span> продажи.",
-  svcP:"Берём задачу целиком: от идеи и сценария до запуска. Каждое направление работает отдельно или в связке.",
-  from:"от", order:"Заказать",
+  marquee:["ИИ-видео","Креативы для WB и Ozon","Сайты под ключ","Telegram ИИ-боты","Автоматизация","RU / EN","₽ / $"],
+  sec1:"/Услуги",
+  svcH:"Четыре услуги.<br><span class='serif'>одна цель — продажи</span>",
+  svcP:"Стартовые цены для первых клиентов. Оплата 50/50, чек «Мой налог».",
+  from:"от", more:"Подробнее →", order:"Заказать ↗", example:"/Пример",
   services:[
-    {k:"video", icon:"▶", h:"Рекламные<br>ИИ-видео", p:"Ролики для таргета, Reels и маркетплейсов без съёмочной группы. Сценарий, генерация, монтаж, звук.", tags:["Reels / Shorts","Видео товара","Имиджевые ролики","Оживление фото"], term:"от 2 дней"},
-    {k:"creative", icon:"◐", h:"Креативы<br>для рекламы", p:"Пачки креативов для тестов: баннеры, визуал для соцсетей, карточки товаров. Десятки вариантов вместо одного.", tags:["Таргет и посевы","Карточки WB / Ozon","Соцсети","Предметка ИИ"], term:"от 24 часов"},
-    {k:"site", icon:"⌘", h:"Сайты<br>под ключ", p:"Лендинги и сайты, которые продают: структура, тексты, дизайн, разработка, заявки и аналитика.", tags:["Лендинги","Сайты услуг","Каталоги","Заявки в Telegram / CRM"], term:"от 5 дней"},
-    {k:"bot", icon:"✦", h:"ИИ-боты и<br>автоматизация", p:"Telegram-боты с ИИ: отвечают клиентам 24/7, принимают заявки, записывают. Плюс автоматизация рутины: заявки, CRM, отчёты.", tags:["Telegram ИИ-боты","Ответы по базе знаний","CRM и таблицы","n8n / Make"], term:"от 5 дней"}
+    {k:"video", title:"ИИ-видео", p:"Ролики для Reels, Shorts и маркетплейсов — без съёмочной группы и актёров.", tags:["Сценарий и хук","ИИ-генерация","Монтаж и звук","9:16 и 1:1"], term:"от 2 дней"},
+    {k:"creative", title:"Креативы", p:"Карточки для WB и Ozon, баннеры и инфографика — десять вариантов для теста.", tags:["ИИ-предметка","Инфографика","10 вариантов"], term:"от 24 часов"},
+    {k:"site", title:"Сайт под ключ", p:"Лендинг с оффером, ценами и заявками в Telegram — за несколько дней.", tags:["Структура и тексты","Дизайн","Адаптив","Заявки в Telegram"], term:"от 5 дней"},
+    {k:"bot", title:"Telegram ИИ-боты", p:"Отвечают клиентам за секунды, записывают и передают сложные вопросы вам.", tags:["Ответы по прайсу","Онлайн-запись","Напоминания","Передача менеджеру"], term:"от 5 дней"}
   ],
-  offerTag:"Без риска · для новых клиентов",
-  offerH:"Первый креатив —<br>бесплатно",
-  offerP:"Пришлите фото товара или описание бизнеса — сделаем тестовый креатив и покажем качество до оплаты.",
-  offerCta:"Забрать бесплатный креатив", offerNote:"Без предоплаты · без обязательств",
-  sec2:"02 / Кейсы", casesH:"До <span class='o'>/</span> После", casesP:"Потяни ползунок: слева — как обычно, справа — как делаем мы.",
-  caseTimeL:"Срок", casePriceL:"Цена", caseCta:"Хочу так же", from2:"от",
-  before:"До", after:"После", hint:"← тяни ползунок →", was:"Было", now:"Стало",
-  sec3:"03 / Сравнение", cmpH:"Почему <span class='o'>ИИ-продакшн</span>",
-  cmpP:"Тот же результат для рекламы — без съёмок, студий и недель ожидания.",
-  cmpHead:["","Обычный продакшн","ARHITECTOR AI"],
-  cmp:[["Сроки","2–4 недели","от 24 часов"],["Бюджет","съёмка, команда, локации","в разы дешевле"],["Вариантов для тестов","1–2","десятки"],["Правки","долго и дорого","быстро, включены в цену"],["Языки","обычно один","RU / EN и другие"]],
-  sec4:"04 / Процесс", procH:"Три шага<br><span class='o'>до результата</span>", procP:"Без долгих брифов и бесконечных согласований.",
-  freeBadge:"0 ₽",
-  st1h:"Бесплатный разбор", st1:"Созвон или переписка. Разбираем задачу и делаем бесплатный тестовый креатив.",
-  st2h:"План и цена", st2:"Фиксируем объём, сроки и стоимость. Вы заранее знаете, что получите.",
-  st3h:"Запуск и поддержка", st3:"Делаем, показываем промежуточные версии, запускаем. Дальше — сопровождение.",
-  sec5:"05 / Цены", plansH:"Стартовые цены<br><span class='o'>для первых клиентов</span>",
-  plansP:"Сейчас собираем портфолио, поэтому цены ниже рынка. Когда места закончатся — цены вырастут.",
-  plansNote:"Нужно что-то своё — соберём индивидуально · оплата 50 / 50",
-  choose:"Выбрать", rec:"Хит", sale:"−50%",
-  plans:[
-    {n:"Старт", h:"Реклама", items:["15 рекламных креативов","1 рекламное ИИ-видео","Тексты и хуки для рекламы","2 круга правок"]},
-    {n:"Рост", h:"Сайт + Бот", items:["Продающий лендинг под ключ","Telegram ИИ-бот для заявок","Заявки сразу в Telegram / CRM","10 креативов на запуск","2 недели поддержки"]},
-    {n:"Под ключ", h:"Система", items:["Сайт + ИИ-бот + автоматизация","3 рекламных видео + 20 креативов","Интеграция с CRM и таблицами","Инструкция для команды","Месяц поддержки"]}
+  scene:{
+    hook:"БЕГИ<br>БЫСТРЕЕ", buy:"Купить →", edit:"/Монтаж", trk:["Видео","Звук","Текст"], subs:"Субтитры",
+    star:"★ ИИ-предметка", variants:"×10 вариантов для A/B-теста",
+    url:"coffee-house.ru", order:"Заказать онлайн", lead:"Оставить заявку", toastH:"Новая заявка", toastP:"отправлено в Telegram",
+    bot:"ИИ-администратор", online:"онлайн · отвечает за секунды",
+    m1:"Здравствуйте! Можно записаться на завтра?", m2:"Конечно! Свободные окна завтра:", m3:"Давайте 14:30", m4:"Записал вас на 14:30 ✓ Напомню за 2 часа до визита."
+  },
+  sec2:"/Почему мы", whyH:"Результат —<br><span class='serif'>до оплаты</span>",
+  why:[
+    ["Сначала показываем","Первый креатив — бесплатно. Платите, только если он вам подошёл."],
+    ["Быстрее продакшна","ИИ вместо съёмочного дня: креативы от 24 часов, видео от 2 дней."],
+    ["Без посредников","Вы общаетесь напрямую с основателем — без менеджеров."],
+    ["Цены ниже рынка","Стартовые цены для первых клиентов, без абонплат и наценок."],
+    ["Официально","Оплата 50/50 и чек из «Мой налог» за каждую работу."]
   ],
-  sec6:"06 / Гарантии", guarH:"Работаем<br><span class='o'>честно и официально</span>",
+  sec3:"/По миру", worldP:"Россия, СНГ и весь мир. Где бы вы ни были — отвечаем в Telegram в течение часа.",
+  world:["Международно","International"],
+  cities:["Москва","Дубай","Берлин","Нью-Йорк"],
+  sec4:"/Процесс", procH:"Три шага<br><span class='serif'>до результата</span>",
+  st1h:"Пишете в Telegram", st1:"Коротко о задаче — ответ в течение часа.",
+  st2h:"Бесплатный тест", st2:"Первый креатив — до оплаты.",
+  st3h:"Оплата 50/50", st3:"Половина на старте, половина по готовности.",
+  sec5:"/Гарантии", guarH:"Работаем<br><span class='serif'>честно и официально</span>",
   guar:[
     ["◎","Тест бесплатно","Первый креатив — до оплаты, чтобы вы увидели качество."],
     ["½","Оплата 50 / 50","Предоплата 50%, остаток — после того, как вам всё понравится."],
     ["↺","Правки включены","Вносим правки до утверждения в рамках задачи."],
     ["✓","Официальный чек","Работаю как самозанятый — чек «Мой налог» на каждую оплату."]
   ],
-  sec7:"07 / Кто за этим стоит", founderCap:"Основатель",
-  quote:"«Я прошёл путь от дизайна до продюсирования. <span>Поэтому делаю не просто красиво — а так, чтобы продавало.»</span>",
-  founderP:"Влад Архитьков — основатель ARHITECTOR AI. Дизайн, маркетинг и продажи в одном человеке: понимаю, как визуал и технологии превращаются в заявки и деньги.",
-  t1:"Старт в дизайне", t2:"Продюсирование и продажи", t4:"Дальше — больше",
-  sec8:"08 / FAQ", faqH:"Частые<br><span class='o'>вопросы</span>",
+  sec6:"/FAQ", faqH:"Частые<br><span class='serif'>вопросы</span>",
   faq:[
     ["Почему такие низкие цены?","Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость."],
     ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href='/offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
@@ -846,77 +760,68 @@ ru:{
     ["ИИ-видео не выглядит дёшево?","Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже."],
     ["Кто платит за нейросети и хостинг?","Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт — обычно это небольшие суммы, расчёт покажем заранее."]
   ],
-  finalH:"Спроектируем<br><span class='g'>ваш рост</span>",
-  finalP:"Напишите в Telegram — разберём задачу и сделаем бесплатный тестовый креатив.",
-  finalCta:"Написать в Telegram", finalNote:"Ответ в течение 1 часа · 0 ₽ · онлайн",
+  ctaBadge:"Первый креатив — бесплатно", ctaBig:"Написать", ctaNote:"Ответ в течение 1 часа",
   consent:"Переходя в Telegram, вы сами передаёте нам свои контактные данные для связи по вашему запросу. Сайт не собирает персональные данные и не использует cookie.",
   stickyCta:"Бесплатный креатив",
-  legalWho:"Исполнитель", legalNpd:"самозанятый", legalInn:"ИНН",
-  offerLink:"Договор-оферта",
+  footServices:"/Услуги", offerLink:"/Договор-оферта",
+  legalWho:"/Исполнитель", legalNpd:"самозанятый", legalInn:"ИНН",
+  cookieNote:"Сайт не собирает персональные данные и не использует cookie",
 },
 en:{
   title:"ARHITECTOR AI — AI ad videos, creatives, websites and AI bots",
   brandMeta:"<b>Full-cycle</b><br>AI agency · est. 2026",
-  promo:"✦ <b>Launch pricing</b> for our first 10 clients — up to 50% off",
-  promoLink:"See pricing",
-  navServices:"Services", navCases:"Before / After", navPlans:"Pricing", navFaq:"FAQ", navCta:"Let's talk",
+  navServices:"/Services", navWhy:"/Why us", navWorld:"/Worldwide", navFaq:"/FAQ", navCta:"Get in touch",
+  themeL:"Light theme", globeL:"Dotted globe, drag to rotate", prevL:"Previous reason", nextL:"Next reason",
   heroTag:"AI solutions agency · Worldwide",
   coords:"Video · Creatives<br>Websites · Bots<br>Automation",
-  heroLead:"We create AI ad videos, creatives, websites and AI bots that <em>bring you clients — faster and cheaper than traditional production.</em>",
-  heroCta:"Get a free creative", heroCta2:"See Before / After",
+  heroLead:"We create AI ad videos, creatives, websites and AI bots that <b>bring you clients</b> <em>— faster and cheaper than traditional production.</em>",
+  heroCta:"Get a free creative", heroCta2:"Services & pricing",
   heroNote:"Reply on Telegram within 1 hour",
   s1b:"24 h", s1:"first creatives after the brief",
   s2b:"from $15", s2:"starting price",
   s3b:"24/7", s3:"AI bots answer your clients",
   s4:"we work in English and Russian",
-  marquee:["AI ad videos","Creatives","Turnkey websites","AI automation","Telegram AI bots"],
-  sec1:"01 / Services",
-  svcH:"Four services.<br><span class='o'>One goal —</span> sales.",
-  svcP:"We own the whole task, from idea and script to launch. Each service works on its own or together.",
-  from:"from", order:"Order",
+  marquee:["AI videos","Marketplace creatives","Turnkey websites","Telegram AI bots","Automation","EN / RU","$ / ₽"],
+  sec1:"/Services",
+  svcH:"Four services.<br><span class='serif'>one goal — sales</span>",
+  svcP:"Launch pricing for our first clients. 50/50 payment, official receipts.",
+  from:"from", more:"Learn more →", order:"Order ↗", example:"/Example",
   services:[
-    {k:"video", icon:"▶", h:"AI ad<br>videos", p:"Videos for paid ads, Reels and marketplaces with no film crew. Script, generation, editing, sound.", tags:["Reels / Shorts","Product videos","Brand films","Photo animation"], term:"from 2 days"},
-    {k:"creative", icon:"◐", h:"Ad<br>creatives", p:"Batches of creatives for testing: banners, social visuals, product cards. Dozens of options instead of one.", tags:["Paid social","Marketplace cards","Social media","AI product shots"], term:"from 24 hours"},
-    {k:"site", icon:"⌘", h:"Turnkey<br>websites", p:"Landing pages and websites that sell: structure, copy, design, development, lead capture and analytics.", tags:["Landing pages","Service websites","Catalogs","Leads to Telegram / CRM"], term:"from 5 days"},
-    {k:"bot", icon:"✦", h:"AI bots &amp;<br>automation", p:"Telegram AI bots that answer clients 24/7, capture leads and book appointments. Plus automation of routine work: leads, CRM, reports.", tags:["Telegram AI bots","Knowledge-base answers","CRM & sheets","n8n / Make"], term:"from 5 days"}
+    {k:"video", title:"AI videos", p:"Videos for Reels, Shorts and marketplaces — with no film crew or actors.", tags:["Script & hook","AI generation","Editing & sound","9:16 and 1:1"], term:"from 2 days"},
+    {k:"creative", title:"Creatives", p:"Marketplace cards, banners and infographics — ten variants to test.", tags:["AI product shots","Infographics","10 variants"], term:"from 24 hours"},
+    {k:"site", title:"Turnkey website", p:"A landing page with your offer, prices and leads sent to Telegram — in a few days.", tags:["Structure & copy","Design","Mobile-ready","Leads to Telegram"], term:"from 5 days"},
+    {k:"bot", title:"Telegram AI bots", p:"They answer clients in seconds, book appointments and pass tricky questions to you.", tags:["Price-list answers","Online booking","Reminders","Hand-off to manager"], term:"from 5 days"}
   ],
-  offerTag:"Zero risk · for new clients",
-  offerH:"Your first creative<br>is free",
-  offerP:"Send a product photo or describe your business — we'll make a test creative so you see the quality before paying.",
-  offerCta:"Claim a free creative", offerNote:"No prepayment · no commitment",
-  sec2:"02 / Cases", casesH:"Before <span class='o'>/</span> After", casesP:"Drag the slider: left is the usual, right is how we do it.",
-  caseTimeL:"Timeline", casePriceL:"Price", caseCta:"I want this", from2:"from",
-  before:"Before", after:"After", hint:"← drag the slider →", was:"Before", now:"After",
-  sec3:"03 / Compare", cmpH:"Why <span class='o'>AI production</span>",
-  cmpP:"The same ad results — without shoots, studios or weeks of waiting.",
-  cmpHead:["","Traditional production","ARHITECTOR AI"],
-  cmp:[["Turnaround","2–4 weeks","from 24 hours"],["Budget","shoot, crew, locations","several times cheaper"],["Variants to test","1–2","dozens"],["Revisions","slow and costly","fast, included"],["Languages","usually one","EN / RU and more"]],
-  sec4:"04 / Process", procH:"Three steps<br><span class='o'>to results</span>", procP:"No endless briefs or approvals.",
-  freeBadge:"$0",
-  st1h:"Free consultation", st1:"A call or a chat. We review your task and make a free test creative.",
-  st2h:"Plan & price", st2:"We fix the scope, timeline and cost. You know exactly what you'll get.",
-  st3h:"Launch & support", st3:"We build, share drafts, launch. Then ongoing support.",
-  sec5:"05 / Pricing", plansH:"Launch pricing<br><span class='o'>for first clients</span>",
-  plansP:"We're building our portfolio, so prices are below market. Once the spots are gone, prices go up.",
-  plansNote:"Need something custom? We'll tailor it · 50 / 50 payment",
-  choose:"Choose", rec:"Popular", sale:"−50%",
-  plans:[
-    {n:"Start", h:"Ads", items:["15 ad creatives","1 AI ad video","Ad copy and hooks","2 rounds of revisions"]},
-    {n:"Growth", h:"Website + Bot", items:["Turnkey landing page","Telegram AI bot for leads","Leads straight to Telegram / CRM","10 launch creatives","2 weeks of support"]},
-    {n:"Full", h:"System", items:["Website + AI bot + automation","3 ad videos + 20 creatives","CRM & spreadsheet integration","Team guide","1 month of support"]}
+  scene:{
+    hook:"RUN<br>FASTER", buy:"Buy now →", edit:"/Editing", trk:["Video","Audio","Text"], subs:"Subtitles",
+    star:"★ AI product shot", variants:"×10 variants for A/B testing",
+    url:"coffee-house.com", order:"Order online", lead:"Leave a request", toastH:"New lead", toastP:"sent to Telegram",
+    bot:"AI front desk", online:"online · replies in seconds",
+    m1:"Hi! Can I book for tomorrow?", m2:"Sure! Free slots tomorrow:", m3:"2:30 pm, please", m4:"Booked you for 2:30 pm ✓ I'll remind you 2 hours before."
+  },
+  sec2:"/Why us", whyH:"Results —<br><span class='serif'>before you pay</span>",
+  why:[
+    ["We show first","Your first creative is free. You only pay if you like it."],
+    ["Faster than production","AI instead of a shoot day: creatives from 24 hours, videos from 2 days."],
+    ["No middlemen","You talk directly to the founder — no account managers."],
+    ["Below-market prices","Launch pricing for first clients, no subscriptions or markups."],
+    ["Official","50/50 payment and an official receipt for every job."]
   ],
-  sec6:"06 / Guarantees", guarH:"Honest<br><span class='o'>and official</span>",
+  sec3:"/Worldwide", worldP:"Russia, CIS and the rest of the world. Wherever you are — we reply on Telegram within an hour.",
+  world:["International","Worldwide"],
+  cities:["Moscow","Dubai","Berlin","New York"],
+  sec4:"/Process", procH:"Three steps<br><span class='serif'>to results</span>",
+  st1h:"Message us on Telegram", st1:"Describe the task — we reply within an hour.",
+  st2h:"Free test", st2:"Your first creative comes before payment.",
+  st3h:"50/50 payment", st3:"Half upfront, half on delivery.",
+  sec5:"/Guarantees", guarH:"Honest<br><span class='serif'>and official</span>",
   guar:[
     ["◎","Free test","Your first creative comes before payment, so you see the quality."],
     ["½","50 / 50 payment","50% upfront, the rest once you're happy with the result."],
     ["↺","Revisions included","We revise until approval within the agreed scope."],
     ["✓","Official receipts","Registered self-employed professional — an official receipt for every payment."]
   ],
-  sec7:"07 / Who's behind it", founderCap:"Founder",
-  quote:"“I went from design to marketing and sales. <span>That's why I don't just make it beautiful — I make it sell.”</span>",
-  founderP:"Vlad Arkhitkov — founder of ARHITECTOR AI. Design, marketing and sales in one person: I know how visuals and technology turn into leads and revenue.",
-  t1:"Started in design", t2:"Marketing & sales", t4:"More to come",
-  sec8:"08 / FAQ", faqH:"Frequently<br><span class='o'>asked</span>",
+  sec6:"/FAQ", faqH:"Frequently<br><span class='serif'>asked</span>",
   faq:[
     ["Why are prices so low?","We launched recently and are building our portfolio. Early clients get launch pricing in exchange for a review. The quality is the same as at full price."],
     ["How do I pay? Do I get a receipt?","I'm a registered self-employed professional in Russia: you get an official receipt for every payment. 50% upfront, the rest on delivery. The payment method for international clients is agreed individually. Full terms: <a href='/offer.html' style='text-decoration:underline'>Terms of Service</a>."],
@@ -925,20 +830,21 @@ en:{
     ["Doesn't AI video look cheap?","Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing."],
     ["Who pays for AI services and hosting?","Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account — usually small amounts; we'll estimate them upfront."]
   ],
-  finalH:"Let's design<br><span class='g'>your growth</span>",
-  finalP:"Message us on Telegram — we'll review your task and make a free test creative.",
-  finalCta:"Message on Telegram", finalNote:"Reply within 1 hour · free · online",
+  ctaBadge:"Your first creative is free", ctaBig:"Message us", ctaNote:"Reply within 1 hour",
   consent:"By opening Telegram you share your contact details with us so we can reply to your request. This website collects no personal data and uses no cookies.",
   stickyCta:"Free creative",
-  legalWho:"Contractor", legalNpd:"self-employed", legalInn:"Tax ID (INN)",
-  offerLink:"Terms of Service",
+  footServices:"/Services", offerLink:"/Terms of Service",
+  legalWho:"/Contractor", legalNpd:"self-employed", legalInn:"Tax ID (INN)",
+  cookieNote:"This website collects no personal data and uses no cookies",
 }};
 
 /* ===================== ЛОГИКА ===================== */
 const $ = id => document.getElementById(id);
 const PAGE_LANG = document.documentElement.lang === "en" ? "en" : "ru";
 const LANG_URL = { ru:"/", en:"/en/" };
-let lang = PAGE_LANG, caseIdx = 0;
+const PRERENDER = /prerender/i.test(navigator.userAgent);
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let lang = PAGE_LANG, svcIdx = 0, whyIdx = 0, svcTimer = 0;
 
 function getStored(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
 function setStored(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
@@ -956,37 +862,93 @@ function wantedLang(){
   return /(^|,)(ru|uk|be|kk|ky|uz|tg|hy|az)/.test(nav) ? "ru" : "en";
 }
 
-function showCase(i){
-  caseIdx = i;
-  const c = CASES[i], t = c[lang];
-  [...$("tabs").children].forEach((b,j)=>{ b.classList.toggle("active", j===i); b.setAttribute("aria-selected", j===i); });
-  const layer = (src, kind) => src
-    ? `<img src="${src}" alt="${t.title} — ${T[lang][kind]}">`
-    : SCENES[c.scene][kind](`s${i}${kind[0]}${lang}`, lang);
-  $("baBefore").innerHTML = layer(c.before, "before");
-  $("baAfter").innerHTML  = layer(c.after, "after");
-  $("caseTag").textContent = t.tag;
-  $("caseTitle").textContent = t.title;
-  $("caseBefore").textContent = t.was;
-  $("caseAfter").textContent = t.now;
-  $("caseDid").innerHTML = t.did.map(x => `<li>${x}</li>`).join("");
-  $("caseTime").textContent = t.time;
-  $("casePrice").textContent = T[lang].from2 + " " + PRICES[lang][c.price];
-  $("baRange").value = 50; $("ba").style.setProperty("--pos","50%");
+const MARK = fill => `<svg aria-hidden="true" width="18" height="14" viewBox="0 0 50 40"><g fill="${fill}"><rect x="20" y="0" width="10" height="10"/><rect x="10" y="10" width="10" height="10"/><rect x="30" y="10" width="10" height="10"/><rect x="0" y="20" width="10" height="10"/><rect x="40" y="20" width="10" height="10"/><rect x="0" y="30" width="10" height="10"/><rect x="20" y="30" width="10" height="10"/><rect x="40" y="30" width="10" height="10"/></g></svg>`;
+
+/* Живые сцены справа от списка услуг. Это иллюстрации, а не клиентские работы. */
+const SCENES = {
+  video: s => `
+    <div class="phone"><div class="screen">
+      <div class="vid-bar"><span></span></div>
+      <span class="vid-line" style="top:30%;animation-delay:.2s"></span><span class="vid-line" style="top:46%;animation-delay:.9s"></span><span class="vid-line" style="top:62%;animation-delay:1.5s"></span>
+      <div class="vid-shoe"></div>
+      <div class="vid-hook">${s.hook}</div>
+      <div class="vid-offer">−20%</div>
+      <div class="vid-cta">${s.buy}</div>
+    </div></div>
+    <div class="glass" style="width:260px">
+      <div class="tl-head mono"><span>${s.edit}</span><span>00:15</span></div>
+      <div class="tracks">
+        <div class="trk"><span class="mono">${s.trk[0]}</span><div><i style="left:0;width:34%"></i><i style="left:36%;width:28%"></i><i style="left:66%;width:34%"></i></div></div>
+        <div class="trk"><span class="mono">${s.trk[1]}</span><div><i class="snd" style="left:0;width:100%"></i></div></div>
+        <div class="trk"><span class="mono">${s.trk[2]}</span><div><i class="txt" style="left:8%;width:22%"></i><i class="txt" style="left:58%;width:30%"></i></div></div>
+        <span class="playhead"></span>
+      </div>
+      <div class="chips"><span class="chip">9:16</span><span class="chip">1:1</span><span class="chip">${s.subs}</span></div>
+    </div>`,
+  creative: s => `
+    <div style="display:flex;flex-direction:column;align-items:center;gap:28px;width:100%">
+      <div class="fan">
+        <div class="pcard fan-l"><span class="pbadge">A</span><div class="pimg" style="background:linear-gradient(160deg,#ffd9b3,#ff9a6b)"><span class="bottle"></span></div><i style="width:80%"></i><i style="width:55%"></i><b>${PRICES[lang].creative === "$15" ? "$29" : "2 490 ₽"}</b></div>
+        <div class="pcard fan-r"><span class="pbadge">C</span><div class="pimg" style="background:linear-gradient(160deg,#2b2b33,#0b0b0d)"><span class="bottle" style="background:linear-gradient(180deg,#ff6a3d,#e8241c)"></span></div><i style="width:70%"></i><i style="width:45%"></i><b>${PRICES[lang].creative === "$15" ? "$29" : "2 490 ₽"}</b></div>
+        <div class="pcard fan-c"><span class="pbadge" style="background:#e8241c">B</span><div class="pimg" style="background:radial-gradient(60% 60% at 50% 40%,#ffe7cf,#e8241c)"><span class="bottle" style="background:linear-gradient(180deg,#fff,#d8d8d8)"></span><span class="pstar">${s.star}</span></div><i style="width:85%"></i><i style="width:60%"></i><b>${PRICES[lang].creative === "$15" ? "$29" : "2 490 ₽"}</b></div>
+      </div>
+      <div class="glass mono" style="flex-direction:row;align-items:center;gap:14px;font-size:12px;animation-delay:1.4s"><span class="rec" style="margin:0"></span>${s.variants}</div>
+    </div>`,
+  site: s => `
+    <div class="browser">
+      <div class="bbar"><span></span><span></span><span></span><em class="mono">${s.url}</em></div>
+      <div class="bview"><div class="bscroll">
+        <div class="bhero"><i class="t" style="width:70%"></i><i class="t" style="width:46%"></i><i style="width:58%;margin-top:8px"></i><span class="bbtn">${s.order}</span></div>
+        <div class="bgrid"><div><span></span><i></i><b>290 ₽</b></div><div><span></span><i></i><b>340 ₽</b></div><div><span></span><i></i><b>220 ₽</b></div></div>
+        <div class="bhero" style="min-height:120px"><i class="t" style="width:40%;height:18px"></i><i style="width:64%"></i><span class="bbtn">${s.lead}</span></div>
+      </div></div>
+      <div class="toast"><span class="rec" style="margin:0"></span><div><b>${s.toastH}</b><span>${s.toastP}</span></div></div>
+    </div>`,
+  bot: s => `
+    <div class="chat">
+      <div class="chead"><span class="cav">${MARK("#fff")}</span><div><b>${s.bot}</b><span>${s.online}</span></div></div>
+      <div class="cbody">
+        <div class="msg me ap" style="animation-delay:.3s">${s.m1}</div>
+        <div style="position:relative">
+          <div class="msg typing" style="animation-delay:1s"><span></span><span></span><span></span></div>
+          <div class="msg bot ap" style="animation-delay:1.9s">${s.m2}<div class="slots"><span>11:00</span><span class="pick">${lang === "en" ? "2:30" : "14:30"}</span><span>18:00</span></div></div>
+        </div>
+        <div class="msg me ap" style="animation-delay:3.2s">${s.m3}</div>
+        <div class="msg bot ap" style="animation-delay:4s">${s.m4}</div>
+      </div>
+    </div>`
+};
+
+function showService(i, user){
+  svcIdx = i;
+  const t = T[lang], s = t.services[i];
+  [...$("svc-list").children].forEach((el, j) => {
+    el.classList.toggle("act", j === i);
+    el.querySelector(".svc-tab").setAttribute("aria-expanded", j === i);
+  });
+  $("stage-label").textContent = `${t.example} · ${s.title}`;
+  $("scene").innerHTML = `<div class="scene">${SCENES[s.k](t.scene)}</div>`;
+  if (user) startServices();
 }
 
-/* Подсказка: ползунок один раз «покачивается», когда блок появляется на экране */
-function hintSlider(){
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const keys = [[0,50],[500,72],[1100,28],[1600,50]], t0 = performance.now();
-  const step = now => {
-    const t = Math.max(0, now - t0), k = keys.findIndex(x => x[0] > t);
-    if (k === -1){ $("ba").style.setProperty("--pos","50%"); $("baRange").value = 50; return; }
-    const [ta,va] = keys[k-1], [tb,vb] = keys[k], e = (t-ta)/(tb-ta), v = va + (vb-va)*(.5-.5*Math.cos(Math.PI*e));
-    $("ba").style.setProperty("--pos", v + "%"); $("baRange").value = v;
-    requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
+/* Автопереключение услуг каждые 7 секунд; клик по услуге перезапускает отсчёт */
+function startServices(){
+  clearInterval(svcTimer);
+  if (REDUCE || PRERENDER) return;
+  svcTimer = setInterval(() => showService((svcIdx + 1) % 4), 7000);
+}
+
+function showWhy(i){
+  const n = T[lang].why.length;
+  whyIdx = (i + n) % n;
+  $("why-track").style.transform = `translateX(calc(${-whyIdx} * (min(420px, 82vw) + 24px)))`;
+  $("why-count").textContent = `0${whyIdx + 1} / 0${n}`;
+  $("why-bar").style.width = ((whyIdx + 1) / n * 100) + "%";
+}
+
+function renderClocks(){
+  const now = new Date();
+  $("clocks").innerHTML = ZONES.map((z, i) => `<div class="clock"><span class="mono">/${T[lang].cities[i]}</span><b>${now.toLocaleTimeString(lang === "en" ? "en-GB" : "ru-RU", { timeZone:z, hour:"2-digit", minute:"2-digit" })}</b></div>`).join("");
 }
 
 function render(){
@@ -994,50 +956,38 @@ function render(){
   document.documentElement.lang = lang;
   document.title = t.title;
   document.querySelectorAll("[data-i]").forEach(el => { const v = t[el.dataset.i]; if (typeof v === "string") el.innerHTML = v; });
+  document.querySelectorAll("[data-i-label]").forEach(el => el.setAttribute("aria-label", t[el.dataset.iLabel]));
   document.querySelectorAll("[data-lang]").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
 
   const m = t.marquee.map(s => `<span>${s}</span>`).join("");
   $("track").innerHTML = m + m;
+  const w = `<span>${t.world[0]}</span><span class="amp">&amp;</span><span class="outline">${t.world[1]}</span><span class="amp">&amp;</span>`;
+  $("world-track").innerHTML = w + w;
 
-  $("services-grid").innerHTML = t.services.map((s,i) => `
-    <article class="svc">
-      <div class="svc-top"><span class="svc-num">/0${i+1}</span><span class="svc-icon" aria-hidden="true">${s.icon}</span></div>
-      <h3>${s.h}</h3><p>${s.p}</p>
-      <ul>${s.tags.map(x=>`<li>${x}</li>`).join("")}</ul>
-      ${lang === "ru" ? `<a class="svc-more" href="${SERVICE_PAGES[s.k]}">Подробнее об услуге →</a>` : ""}
-      <div class="svc-foot">
-        <div><div class="price"><small>${t.from}</small>${P[s.k]}</div><div class="term mono">${s.term}</div></div>
-        <a class="btn btn-ghost" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order} ↗</a>
-      </div>
-    </article>`).join("");
-
-  $("compare").innerHTML =
-    t.cmpHead.map((h,i)=>`<div class="h ${["k","old","new"][i]}">${h}</div>`).join("") +
-    t.cmp.map(r => `<div class="k">${r[0]}</div><div class="old"><span class="x">✕</span>${r[1]}</div><div class="new">✓ ${r[2]}</div>`).join("");
-
-  $("plans-grid").innerHTML = t.plans.map((p,i) => `
-    <div class="plan${i===1 ? " hot" : ""}">
-      ${i===1 ? `<span class="plan-badge mono">${t.rec}</span>` : ""}
-      <span class="plan-sale mono">${t.sale}</span>
-      <div class="mono muted">${p.n}</div>
-      <h3>${p.h}</h3>
-      <div class="price"><span class="was">${P["p"+(i+1)+"was"]}</span><small>${t.from}</small>${P["p"+(i+1)]}</div>
-      <ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul>
-      <a class="btn ${i===1 ? "btn-solid" : "btn-ghost"}" href="${TELEGRAM}" target="_blank" rel="noopener">${t.choose} ↗</a>
+  $("svc-list").innerHTML = t.services.map((s, i) => `
+    <div class="svc-item">
+      <button type="button" class="svc-tab" aria-expanded="false" data-svc="${i}"><span class="svc-num">0${i + 1}</span><span class="svc-title">${s.title}</span><span class="svc-arr" aria-hidden="true">→</span></button>
+      <div class="svc-body"><div><div class="svc-in">
+        <p>${s.p}</p>
+        <ul class="chips">${s.tags.map(x => `<li>${x}</li>`).join("")}</ul>
+        <div class="svc-price">
+          <div><b class="redtext"><small>${t.from}</small>${P[s.k]}</b> <span class="mono muted">${s.term}</span></div>
+          ${lang === "ru" ? `<a class="svc-more mono" href="${SERVICE_PAGES[s.k]}">${t.more}</a>` : `<a class="svc-more mono tg" href="${TELEGRAM}" target="_blank" rel="noopener">${t.order}</a>`}
+        </div>
+      </div></div></div>
+      <span class="svc-fill"></span>
     </div>`).join("");
+  $("svc-list").querySelectorAll("[data-svc]").forEach(b => b.onclick = () => showService(+b.dataset.svc, true));
+  showService(svcIdx);
+
+  $("why-track").innerHTML = t.why.map((r, i) => `<article class="why"><span class="why-n">0${i + 1}</span><div><h3>${r[0]}</h3><p>${r[1]}</p></div></article>`).join("");
+  showWhy(whyIdx);
+
+  renderClocks();
 
   $("guar").innerHTML = t.guar.map(g => `<div class="gu"><i>${g[0]}</i><b>${g[1]}</b><span>${g[2]}</span></div>`).join("");
 
-  $("faq-list").innerHTML = t.faq.map(f => `<details><summary>${f[0]}<span class="pm">+</span></summary><p>${f[1]}</p></details>`).join("");
-
-  $("tabs").innerHTML = "";
-  CASES.forEach((c,i) => {
-    const b = document.createElement("button");
-    b.className = "tab"; b.type = "button"; b.setAttribute("role","tab"); b.innerHTML = `<span class="tab-n">0${i+1}</span>${c[lang].tab}`;
-    b.onclick = () => showCase(i);
-    $("tabs").appendChild(b);
-  });
-  showCase(caseIdx);
+  $("faq-list").innerHTML = t.faq.map((f, i) => `<details${i === 0 ? " open" : ""}><summary><span class="n">0${i + 1}</span><span class="q">${f[0]}</span><span class="pm" aria-hidden="true">+</span></summary><p>${f[1]}</p></details>`).join("");
 }
 
 function setLang(l){
@@ -1045,14 +995,28 @@ function setLang(l){
   if (l !== PAGE_LANG) location.href = LANG_URL[l] + location.hash;
 }
 
+function syncTheme(){
+  const light = document.documentElement.dataset.theme === "light";
+  $("theme").setAttribute("aria-checked", light);
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", light ? "#f7f6f3" : "#050507");
+}
+
 document.querySelectorAll("[data-lang]").forEach(b => b.onclick = () => setLang(b.dataset.lang));
-$("baRange").addEventListener("input", e => $("ba").style.setProperty("--pos", e.target.value + "%"));
+$("why-prev").onclick = () => showWhy(whyIdx - 1);
+$("why-next").onclick = () => showWhy(whyIdx + 1);
+$("theme").onclick = () => {
+  const light = document.documentElement.dataset.theme !== "light";
+  if (light) document.documentElement.dataset.theme = "light"; else delete document.documentElement.dataset.theme;
+  setStored("theme", light ? "light" : "dark");
+  syncTheme();
+};
 
 const want = wantedLang();
 if (want && want !== PAGE_LANG) location.replace(LANG_URL[want] + location.hash);
 render();
+if (!PRERENDER){ syncTheme(); startServices(); setInterval(renderClocks, 15000); }
 
-/* header / sticky CTA on scroll */
+/* шапка и плавающая кнопка при прокрутке */
 const header = document.querySelector("header"), sticky = $("sticky"), hero = document.querySelector(".hero");
 const onScroll = () => {
   header.classList.toggle("scrolled", scrollY > 20);
@@ -1061,28 +1025,104 @@ const onScroll = () => {
 };
 addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
-/* reveal */
+/* появление при прокрутке */
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
 }), {threshold:.12, rootMargin:"0px 0px -40px 0px"});
 document.querySelectorAll(".rv").forEach((el,i) => { el.style.transitionDelay = (i%4)*70 + "ms"; io.observe(el); });
 
-const baIo = new IntersectionObserver(es => { if (es[0].isIntersecting){ baIo.disconnect(); setTimeout(hintSlider, 600); } }, {threshold:.6});
-baIo.observe($("ba"));
+/* ===================== ЗЕМЛЯ =====================
+   Точечный глобус на canvas: суша по грубым контурам материков, сетка меридианов, красная кайма.
+   Крутится сам, мышью или пальцем поворачивается. В пререндере не рисуется. */
+(function(){
+  const cv = $("globe");
+  if (PRERENDER || !cv.getContext) return;
+  const ctx = cv.getContext("2d");
+  if (!ctx) return;
+  const LAND = [
+    [[-168,66],[-162,70],[-140,70],[-125,70],[-95,72],[-80,73],[-62,66],[-55,52],[-66,45],[-70,42],[-76,35],[-81,31],[-80,25],[-82,28],[-84,30],[-90,29],[-97,26],[-97,21],[-87,21],[-88,16],[-83,10],[-79,8],[-80,7],[-86,11],[-92,14],[-105,20],[-110,23],[-112,30],[-117,32],[-124,40],[-124,48],[-133,56],[-150,60],[-158,57],[-165,62]],
+    [[-55,60],[-43,60],[-20,70],[-18,80],[-35,83],[-60,82],[-72,78],[-58,72]],
+    [[-79,8],[-72,12],[-62,11],[-50,0],[-35,-6],[-39,-14],[-48,-26],[-58,-35],[-65,-42],[-68,-55],[-74,-50],[-73,-37],[-71,-18],[-81,-5],[-80,1]],
+    [[-10,36],[-9,43],[-2,44],[-5,48],[2,51],[8,54],[10,58],[5,62],[15,69],[28,71],[40,67],[60,69],[70,73],[100,77],[130,72],[160,70],[180,68],[180,65],[170,60],[160,55],[142,52],[140,45],[130,42],[127,35],[121,31],[120,24],[110,20],[106,10],[100,13],[103,1],[98,8],[97,17],[90,22],[80,15],[77,8],[73,20],[67,25],[57,25],[56,27],[50,30],[48,29],[51,25],[56,22],[52,16],[43,12],[39,20],[35,28],[33,31],[35,36],[27,37],[24,40],[22,37],[20,40],[13,45],[16,41],[12,38],[8,44],[3,43],[-1,38],[-6,36]],
+    [[-17,21],[-10,30],[-6,36],[10,37],[20,32],[32,31],[35,28],[43,12],[51,12],[40,-2],[40,-15],[35,-25],[20,-35],[18,-30],[12,-17],[13,-5],[9,4],[-8,4],[-17,14]],
+    [[114,-22],[122,-18],[130,-12],[137,-12],[142,-10],[146,-19],[153,-26],[150,-37],[140,-38],[132,-32],[115,-34]],
+    [[-5,50],[2,52],[-2,57],[-5,58],[-6,55]],
+    [[130,31],[141,36],[142,45],[140,41],[131,34]],
+    [[95,5],[106,-6],[100,-1]],
+    [[109,1],[118,7],[119,-1],[114,-4]],
+    [[43,-12],[50,-15],[47,-25],[44,-22]],
+    [[166,-46],[174,-41],[178,-38],[172,-34],[168,-44]]
+  ];
+  const inside = (poly, x, y) => {
+    let c = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++){
+      const [xi, yi] = poly[i], [xj, yj] = poly[j];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
+  /* точки суши по спирали Фибоначчи */
+  const pts = [], N = 18000, g = Math.PI * (3 - Math.sqrt(5));
+  for (let k = 0; k < N; k++){
+    const y = 1 - k / (N - 1) * 2, r = Math.sqrt(1 - y * y), th = g * k;
+    const la = Math.asin(y) * 180 / Math.PI, lo = Math.atan2(Math.sin(th), Math.cos(th)) * 180 / Math.PI;
+    if (la < -68 || LAND.some(p => inside(p, lo, la))) pts.push([r * Math.sin(th), y, r * Math.cos(th)]);
+  }
+  let yaw = -1.2, pitch = .35, vy = 0, vp = 0, drag = null, visible = true;
+  cv.addEventListener("pointerdown", e => { drag = { x:e.clientX, y:e.clientY }; });
+  addEventListener("pointermove", e => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    drag = { x:e.clientX, y:e.clientY };
+    vy = dx * .005; vp = dy * .005; yaw += vy; pitch = Math.max(-1.2, Math.min(1.2, pitch + vp));
+  });
+  addEventListener("pointerup", () => { drag = null; });
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
+
+  const frame = () => {
+    requestAnimationFrame(frame);
+    if (!visible) return;
+    const dpr = Math.min(devicePixelRatio || 1, 2), size = cv.clientWidth;
+    if (!size) return;
+    if (cv.width !== Math.round(size * dpr)){ cv.width = Math.round(size * dpr); cv.height = cv.width; }
+    const W = cv.width, R = W * .46, c = W / 2, light = document.documentElement.dataset.theme === "light";
+    const ink = light ? "10,10,12" : "255,255,255";
+    if (!drag){ vy += ((REDUCE ? 0 : .0018) - vy) * .03; vp *= .92; yaw += vy; pitch = Math.max(-1.2, Math.min(1.2, pitch + vp)); }
+    ctx.clearRect(0, 0, W, W);
+    const halo = ctx.createRadialGradient(c, c, R * .97, c, c, R * 1.07);
+    halo.addColorStop(0, light ? "rgba(212,42,32,.35)" : "rgba(255,59,48,.45)"); halo.addColorStop(1, "rgba(255,59,48,0)");
+    ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(c, c, R * 1.07, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = light ? "rgba(247,246,243,.94)" : "rgba(5,5,7,.94)";
+    ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.fill();
+    const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+    const proj = (px, py, pz) => { const x = px * cy + pz * sy, z0 = -px * sy + pz * cy; return [x, py * cp - z0 * sp, py * sp + z0 * cp]; };
+    /* меридианы и параллели через 30° */
+    ctx.fillStyle = `rgba(${ink},.16)`;
+    const gd = dpr * 1.1, rad = Math.PI / 180;
+    const dot = (la, lo) => { const a = la * rad, b = lo * rad, p = proj(Math.cos(a) * Math.sin(b), Math.sin(a), Math.cos(a) * Math.cos(b)); if (p[2] >= 0) ctx.fillRect(c + p[0] * R - gd / 2, c - p[1] * R - gd / 2, gd, gd); };
+    for (let la = -60; la <= 60; la += 30) for (let lo = -180; lo < 180; lo += 1.5) dot(la, lo);
+    for (let lo = -180; lo < 180; lo += 30) for (let la = -88; la <= 88; la += 1.5) dot(la, lo);
+    for (const q of pts){
+      const p = proj(q[0], q[1], q[2]);
+      if (p[2] < 0) continue;
+      const d = dpr * (1.2 + 1.4 * p[2]);
+      ctx.fillStyle = `rgba(${ink},${(.2 + .75 * p[2]).toFixed(3)})`;
+      ctx.fillRect(c + p[0] * R - d / 2, c - p[1] * R - d / 2, d, d);
+    }
+  };
+  requestAnimationFrame(frame);
+})();
 
 /* ===================== КУРСОР =====================
    Тонкий крестик следует за мышью мгновенно, рамка из уголков — с плавной задержкой.
-   Над ссылками, кнопками и ползунком «До / После» рамка расширяется. Только для мыши. */
+   Над ссылками и кнопками рамка расширяется. Только для мыши. */
 (function(){
-  if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  if (PRERENDER || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
   const root = document.documentElement, cross = $("curCross"), frame = $("curFrame");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const glow = document.querySelector(".hero .glow"), heroEl = document.querySelector(".hero");
   let x = innerWidth / 2, y = innerHeight / 2, fx = x, fy = y, raf = 0;
   root.classList.add("has-cursor");
-
   const loop = () => {
-    const k = reduce ? 1 : .18;
+    const k = REDUCE ? 1 : .18;
     fx += (x - fx) * k; fy += (y - fy) * k;
     frame.style.transform = `translate3d(${fx}px,${fy}px,0)`;
     raf = Math.abs(x - fx) + Math.abs(y - fy) > .1 ? requestAnimationFrame(loop) : 0;
@@ -1092,13 +1132,9 @@ baIo.observe($("ba"));
     cross.style.transform = `translate3d(${x}px,${y}px,0)`;
     root.classList.add("cur-on");
     if (!raf) raf = requestAnimationFrame(loop);
-    if (glow && !reduce){
-      const r = heroEl.getBoundingClientRect();
-      if (y < r.bottom) glow.style.transform = `translate(calc(-50% + ${(x - r.width/2) * .35}px), ${(y - r.top) * .35}px)`;
-    }
   }, {passive:true});
   document.addEventListener("mouseover", e => {
-    frame.classList.toggle("big", !!e.target.closest("a, button, summary, .tab, [role=tab], .ba"));
+    frame.classList.toggle("big", !!e.target.closest("a, button, summary, #globe"));
   });
   document.addEventListener("mouseleave", () => root.classList.remove("cur-on"));
   addEventListener("mousedown", () => frame.classList.add("press"));

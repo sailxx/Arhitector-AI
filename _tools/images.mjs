@@ -16,12 +16,24 @@ const CHROME = process.env.CHROME || [
 ].find(p => fs.existsSync(p));
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), "arh-img-"));
 
-/* Знак: «Λ» без перекладины и квадрат-узел на её месте (вариант 41 из brand/logo-min). Сетка 64, центр 32 */
-const mark = (k = 1) => `<g transform="translate(32 32) scale(${k}) translate(-32 -32)" fill="#f4f4f2"><path d="M22 44L30.2 20H33.8L42 44H38.4L32 25.27L25.6 44Z"/><rect x="30.6" y="35" width="2.8" height="2.8"/></g>`;
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#050505"/>${mark(1.5)}</svg>`;
+/* Знак: пиксельная «Λ» из 8 квадратов на сетке 5×4 (строки: середина / 2 и 4 / края / края и середина).
+   Рисуется белым по центру холста 64×64, cell — размер квадрата */
+const PIXELS = [[2,0],[1,1],[3,1],[0,2],[4,2],[0,3],[2,3],[4,3]];
+const mark = cell => {
+  const x0 = 32 - cell * 2.5, y0 = 32 - cell * 2;
+  return `<g fill="#ffffff" shape-rendering="crispEdges">${PIXELS.map(([x, y]) => `<rect x="${x0 + x * cell}" y="${y0 + y * cell}" width="${cell}" height="${cell}"/>`).join("")}</g>`;
+};
+/* Фон — красная плашка сайта: #e8241c, оранжевый свет сверху справа, тёмно-красный снизу слева; на крупных иконках ещё белая сетка */
+const plate = (rx = 0, grid = false) => `<defs>
+<radialGradient id="o" cx="85%" cy="0%" r="90%"><stop offset="0" stop-color="#ff6a3d"/><stop offset=".6" stop-color="#ff6a3d" stop-opacity="0"/></radialGradient>
+<radialGradient id="d" cx="0%" cy="100%" r="80%"><stop offset="0" stop-color="#b5101a"/><stop offset=".65" stop-color="#b5101a" stop-opacity="0"/></radialGradient>
+<clipPath id="c"><rect width="64" height="64" rx="${rx}"/></clipPath></defs>
+<g clip-path="url(#c)"><rect width="64" height="64" fill="#e8241c"/><rect width="64" height="64" fill="url(#o)"/><rect width="64" height="64" fill="url(#d)"/>${grid
+  ? `<g stroke="#fff" stroke-opacity=".12" stroke-width=".25">${[8, 16, 24, 32, 40, 48, 56].map(p => `<path d="M${p} 0V64M0 ${p}H64"/>`).join("")}</g>` : ""}</g>`;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(14)}${mark(8)}</svg>`;
 /* Android: maskable-иконка — фон на всю форму, знак внутри безопасного круга (80% диаметра) */
-const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1)}</svg>`;
-const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#050505"/>${mark(1.3)}</svg>`;
+const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(5.2)}</svg>`;
+const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(6.4)}</svg>`;
 
 /* Версия иконок в адресах (?v=…): картинки кэшируются на 30+ дней, а с новым адресом браузер и Android берут свежие */
 const V = crypto.createHash("sha1").update(favicon + touch + maskable).digest("hex").slice(0, 8);
@@ -33,11 +45,12 @@ const og = (lang) => {
     : { meta: "<b>Full-cycle</b><br>AI agency", line: "AI ad videos · Creatives · Websites · Telegram AI bots", tag: "Your first creative is free" };
   return `<!doctype html><html><head><meta charset="utf-8">${FONTS}<style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1200px;height:630px;background:#050505;color:#f4f4f2;font-family:"Inter Tight",sans-serif;overflow:hidden}
+html,body{width:1200px;height:630px;background:#050507;color:#f4f4f2;font-family:"Inter Tight",sans-serif;overflow:hidden}
 body{position:relative;padding:64px 72px}
 .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,244,242,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,244,242,.07) 1px,transparent 1px);background-size:75px 75px;-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 35%,#000 25%,transparent 80%)}
-.glow{position:absolute;width:900px;height:900px;left:50%;top:-55%;transform:translateX(-50%);background:radial-gradient(circle,rgba(244,244,242,.12),transparent 60%)}
-.c{position:absolute;width:26px;height:26px;border:2px solid #f4f4f2}
+.glow{position:absolute;inset:0;background:radial-gradient(40% 45% at 22% 62%,rgba(232,36,28,.22),transparent 70%),radial-gradient(45% 40% at 62% 0%,rgba(255,255,255,.08),transparent 70%)}
+.c{position:absolute;width:26px;height:26px;border:2px solid #ff3b30}
+.sq{display:inline-block;width:12px;height:12px;background:#ff3b30;margin-right:6px}
 .c1{top:28px;left:28px;border-right:0;border-bottom:0}.c2{top:28px;right:28px;border-left:0;border-bottom:0}
 .c3{bottom:28px;left:28px;border-right:0;border-top:0}.c4{bottom:28px;right:28px;border-left:0;border-top:0}
 .mono{font-family:"JetBrains Mono",monospace;font-size:17px;letter-spacing:.1em;text-transform:uppercase}
@@ -45,14 +58,15 @@ body{position:relative;padding:64px 72px}
 .top b{color:#f4f4f2;font-weight:500}
 .brand{position:relative;margin-top:44px;font-weight:900;letter-spacing:-.035em;line-height:.84;font-size:var(--fs)}
 .row{display:flex;align-items:flex-end;gap:28px}
-.g{background:linear-gradient(180deg,#f4f4f2 10%,rgba(244,244,242,.14) 95%);-webkit-background-clip:text;color:transparent}
-.rule{flex:1;height:2px;background:rgba(244,244,242,.25);margin-bottom:.16em}
+.g{background:radial-gradient(70% 90% at 85% 0%,#ff6a3d 0%,transparent 60%),radial-gradient(60% 80% at 0% 100%,#b5101a 0%,transparent 65%),#e8241c;-webkit-background-clip:text;color:transparent}
+.rule{flex:1;height:3px;background:linear-gradient(90deg,#e8241c,transparent);margin-bottom:.16em}
 .meta{margin-bottom:.12em;text-align:right;line-height:1.6;color:rgba(244,244,242,.6);font-size:20px}
-.meta b{color:#f4f4f2;font-weight:500}
+.meta b{color:#ff3b30;font-weight:500}
+.logo{display:inline-flex;align-items:center;gap:14px;color:#f4f4f2;font-family:"Inter Tight",sans-serif;font-weight:900;font-size:24px;letter-spacing:-.02em;text-transform:none}
 .line{position:absolute;left:72px;right:72px;bottom:64px;font-size:30px;font-weight:500;letter-spacing:-.01em;color:rgba(244,244,242,.8)}
 </style></head><body><div class="grid"></div><div class="glow"></div>
 <i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i>
-<div class="top mono"><span><b>●</b>&nbsp; ${t.tag}</span><span><b>arhitector-ai.ru</b></span></div>
+<div class="top mono"><span class="logo"><svg width="40" height="32" viewBox="0 0 50 40"><g fill="#ff3b30">${PIXELS.map(([x, y]) => `<rect x="${x * 10}" y="${y * 10}" width="10" height="10"/>`).join("")}</g></svg>ARHITECTOR AI</span><span><i class="sq"></i>${t.tag}</span></div>
 <div class="brand" id="b"><div class="row"><span id="w">ARHITECTOR</span></div><div class="row"><span class="g">AI</span><span class="rule"></span><span class="meta mono">${t.meta}</span></div></div>
 <div class="line">${t.line}</div>
 <script>document.fonts.ready.then(()=>{const w=document.getElementById("w"),b=document.getElementById("b");b.style.setProperty("--fs","100px");b.style.setProperty("--fs",(100*1056/w.getBoundingClientRect().width)+"px")})</script>
@@ -81,7 +95,7 @@ for (const s of [192, 512]) {
 fs.writeFileSync(path.join(SITE, "manifest.webmanifest"), JSON.stringify({
   id: "/", name: "ARHITECTOR AI", short_name: "ARHITECTOR", description: "ИИ-агентство полного цикла",
   lang: "ru", start_url: "/", scope: "/", display: "standalone",
-  background_color: "#050505", theme_color: "#050505",
+  background_color: "#050507", theme_color: "#050507",
   icons: [192, 512].flatMap(s => [
     { src: `/img/icon-${s}.png?v=${V}`, sizes: `${s}x${s}`, type: "image/png", purpose: "any" },
     { src: `/img/icon-maskable-${s}.png?v=${V}`, sizes: `${s}x${s}`, type: "image/png", purpose: "maskable" }
@@ -105,7 +119,7 @@ sizes.forEach((s, i) => {
 fs.writeFileSync(path.join(SITE, "favicon.ico"), Buffer.concat([head, ...pngs]));
 console.log("favicon.ico", sizes.join("/"));
 /* Ссылки на иконки и manifest во всех страницах — с той же версией */
-const pages = ["index.html", "offer.html", "_src/index.html", ...fs.readdirSync(SITE).filter(d => fs.existsSync(path.join(SITE, d, "index.html")) && d !== "_src").map(d => d + "/index.html")];
+const pages = ["index.html", "offer.html", "_src/index.html", "_src/services.mjs", ...fs.readdirSync(SITE).filter(d => fs.existsSync(path.join(SITE, d, "index.html")) && d !== "_src").map(d => d + "/index.html")];
 for (const f of new Set(pages)) {
   const file = path.join(SITE, f), html = fs.readFileSync(file, "utf8");
   const out = html.replace(/(href="\/(?:favicon\.ico|favicon\.svg|apple-touch-icon\.png|manifest\.webmanifest))(?:\?v=[0-9a-f]+)?"/g, `$1?v=${V}"`);

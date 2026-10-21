@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#050505"/><g transform="translate(32 32) scale(1.5) translate(-32 -32)" fill="#f4f4f2"><path d="M22 44L30.2 20H33.8L42 44H38.4L32 25.27L25.6 44Z"/><rect x="30.6" y="35" width="2.8" height="2.8"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs>
+<radialGradient id="o" cx="85%" cy="0%" r="90%"><stop offset="0" stop-color="#ff6a3d"/><stop offset=".6" stop-color="#ff6a3d" stop-opacity="0"/></radialGradient>
+<radialGradient id="d" cx="0%" cy="100%" r="80%"><stop offset="0" stop-color="#b5101a"/><stop offset=".65" stop-color="#b5101a" stop-opacity="0"/></radialGradient>
+<clipPath id="c"><rect width="64" height="64" rx="14"/></clipPath></defs>
+<g clip-path="url(#c)"><rect width="64" height="64" fill="#e8241c"/><rect width="64" height="64" fill="url(#o)"/><rect width="64" height="64" fill="url(#d)"/></g><g fill="#ffffff" shape-rendering="crispEdges"><rect x="28" y="16" width="8" height="8"/><rect x="20" y="24" width="8" height="8"/><rect x="36" y="24" width="8" height="8"/><rect x="12" y="32" width="8" height="8"/><rect x="44" y="32" width="8" height="8"/><rect x="12" y="40" width="8" height="8"/><rect x="28" y="40" width="8" height="8"/><rect x="44" y="40" width="8" height="8"/></g></svg>

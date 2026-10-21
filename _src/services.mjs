@@ -164,9 +164,10 @@ export function page(s) {
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#050505">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?v=a7be686a" sizes="48x48">
+<link rel="icon" href="/favicon.svg?v=a7be686a" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=a7be686a">
+<link rel="manifest" href="/manifest.webmanifest?v=a7be686a">
 <link rel="preload" href="/fonts/inter-tight-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
@@ -256,7 +257,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);f
     <a href="/" class="logo" aria-label="arhitector-ai.ru — на главную">arhitector<span>-ai.ru</span></a>
     <nav class="nav-links" aria-label="Услуги">
       ${SERVICES.map(x => `<a href="/${x.slug}/"${x === s ? ' aria-current="page"' : ""}>${x.nav}</a>`).join("\n      ")}
-      <a href="/#plans">Цены</a>
+      <a href="/#faq">FAQ</a>
     </nav>
     <a class="btn btn-solid" href="${TG}" target="_blank" rel="noopener">Обсудить</a>
   </div>
@@ -274,7 +275,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);f
         <div><div class="price"><small>от</small>${s.price}</div><div class="term mono">${s.term}</div></div>
         <div class="cta">
           <a class="btn btn-solid" href="${TG}" target="_blank" rel="noopener">Обсудить задачу ↗</a>
-          <a class="btn btn-ghost" href="/#cases">Смотреть До / После</a>
+          <a class="btn btn-ghost" href="/#services">Все услуги</a>
         </div>
       </div>
     </div>
@@ -345,7 +346,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 44px;color:var(--muted);f
       <div class="foot-links">
         <a href="${TG}" target="_blank" rel="noopener">Telegram @arkhitkov</a>
         <a href="/#services">Услуги</a>
-        <a href="/#plans">Цены</a>
+        <a href="/#faq">FAQ</a>
         <a href="/offer.html">Договор-оферта</a>
       </div>
       <div>© 2026 ARHITECTOR AI · arhitector-ai.ru</div>
