@@ -30,7 +30,7 @@ const plate = (rx = 0, grid = false) => `<defs>
 <clipPath id="c"><rect width="64" height="64" rx="${rx}"/></clipPath></defs>
 <g clip-path="url(#c)"><rect width="64" height="64" fill="#e8241c"/><rect width="64" height="64" fill="url(#o)"/><rect width="64" height="64" fill="url(#d)"/>${grid
   ? `<g stroke="#fff" stroke-opacity=".12" stroke-width=".25">${[8, 16, 24, 32, 40, 48, 56].map(p => `<path d="M${p} 0V64M0 ${p}H64"/>`).join("")}</g>` : ""}</g>`;
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(14)}${mark(8)}</svg>`;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(22)}${mark(7)}</svg>`;
 /* Android: maskable-иконка — фон на всю форму, знак внутри безопасного круга (80% диаметра) */
 const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(5.2)}</svg>`;
 const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(6.4)}</svg>`;
