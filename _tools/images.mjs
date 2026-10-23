@@ -34,9 +34,11 @@ const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${p
 /* Android: maskable-иконка — фон на всю форму, знак внутри безопасного круга (80% диаметра) */
 const maskable = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(5.2)}</svg>`;
 const touch = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(0, true)}${mark(6.4)}</svg>`;
+/* PWA на ПК (Windows/Brave/Chrome) берёт иконку purpose "any" как есть и не скругляет — рисуем скруглённой, углы прозрачные */
+const rounded = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">${plate(14, true)}${mark(6.4)}</svg>`;
 
 /* Версия иконок в адресах (?v=…): картинки кэшируются на 30+ дней, а с новым адресом браузер и Android берут свежие */
-const V = crypto.createHash("sha1").update(favicon + touch + maskable).digest("hex").slice(0, 8);
+const V = crypto.createHash("sha1").update(favicon + touch + maskable + rounded).digest("hex").slice(0, 8);
 
 const FONTS = `<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">`;
 const og = (lang) => {
@@ -89,7 +91,7 @@ fs.writeFileSync(path.join(SITE, "favicon.svg"), favicon + "\n");
 for (const lang of ["ru", "en"]) shot(og(lang), path.join(SITE, `img/og-${lang}.png`), 1200, 630);
 shot(svgPage(touch, 180), path.join(SITE, "apple-touch-icon.png"), 180, 180);
 for (const s of [192, 512]) {
-  shot(svgPage(touch, s), path.join(SITE, `img/icon-${s}.png`), s, s);
+  shot(svgPage(rounded, s), path.join(SITE, `img/icon-${s}.png`), s, s);
   shot(svgPage(maskable, s), path.join(SITE, `img/icon-maskable-${s}.png`), s, s);
 }
 fs.writeFileSync(path.join(SITE, "manifest.webmanifest"), JSON.stringify({

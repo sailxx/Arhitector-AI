@@ -167,10 +167,10 @@ export function page(s) {
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#050507">
-<link rel="icon" href="/favicon.ico?v=9e21e5fe" sizes="48x48">
-<link rel="icon" href="/favicon.svg?v=9e21e5fe" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=9e21e5fe">
-<link rel="manifest" href="/manifest.webmanifest?v=9e21e5fe">
+<link rel="icon" href="/favicon.ico?v=6df223b2" sizes="48x48">
+<link rel="icon" href="/favicon.svg?v=6df223b2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=6df223b2">
+<link rel="manifest" href="/manifest.webmanifest?v=6df223b2">
 <link rel="preload" href="/fonts/inter-tight-cyrillic-0.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
