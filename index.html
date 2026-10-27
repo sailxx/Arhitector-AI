@@ -2,8 +2,8 @@
 <!-- Сгенерировано _tools/build.mjs из _src/index.html. Правьте исходник, а не этот файл. --><html lang="ru"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты</title>
-<meta name="description" content="ARHITECTOR AI — рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.">
+<title>ARHITECTOR AI | рекламные ИИ-видео, креативы, сайты и ИИ-боты</title>
+<meta name="description" content="ARHITECTOR AI | рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.">
 <link rel="canonical" href="https://arhitector-ai.ru/">
 <link rel="alternate" hreflang="ru" href="https://arhitector-ai.ru/">
 <link rel="alternate" hreflang="en" href="https://arhitector-ai.ru/en/">
@@ -12,8 +12,8 @@
 <meta property="og:url" content="https://arhitector-ai.ru/">
 <meta property="og:site_name" content="ARHITECTOR AI">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты">
-<meta property="og:description" content="Рекламные ИИ-видео и креативы, сайты под ключ, автоматизация и Telegram ИИ-боты. Первый креатив — бесплатно.">
+<meta property="og:title" content="ARHITECTOR AI | рекламные ИИ-видео, креативы, сайты и ИИ-боты">
+<meta property="og:description" content="Рекламные ИИ-видео и креативы, сайты под ключ, автоматизация и Telegram ИИ-боты. Первый креатив бесплатно.">
 <meta property="og:image" content="https://arhitector-ai.ru/img/og-ru.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -345,7 +345,9 @@ section.tight{padding-top:0}
 /* ---------- финальная плашка ---------- */
 .cta{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:var(--plashka);color:#fff;padding:56px 48px 40px;display:flex;flex-direction:column;gap:48px;box-shadow:0 40px 120px -30px rgba(255,59,48,.55)}
 .cta::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
-.cta-mark{position:absolute;right:48px;top:48px;width:300px;height:240px;opacity:.16;z-index:-1}
+.cta-mark rect{transform-box:fill-box;transform-origin:center;transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0;transition:transform 1.3s cubic-bezier(.16,1,.3,1) var(--d),opacity .6s ease var(--d)}
+.cta.in .cta-mark rect{transform:none;opacity:1}
+.cta-mark{position:absolute;right:48px;top:48px;width:300px;height:240px;opacity:.22;z-index:-1}
 .cta-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:#0b0b0d}
 .cta-link{display:flex;align-items:center;gap:.12em;font-weight:900;font-size:clamp(56px,11.5vw,176px);line-height:.82;letter-spacing:-.065em;text-transform:uppercase}
 .cta-link .arr{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
@@ -401,6 +403,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 @media (prefers-reduced-motion:reduce){
   .brand .ch,.brand-rule,.brand-meta{animation:none;transform:none;opacity:1}
   .rv{opacity:1;transform:none;filter:none;transition:none}
+  .cta-mark rect{transform:none;opacity:1;transition:none}
   .progress{display:none}
   ::view-transition-old(root),::view-transition-new(root){animation:none}
   .track,.scan,.rec,.svc-item.act .svc-fill,#globe{animation:none}
@@ -446,14 +449,13 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo" aria-label="ARHITECTOR AI — arhitector-ai.ru">
+    <a href="#" class="logo" aria-label="ARHITECTOR AI | arhitector-ai.ru">
       <svg aria-hidden="true" width="30" height="24" viewBox="0 0 50 40"><g fill="#ff3b30"><rect x="20" y="0" width="10" height="10"></rect><rect x="10" y="10" width="10" height="10"></rect><rect x="30" y="10" width="10" height="10"></rect><rect x="0" y="20" width="10" height="10"></rect><rect x="40" y="20" width="10" height="10"></rect><rect x="0" y="30" width="10" height="10"></rect><rect x="20" y="30" width="10" height="10"></rect><rect x="40" y="30" width="10" height="10"></rect></g></svg>
       ARHITECTOR AI
     </a>
     <nav class="nav-links mono">
       <a href="#services" data-i="navServices">/Услуги</a>
       <a href="#why" data-i="navWhy">/Почему мы</a>
-      <a href="#world" data-i="navWorld">/По миру</a>
       <a href="#faq" data-i="navFaq">/FAQ</a>
     </nav>
     <div class="nav-right">
@@ -484,10 +486,9 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
         <span class="brand-row brand-row2" aria-hidden="true"><span><span class="ch redtext" style="--i:10">A</span><span class="ch redtext" style="--i:11">I</span></span><span class="brand-rule"></span></span>
       </h1>
       <div class="hero-bottom">
-        <p class="hero-lead rv" data-i="heroLead">Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <b>приводят клиентов</b> <em>— в разы быстрее и дешевле обычного продакшна.</em></p>
+        <p class="hero-lead rv" data-i="heroLead">Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <b>приводят клиентов</b> <em>в разы быстрее и дешевле обычного продакшна.</em></p>
         <div class="hero-cta rv">
           <a class="btn btn-red tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="heroCta">Получить бесплатный креатив</span> <span class="arr">↗</span></a>
-          <a class="btn btn-ghost" href="#services" data-i="heroCta2">Услуги и цены</a>
         </div>
       </div>
     </div>
@@ -498,7 +499,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block" id="services">
     <div class="wrap">
       <div class="sec-head rv">
-        <div><span class="sec-tag mono" data-i="sec1">/Услуги</span><h2 data-i="svcH">Четыре услуги.<br><span class="serif">одна цель — продажи</span></h2></div>
+        <div><span class="sec-tag mono" data-i="sec1">/Услуги</span><h2 data-i="svcH">Четыре услуги.<br><span class="serif">одна цель: продажи</span></h2></div>
         <p data-i="svcP">Стартовые цены для первых клиентов. Оплата 50/50, чек «Мой налог».</p>
       </div>
       <div class="svc-layout">
@@ -506,7 +507,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     <div class="svc-item act">
       <button type="button" class="svc-tab" aria-expanded="true" data-svc="0"><span class="svc-num">01</span><span class="svc-title">ИИ-видео</span><span class="svc-arr" aria-hidden="true">→</span></button>
       <div class="svc-body"><div><div class="svc-in">
-        <p>Ролики для Reels, Shorts и маркетплейсов — без съёмочной группы и актёров.</p>
+        <p>Ролики для Reels, Shorts и маркетплейсов, без съёмочной группы и актёров.</p>
         <ul class="chips"><li>Сценарий и хук</li><li>ИИ-генерация</li><li>Монтаж и звук</li><li>9:16 и 1:1</li></ul>
         <div class="svc-price">
           <div><b class="redtext"><small>от</small>3 900 ₽</b> <span class="mono muted">от 2 дней</span></div>
@@ -518,7 +519,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     <div class="svc-item">
       <button type="button" class="svc-tab" aria-expanded="false" data-svc="1"><span class="svc-num">02</span><span class="svc-title">Креативы</span><span class="svc-arr" aria-hidden="true">→</span></button>
       <div class="svc-body"><div><div class="svc-in">
-        <p>Карточки для WB и Ozon, баннеры и инфографика — десять вариантов для теста.</p>
+        <p>Карточки для WB и Ozon, баннеры и инфографика, десять вариантов для теста.</p>
         <ul class="chips"><li>ИИ-предметка</li><li>Инфографика</li><li>10 вариантов</li></ul>
         <div class="svc-price">
           <div><b class="redtext"><small>от</small>990 ₽</b> <span class="mono muted">от 24 часов</span></div>
@@ -530,7 +531,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
     <div class="svc-item">
       <button type="button" class="svc-tab" aria-expanded="false" data-svc="2"><span class="svc-num">03</span><span class="svc-title">Сайт под ключ</span><span class="svc-arr" aria-hidden="true">→</span></button>
       <div class="svc-body"><div><div class="svc-in">
-        <p>Лендинг с оффером, ценами и заявками в Telegram — за несколько дней.</p>
+        <p>Лендинг с оффером, ценами и заявками в Telegram, за несколько дней.</p>
         <ul class="chips"><li>Структура и тексты</li><li>Дизайн</li><li>Адаптив</li><li>Заявки в Telegram</li></ul>
         <div class="svc-price">
           <div><b class="redtext"><small>от</small>7 900 ₽</b> <span class="mono muted">от 5 дней</span></div>
@@ -584,14 +585,14 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="why">
     <div class="wrap">
       <div class="sec-head rv">
-        <div><span class="sec-tag mono" data-i="sec2">/Почему мы</span><h2 data-i="whyH">Результат —<br><span class="serif">до оплаты</span></h2></div>
+        <div><span class="sec-tag mono" data-i="sec2">/Почему мы</span><h2 data-i="whyH">Результат<br><span class="serif">до оплаты</span></h2></div>
         <div class="why-nav">
           <span class="mono" id="why-count">01 / 05</span>
           <button class="arrow" type="button" id="why-prev" data-i-label="prevL" aria-label="Предыдущая причина">←</button>
           <button class="arrow" type="button" id="why-next" data-i-label="nextL" aria-label="Следующая причина">→</button>
         </div>
       </div>
-      <div class="why-view rv"><div class="why-track" id="why-track" style="transform: translateX(calc(0 * (min(420px, 82vw) + 24px)));"><article class="why"><span class="why-n">01</span><div><h3>Сначала показываем</h3><p>Первый креатив — бесплатно. Платите, только если он вам подошёл.</p></div></article><article class="why"><span class="why-n">02</span><div><h3>Быстрее продакшна</h3><p>ИИ вместо съёмочного дня: креативы от 24 часов, видео от 2 дней.</p></div></article><article class="why"><span class="why-n">03</span><div><h3>Без посредников</h3><p>Вы общаетесь напрямую с основателем — без менеджеров.</p></div></article><article class="why"><span class="why-n">04</span><div><h3>Цены ниже рынка</h3><p>Стартовые цены для первых клиентов, без абонплат и наценок.</p></div></article><article class="why"><span class="why-n">05</span><div><h3>Официально</h3><p>Оплата 50/50 и чек из «Мой налог» за каждую работу.</p></div></article></div></div>
+      <div class="why-view rv"><div class="why-track" id="why-track" style="transform: translateX(calc(0 * (min(420px, 82vw) + 24px)));"><article class="why"><span class="why-n">01</span><div><h3>Сначала показываем</h3><p>Первый креатив: бесплатно. Платите, только если он вам подошёл.</p></div></article><article class="why"><span class="why-n">02</span><div><h3>Быстрее продакшна</h3><p>ИИ вместо съёмочного дня: креативы от 24 часов, видео от 2 дней.</p></div></article><article class="why"><span class="why-n">03</span><div><h3>Без посредников</h3><p>Вы общаетесь напрямую с основателем, без менеджеров.</p></div></article><article class="why"><span class="why-n">04</span><div><h3>Цены ниже рынка</h3><p>Стартовые цены для первых клиентов, без абонплат и наценок.</p></div></article><article class="why"><span class="why-n">05</span><div><h3>Официально</h3><p>Оплата 50/50 и чек из «Мой налог» за каждую работу.</p></div></article></div></div>
       <div class="why-bar"><i id="why-bar" style="width: 20%;"></i></div>
     </div>
   </section>
@@ -600,10 +601,10 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="world">
     <div class="wrap world-head rv">
       <span class="mono r" data-i="sec3">/По миру</span>
-      <p data-i="worldP">Россия, СНГ и весь мир. Где бы вы ни были — отвечаем в Telegram в течение часа.</p>
+      <p data-i="worldP">Россия, СНГ и весь мир. Где бы вы ни были, отвечаем в Telegram в течение часа.</p>
     </div>
     <div class="world-mq mq-wrap" aria-hidden="true"><div class="track" id="world-track"><span>Международно</span><span class="amp">&amp;</span><span class="outline">International</span><span class="amp">&amp;</span><span>Международно</span><span class="amp">&amp;</span><span class="outline">International</span><span class="amp">&amp;</span></div></div>
-    <div class="wrap"><div class="clocks rv" id="clocks"><div class="clock"><span class="mono">/Москва</span><b>23:39</b></div><div class="clock"><span class="mono">/Дубай</span><b>00:39</b></div><div class="clock"><span class="mono">/Берлин</span><b>21:39</b></div><div class="clock"><span class="mono">/Нью-Йорк</span><b>16:39</b></div></div></div>
+    <div class="wrap"><div class="clocks rv" id="clocks"><div class="clock"><span class="mono">/Москва</span><b>23:53</b></div><div class="clock"><span class="mono">/Дубай</span><b>00:53</b></div><div class="clock"><span class="mono">/Берлин</span><b>21:53</b></div><div class="clock"><span class="mono">/Нью-Йорк</span><b>16:53</b></div></div></div>
   </section>
 
   <!-- ================= ПРОЦЕСС ================= -->
@@ -622,7 +623,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight">
     <div class="wrap">
       <div class="sec-head rv"><div><span class="sec-tag mono" data-i="sec5">/Гарантии</span><h2 data-i="guarH">Работаем<br><span class="serif">честно и официально</span></h2></div></div>
-      <div class="guar rv" id="guar"><div class="gu"><i>◎</i><b>Тест бесплатно</b><span>Первый креатив — до оплаты, чтобы вы увидели качество.</span></div><div class="gu"><i>½</i><b>Оплата 50 / 50</b><span>Предоплата 50%, остаток — после того, как вам всё понравится.</span></div><div class="gu"><i>↺</i><b>Правки включены</b><span>Вносим правки до утверждения в рамках задачи.</span></div><div class="gu"><i>✓</i><b>Официальный чек</b><span>Работаю как самозанятый — чек «Мой налог» на каждую оплату.</span></div></div>
+      <div class="guar rv" id="guar"><div class="gu"><i>◎</i><b>Тест бесплатно</b><span>Первый креатив: до оплаты, чтобы вы увидели качество.</span></div><div class="gu"><i>½</i><b>Оплата 50 / 50</b><span>Предоплата 50%, остаток после того, как вам всё понравится.</span></div><div class="gu"><i>↺</i><b>Правки включены</b><span>Вносим правки до утверждения в рамках задачи.</span></div><div class="gu"><i>₽</i><b>Официальный чек</b><span>Работаю как самозанятый, чек «Мой налог» на каждую оплату.</span></div></div>
     </div>
   </section>
 
@@ -630,7 +631,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight" id="faq">
     <div class="wrap">
       <div class="sec-head rv"><div><span class="sec-tag mono" data-i="sec6">/FAQ</span><h2 data-i="faqH">Частые<br><span class="serif">вопросы</span></h2></div></div>
-      <div class="faq rv" id="faq-list"><details open=""><summary><span class="n">01</span><span class="q">Почему такие низкие цены?</span><span class="pm" aria-hidden="true">+</span></summary><p>Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость.</p></details><details><summary><span class="n">02</span><span class="q">Как оплатить и будут ли документы?</span><span class="pm" aria-hidden="true">+</span></summary><p>Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href="/offer.html" style="text-decoration:underline">договоре-оферте</a>.</p></details><details><summary><span class="n">03</span><span class="q">Работаете с клиентами из других стран?</span><span class="pm" aria-hidden="true">+</span></summary><p>Да. Общаемся на русском или английском, цены для международных клиентов — в долларах. Способ оплаты подберём индивидуально.</p></details><details><summary><span class="n">04</span><span class="q">Какие сроки?</span><span class="pm" aria-hidden="true">+</span></summary><p>Креативы — от 24 часов, рекламное видео — от 2 дней, сайт и ИИ-бот — от 5 дней. Точные сроки фиксируем до старта.</p></details><details><summary><span class="n">05</span><span class="q">ИИ-видео не выглядит дёшево?</span><span class="pm" aria-hidden="true">+</span></summary><p>Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже.</p></details><details><summary><span class="n">06</span><span class="q">Кто платит за нейросети и хостинг?</span><span class="pm" aria-hidden="true">+</span></summary><p>Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт — обычно это небольшие суммы, расчёт покажем заранее.</p></details></div>
+      <div class="faq rv" id="faq-list"><details open=""><summary><span class="n">01</span><span class="q">Почему такие низкие цены?</span><span class="pm" aria-hidden="true">+</span></summary><p>Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество, как за полную стоимость.</p></details><details><summary><span class="n">02</span><span class="q">Как оплатить и будут ли документы?</span><span class="pm" aria-hidden="true">+</span></summary><p>Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия, в <a href="/offer.html" style="text-decoration:underline">договоре-оферте</a>.</p></details><details><summary><span class="n">03</span><span class="q">Работаете с клиентами из других стран?</span><span class="pm" aria-hidden="true">+</span></summary><p>Да. Общаемся на русском или английском, цены для международных клиентов, в долларах. Способ оплаты подберём индивидуально.</p></details><details><summary><span class="n">04</span><span class="q">Какие сроки?</span><span class="pm" aria-hidden="true">+</span></summary><p>Креативы: от 24 часов, рекламное видео: от 2 дней, сайт и ИИ-бот: от 5 дней. Точные сроки фиксируем до старта.</p></details><details><summary><span class="n">05</span><span class="q">ИИ-видео не выглядит дёшево?</span><span class="pm" aria-hidden="true">+</span></summary><p>Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже.</p></details><details><summary><span class="n">06</span><span class="q">Кто платит за нейросети и хостинг?</span><span class="pm" aria-hidden="true">+</span></summary><p>Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт, обычно это небольшие суммы, расчёт покажем заранее.</p></details></div>
     </div>
   </section>
 
@@ -638,10 +639,10 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
   <section class="block tight">
     <div class="wrap">
       <div class="cta rv">
-        <svg class="cta-mark" aria-hidden="true" viewBox="0 0 50 40"><g fill="#fff"><rect x="20" y="0" width="10" height="10"></rect><rect x="10" y="10" width="10" height="10"></rect><rect x="30" y="10" width="10" height="10"></rect><rect x="0" y="20" width="10" height="10"></rect><rect x="40" y="20" width="10" height="10"></rect><rect x="0" y="30" width="10" height="10"></rect><rect x="20" y="30" width="10" height="10"></rect><rect x="40" y="30" width="10" height="10"></rect></g></svg>
-        <span class="cta-badge mono"><span class="sq" style="background:#ff3b30"></span><span data-i="ctaBadge">Первый креатив — бесплатно</span></span>
+        <svg class="cta-mark" aria-hidden="true" viewBox="0 0 50 40"><g fill="#fff"><rect x="20" y="0" width="10" height="10" style="--x:-220px;--y:-140px;--r:-40deg;--d:0ms"></rect><rect x="10" y="10" width="10" height="10" style="--x:-260px;--y:60px;--r:30deg;--d:90ms"></rect><rect x="30" y="10" width="10" height="10" style="--x:200px;--y:-170px;--r:50deg;--d:180ms"></rect><rect x="0" y="20" width="10" height="10" style="--x:-300px;--y:-30px;--r:-60deg;--d:270ms"></rect><rect x="40" y="20" width="10" height="10" style="--x:260px;--y:40px;--r:40deg;--d:360ms"></rect><rect x="0" y="30" width="10" height="10" style="--x:-180px;--y:190px;--r:-30deg;--d:450ms"></rect><rect x="20" y="30" width="10" height="10" style="--x:120px;--y:230px;--r:60deg;--d:540ms"></rect><rect x="40" y="30" width="10" height="10" style="--x:300px;--y:150px;--r:-50deg;--d:630ms"></rect></g></svg>
+        <span class="cta-badge mono"><span class="sq" style="background:#ff3b30"></span><span data-i="ctaBadge">Первый креатив: бесплатно</span></span>
         <a class="cta-link tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener"><span data-i="ctaBig">Написать</span> <span class="arr">↗</span></a>
-        <div class="cta-meta mono"><span>Telegram @arkhitkov</span><span data-i="ctaNote">Ответ в течение 1 часа</span><span>RU / EN · ₽ / $</span></div>
+        <div class="cta-meta mono"><span>Telegram @arkhitkov</span><span data-i="ctaNote">Ответ в течение 1 часа</span></div>
       </div>
       <p class="consent" data-i="consent">Переходя в Telegram, вы сами передаёте нам свои контактные данные для связи по вашему запросу. Сайт не собирает персональные данные и не использует cookie.</p>
     </div>
@@ -657,8 +658,6 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       </a>
       <nav class="foot-links mono">
         <a class="tg" href="https://t.me/arkhitkov" target="_blank" rel="noopener">/Telegram @arkhitkov</a>
-        <a href="#services" data-i="footServices">/Услуги</a>
-        <a href="#faq">/FAQ</a>
         <a href="/offer.html" data-i="offerLink">/Договор-оферта</a>
       </nav>
       <span class="mono muted">© <span id="year">2026</span> ARHITECTOR AI</span>
@@ -699,13 +698,13 @@ const ZONES = ["Europe/Moscow", "Asia/Dubai", "Europe/Berlin", "America/New_York
 /* ===================== ТЕКСТЫ RU / EN ===================== */
 const T = {
 ru:{
-  title:"ARHITECTOR AI — рекламные ИИ-видео, креативы, сайты и ИИ-боты",
+  title:"ARHITECTOR AI | рекламные ИИ-видео, креативы, сайты и ИИ-боты",
   brandMeta:"<b>ИИ-агентство</b><br>полного цикла · с 2026",
   navServices:"/Услуги", navWhy:"/Почему мы", navWorld:"/По миру", navFaq:"/FAQ", navCta:"Оставить заявку",
   themeL:"Светлая тема", globeL:"Земля из точек, её можно повернуть", prevL:"Предыдущая причина", nextL:"Следующая причина",
   heroTag:"Агентство ИИ-решений · Россия, СНГ и мир",
   coords:"Видео · Креативы<br>Сайты · Боты<br>Автоматизация",
-  heroLead:"Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <b>приводят клиентов</b> <em>— в разы быстрее и дешевле обычного продакшна.</em>",
+  heroLead:"Делаем рекламные ИИ-видео, креативы, сайты и ИИ-ботов, которые <b>приводят клиентов</b> <em>в разы быстрее и дешевле обычного продакшна.</em>",
   heroCta:"Получить бесплатный креатив", heroCta2:"Услуги и цены",
   heroNote:"Ответ в Telegram в течение 1 часа",
   s1b:"от 24 ч", s1:"первые креативы после брифа",
@@ -714,13 +713,13 @@ ru:{
   s4:"работаем на русском и английском",
   marquee:["ИИ-видео","Креативы для WB и Ozon","Сайты под ключ","Telegram ИИ-боты","Автоматизация","RU / EN","₽ / $"],
   sec1:"/Услуги",
-  svcH:"Четыре услуги.<br><span class='serif'>одна цель — продажи</span>",
+  svcH:"Четыре услуги.<br><span class='serif'>одна цель: продажи</span>",
   svcP:"Стартовые цены для первых клиентов. Оплата 50/50, чек «Мой налог».",
   from:"от", more:"Подробнее →", order:"Заказать ↗", example:"/Пример",
   services:[
-    {k:"video", title:"ИИ-видео", p:"Ролики для Reels, Shorts и маркетплейсов — без съёмочной группы и актёров.", tags:["Сценарий и хук","ИИ-генерация","Монтаж и звук","9:16 и 1:1"], term:"от 2 дней"},
-    {k:"creative", title:"Креативы", p:"Карточки для WB и Ozon, баннеры и инфографика — десять вариантов для теста.", tags:["ИИ-предметка","Инфографика","10 вариантов"], term:"от 24 часов"},
-    {k:"site", title:"Сайт под ключ", p:"Лендинг с оффером, ценами и заявками в Telegram — за несколько дней.", tags:["Структура и тексты","Дизайн","Адаптив","Заявки в Telegram"], term:"от 5 дней"},
+    {k:"video", title:"ИИ-видео", p:"Ролики для Reels, Shorts и маркетплейсов, без съёмочной группы и актёров.", tags:["Сценарий и хук","ИИ-генерация","Монтаж и звук","9:16 и 1:1"], term:"от 2 дней"},
+    {k:"creative", title:"Креативы", p:"Карточки для WB и Ozon, баннеры и инфографика, десять вариантов для теста.", tags:["ИИ-предметка","Инфографика","10 вариантов"], term:"от 24 часов"},
+    {k:"site", title:"Сайт под ключ", p:"Лендинг с оффером, ценами и заявками в Telegram, за несколько дней.", tags:["Структура и тексты","Дизайн","Адаптив","Заявки в Telegram"], term:"от 5 дней"},
     {k:"bot", title:"Telegram ИИ-боты", p:"Отвечают клиентам за секунды, записывают и передают сложные вопросы вам.", tags:["Ответы по прайсу","Онлайн-запись","Напоминания","Передача менеджеру"], term:"от 5 дней"}
   ],
   scene:{
@@ -728,40 +727,40 @@ ru:{
     star:"★ ИИ-предметка", variants:"×10 вариантов для A/B-теста",
     url:"coffee-house.ru", order:"Заказать онлайн", lead:"Оставить заявку", toastH:"Новая заявка", toastP:"отправлено в Telegram",
     bot:"ИИ-администратор", online:"онлайн · отвечает за секунды",
-    m1:"Здравствуйте! Можно записаться на завтра?", m2:"Конечно! Свободные окна завтра:", m3:"Давайте 14:30", m4:"Записал вас на 14:30 ✓ Напомню за 2 часа до визита."
+    m1:"Здравствуйте! Можно записаться на завтра?", m2:"Конечно! Свободные окна завтра:", m3:"Давайте 14:30", m4:"Записал вас на 14:30. Напомню за 2 часа до визита."
   },
-  sec2:"/Почему мы", whyH:"Результат —<br><span class='serif'>до оплаты</span>",
+  sec2:"/Почему мы", whyH:"Результат<br><span class='serif'>до оплаты</span>",
   why:[
-    ["Сначала показываем","Первый креатив — бесплатно. Платите, только если он вам подошёл."],
+    ["Сначала показываем","Первый креатив: бесплатно. Платите, только если он вам подошёл."],
     ["Быстрее продакшна","ИИ вместо съёмочного дня: креативы от 24 часов, видео от 2 дней."],
-    ["Без посредников","Вы общаетесь напрямую с основателем — без менеджеров."],
+    ["Без посредников","Вы общаетесь напрямую с основателем, без менеджеров."],
     ["Цены ниже рынка","Стартовые цены для первых клиентов, без абонплат и наценок."],
     ["Официально","Оплата 50/50 и чек из «Мой налог» за каждую работу."]
   ],
-  sec3:"/По миру", worldP:"Россия, СНГ и весь мир. Где бы вы ни были — отвечаем в Telegram в течение часа.",
+  sec3:"/По миру", worldP:"Россия, СНГ и весь мир. Где бы вы ни были, отвечаем в Telegram в течение часа.",
   world:["Международно","International"],
   cities:["Москва","Дубай","Берлин","Нью-Йорк"],
   sec4:"/Процесс", procH:"Три шага<br><span class='serif'>до результата</span>",
-  st1h:"Пишете в Telegram", st1:"Коротко о задаче — ответ в течение часа.",
-  st2h:"Бесплатный тест", st2:"Первый креатив — до оплаты.",
+  st1h:"Пишете в Telegram", st1:"Коротко о задаче, ответ в течение часа.",
+  st2h:"Бесплатный тест", st2:"Первый креатив: до оплаты.",
   st3h:"Оплата 50/50", st3:"Половина на старте, половина по готовности.",
   sec5:"/Гарантии", guarH:"Работаем<br><span class='serif'>честно и официально</span>",
   guar:[
-    ["◎","Тест бесплатно","Первый креатив — до оплаты, чтобы вы увидели качество."],
-    ["½","Оплата 50 / 50","Предоплата 50%, остаток — после того, как вам всё понравится."],
+    ["◎","Тест бесплатно","Первый креатив: до оплаты, чтобы вы увидели качество."],
+    ["½","Оплата 50 / 50","Предоплата 50%, остаток после того, как вам всё понравится."],
     ["↺","Правки включены","Вносим правки до утверждения в рамках задачи."],
-    ["✓","Официальный чек","Работаю как самозанятый — чек «Мой налог» на каждую оплату."]
+    ["₽","Официальный чек","Работаю как самозанятый, чек «Мой налог» на каждую оплату."]
   ],
   sec6:"/FAQ", faqH:"Частые<br><span class='serif'>вопросы</span>",
   faq:[
-    ["Почему такие низкие цены?","Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество — как за полную стоимость."],
-    ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток — после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия — в <a href='/offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
-    ["Работаете с клиентами из других стран?","Да. Общаемся на русском или английском, цены для международных клиентов — в долларах. Способ оплаты подберём индивидуально."],
-    ["Какие сроки?","Креативы — от 24 часов, рекламное видео — от 2 дней, сайт и ИИ-бот — от 5 дней. Точные сроки фиксируем до старта."],
+    ["Почему такие низкие цены?","Мы недавно запустились и собираем портфолио. Первые клиенты получают стартовые цены в обмен на отзыв. Качество, как за полную стоимость."],
+    ["Как оплатить и будут ли документы?","Работаю как самозанятый (НПД): на каждую оплату вы получаете официальный чек из приложения «Мой налог». Предоплата 50%, остаток после сдачи. Для компаний и ИП можем подписать договор. НДС не облагается. Все условия, в <a href='/offer.html' style='text-decoration:underline'>договоре-оферте</a>."],
+    ["Работаете с клиентами из других стран?","Да. Общаемся на русском или английском, цены для международных клиентов, в долларах. Способ оплаты подберём индивидуально."],
+    ["Какие сроки?","Креативы: от 24 часов, рекламное видео: от 2 дней, сайт и ИИ-бот: от 5 дней. Точные сроки фиксируем до старта."],
     ["ИИ-видео не выглядит дёшево?","Нет, если делать с режиссурой. Пишем сценарий, подбираем стиль под бренд, генерируем, отбираем лучшее и доводим в монтаже."],
-    ["Кто платит за нейросети и хостинг?","Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт — обычно это небольшие суммы, расчёт покажем заранее."]
+    ["Кто платит за нейросети и хостинг?","Генерация для видео и креативов уже включена в цену. Для ботов и автоматизаций оплата API и сервера идёт напрямую на ваш аккаунт, обычно это небольшие суммы, расчёт покажем заранее."]
   ],
-  ctaBadge:"Первый креатив — бесплатно", ctaBig:"Написать", ctaNote:"Ответ в течение 1 часа",
+  ctaBadge:"Первый креатив: бесплатно", ctaBig:"Написать", ctaNote:"Ответ в течение 1 часа",
   consent:"Переходя в Telegram, вы сами передаёте нам свои контактные данные для связи по вашему запросу. Сайт не собирает персональные данные и не использует cookie.",
   stickyCta:"Бесплатный креатив",
   footServices:"/Услуги", offerLink:"/Договор-оферта",
@@ -769,13 +768,13 @@ ru:{
   cookieNote:"Сайт не собирает персональные данные и не использует cookie",
 },
 en:{
-  title:"ARHITECTOR AI — AI ad videos, creatives, websites and AI bots",
+  title:"ARHITECTOR AI | AI ad videos, creatives, websites and AI bots",
   brandMeta:"<b>Full-cycle</b><br>AI agency · est. 2026",
   navServices:"/Services", navWhy:"/Why us", navWorld:"/Worldwide", navFaq:"/FAQ", navCta:"Get in touch",
   themeL:"Light theme", globeL:"Dotted globe, drag to rotate", prevL:"Previous reason", nextL:"Next reason",
   heroTag:"AI solutions agency · Worldwide",
   coords:"Video · Creatives<br>Websites · Bots<br>Automation",
-  heroLead:"We create AI ad videos, creatives, websites and AI bots that <b>bring you clients</b> <em>— faster and cheaper than traditional production.</em>",
+  heroLead:"We create AI ad videos, creatives, websites and AI bots that <b>bring you clients</b> <em>faster and cheaper than traditional production.</em>",
   heroCta:"Get a free creative", heroCta2:"Services & pricing",
   heroNote:"Reply on Telegram within 1 hour",
   s1b:"24 h", s1:"first creatives after the brief",
@@ -784,13 +783,13 @@ en:{
   s4:"we work in English and Russian",
   marquee:["AI videos","Marketplace creatives","Turnkey websites","Telegram AI bots","Automation","EN / RU","$ / ₽"],
   sec1:"/Services",
-  svcH:"Four services.<br><span class='serif'>one goal — sales</span>",
+  svcH:"Four services.<br><span class='serif'>one goal: sales</span>",
   svcP:"Launch pricing for our first clients. 50/50 payment, official receipts.",
   from:"from", more:"Learn more →", order:"Order ↗", example:"/Example",
   services:[
-    {k:"video", title:"AI videos", p:"Videos for Reels, Shorts and marketplaces — with no film crew or actors.", tags:["Script & hook","AI generation","Editing & sound","9:16 and 1:1"], term:"from 2 days"},
-    {k:"creative", title:"Creatives", p:"Marketplace cards, banners and infographics — ten variants to test.", tags:["AI product shots","Infographics","10 variants"], term:"from 24 hours"},
-    {k:"site", title:"Turnkey website", p:"A landing page with your offer, prices and leads sent to Telegram — in a few days.", tags:["Structure & copy","Design","Mobile-ready","Leads to Telegram"], term:"from 5 days"},
+    {k:"video", title:"AI videos", p:"Videos for Reels, Shorts and marketplaces, with no film crew or actors.", tags:["Script & hook","AI generation","Editing & sound","9:16 and 1:1"], term:"from 2 days"},
+    {k:"creative", title:"Creatives", p:"Marketplace cards, banners and infographics, ten variants to test.", tags:["AI product shots","Infographics","10 variants"], term:"from 24 hours"},
+    {k:"site", title:"Turnkey website", p:"A landing page with your offer, prices and leads sent to Telegram, in a few days.", tags:["Structure & copy","Design","Mobile-ready","Leads to Telegram"], term:"from 5 days"},
     {k:"bot", title:"Telegram AI bots", p:"They answer clients in seconds, book appointments and pass tricky questions to you.", tags:["Price-list answers","Online booking","Reminders","Hand-off to manager"], term:"from 5 days"}
   ],
   scene:{
@@ -798,21 +797,21 @@ en:{
     star:"★ AI product shot", variants:"×10 variants for A/B testing",
     url:"coffee-house.com", order:"Order online", lead:"Leave a request", toastH:"New lead", toastP:"sent to Telegram",
     bot:"AI front desk", online:"online · replies in seconds",
-    m1:"Hi! Can I book for tomorrow?", m2:"Sure! Free slots tomorrow:", m3:"2:30 pm, please", m4:"Booked you for 2:30 pm ✓ I'll remind you 2 hours before."
+    m1:"Hi! Can I book for tomorrow?", m2:"Sure! Free slots tomorrow:", m3:"2:30 pm, please", m4:"Booked you for 2:30 pm. I'll remind you 2 hours before."
   },
-  sec2:"/Why us", whyH:"Results —<br><span class='serif'>before you pay</span>",
+  sec2:"/Why us", whyH:"Results<br><span class='serif'>before you pay</span>",
   why:[
     ["We show first","Your first creative is free. You only pay if you like it."],
     ["Faster than production","AI instead of a shoot day: creatives from 24 hours, videos from 2 days."],
-    ["No middlemen","You talk directly to the founder — no account managers."],
+    ["No middlemen","You talk directly to the founder, no account managers."],
     ["Below-market prices","Launch pricing for first clients, no subscriptions or markups."],
     ["Official","50/50 payment and an official receipt for every job."]
   ],
-  sec3:"/Worldwide", worldP:"Russia, CIS and the rest of the world. Wherever you are — we reply on Telegram within an hour.",
+  sec3:"/Worldwide", worldP:"Russia, CIS and the rest of the world. Wherever you are, we reply on Telegram within an hour.",
   world:["International","Worldwide"],
   cities:["Moscow","Dubai","Berlin","New York"],
   sec4:"/Process", procH:"Three steps<br><span class='serif'>to results</span>",
-  st1h:"Message us on Telegram", st1:"Describe the task — we reply within an hour.",
+  st1h:"Message us on Telegram", st1:"Describe the task, we reply within an hour.",
   st2h:"Free test", st2:"Your first creative comes before payment.",
   st3h:"50/50 payment", st3:"Half upfront, half on delivery.",
   sec5:"/Guarantees", guarH:"Honest<br><span class='serif'>and official</span>",
@@ -820,7 +819,7 @@ en:{
     ["◎","Free test","Your first creative comes before payment, so you see the quality."],
     ["½","50 / 50 payment","50% upfront, the rest once you're happy with the result."],
     ["↺","Revisions included","We revise until approval within the agreed scope."],
-    ["✓","Official receipts","Registered self-employed professional — an official receipt for every payment."]
+    ["$","Official receipts","Registered self-employed professional, an official receipt for every payment."]
   ],
   sec6:"/FAQ", faqH:"Frequently<br><span class='serif'>asked</span>",
   faq:[
@@ -829,7 +828,7 @@ en:{
     ["Do you work with clients outside Russia?","Yes. We communicate in English or Russian, and international prices are in USD."],
     ["What are the timelines?","Creatives from 24 hours, ad videos from 2 days, websites and AI bots from 5 days. We fix exact dates before starting."],
     ["Doesn't AI video look cheap?","Not when it's directed. We write a script, match the brand style, generate, pick the best takes and polish them in editing."],
-    ["Who pays for AI services and hosting?","Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account — usually small amounts; we'll estimate them upfront."]
+    ["Who pays for AI services and hosting?","Generation for videos and creatives is included. For bots and automations, API and server costs are billed directly to your account, usually small amounts; we'll estimate them upfront."]
   ],
   ctaBadge:"Your first creative is free", ctaBig:"Message us", ctaNote:"Reply within 1 hour",
   consent:"By opening Telegram you share your contact details with us so we can reply to your request. This website collects no personal data and uses no cookies.",
@@ -1027,6 +1026,7 @@ const bar = $("progress");
 function prog(){ const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`; }
 addEventListener("scroll", prog, {passive:true}); prog();
 
+
 /* появление при прокрутке */
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
@@ -1116,7 +1116,7 @@ document.querySelectorAll(".rv").forEach((el,i) => { el.style.transitionDelay = 
 })();
 
 /* ===================== КУРСОР =====================
-   Тонкий крестик следует за мышью мгновенно, рамка из уголков — с плавной задержкой.
+   Тонкий крестик следует за мышью мгновенно, рамка из уголков, с плавной задержкой.
    Над ссылками и кнопками рамка расширяется. Только для мыши. */
 (function(){
   if (PRERENDER || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;

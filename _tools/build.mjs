@@ -15,10 +15,10 @@ const template = fs.readFileSync(path.join(SITE, "_src/index.html"), "utf8");
 
 const PAGES = {
   ru: { out: "index.html", url: "/", locale: "ru_RU",
-        desc: "ARHITECTOR AI — рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.",
-        ogDesc: "Рекламные ИИ-видео и креативы, сайты под ключ, автоматизация и Telegram ИИ-боты. Первый креатив — бесплатно." },
+        desc: "ARHITECTOR AI | рекламные ИИ-видео и креативы, сайты под ключ, автоматизация бизнеса с ИИ и Telegram ИИ-боты. Россия, СНГ и весь мир.",
+        ogDesc: "Рекламные ИИ-видео и креативы, сайты под ключ, автоматизация и Telegram ИИ-боты. Первый креатив бесплатно." },
   en: { out: "en/index.html", url: "/en/", locale: "en_US",
-        desc: "ARHITECTOR AI — AI ad videos and creatives, turnkey websites, AI business automation and Telegram AI bots. Worldwide.",
+        desc: "ARHITECTOR AI | AI ad videos and creatives, turnkey websites, AI business automation and Telegram AI bots. Worldwide.",
         ogDesc: "AI ad videos and creatives, turnkey websites, automation and Telegram AI bots. Your first creative is free." }
 };
 
