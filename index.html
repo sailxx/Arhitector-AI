@@ -389,11 +389,20 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 .cur-frame.big.press{width:62px;height:62px;margin:-31px 0 0 -31px}
 
 /* ---------- появление при прокрутке ---------- */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(28px);filter:blur(8px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none;filter:none}
+/* плавный переход между страницами и полоса прокрутки */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtOut .25s ease both}
+::view-transition-new(root){animation:vtIn .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vtOut{to{opacity:0}}
+@keyframes vtIn{from{opacity:0;transform:translateY(10px)}}
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;z-index:60;pointer-events:none}
 @media (prefers-reduced-motion:reduce){
   .brand .ch,.brand-rule,.brand-meta{animation:none;transform:none;opacity:1}
-  .rv{opacity:1;transform:none;transition:none}
+  .rv{opacity:1;transform:none;filter:none;transition:none}
+  .progress{display:none}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
   .track,.scan,.rec,.svc-item.act .svc-fill,#globe{animation:none}
   html{scroll-behavior:auto}
 }
@@ -433,6 +442,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
 </style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true" style="transform: scaleX(0);"></div>
 
 <header>
   <div class="wrap nav">
@@ -593,7 +603,7 @@ html.cur-on .cur-cross,html.cur-on .cur-frame{opacity:1}
       <p data-i="worldP">Россия, СНГ и весь мир. Где бы вы ни были — отвечаем в Telegram в течение часа.</p>
     </div>
     <div class="world-mq mq-wrap" aria-hidden="true"><div class="track" id="world-track"><span>Международно</span><span class="amp">&amp;</span><span class="outline">International</span><span class="amp">&amp;</span><span>Международно</span><span class="amp">&amp;</span><span class="outline">International</span><span class="amp">&amp;</span></div></div>
-    <div class="wrap"><div class="clocks rv" id="clocks"><div class="clock"><span class="mono">/Москва</span><b>22:48</b></div><div class="clock"><span class="mono">/Дубай</span><b>23:48</b></div><div class="clock"><span class="mono">/Берлин</span><b>20:48</b></div><div class="clock"><span class="mono">/Нью-Йорк</span><b>15:48</b></div></div></div>
+    <div class="wrap"><div class="clocks rv" id="clocks"><div class="clock"><span class="mono">/Москва</span><b>23:39</b></div><div class="clock"><span class="mono">/Дубай</span><b>00:39</b></div><div class="clock"><span class="mono">/Берлин</span><b>21:39</b></div><div class="clock"><span class="mono">/Нью-Йорк</span><b>16:39</b></div></div></div>
   </section>
 
   <!-- ================= ПРОЦЕСС ================= -->
@@ -1013,6 +1023,9 @@ const onScroll = () => {
   sticky.classList.toggle("show", scrollY > hero.offsetHeight * .8 && !nearEnd);
 };
 addEventListener("scroll", onScroll, {passive:true}); onScroll();
+const bar = $("progress");
+function prog(){ const h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`; }
+addEventListener("scroll", prog, {passive:true}); prog();
 
 /* появление при прокрутке */
 const io = new IntersectionObserver(es => es.forEach(e => {

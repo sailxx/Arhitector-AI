@@ -134,7 +134,12 @@ footer{padding:48px 0 56px}
 .legal b{color:var(--fg);font-weight:600}
 .legal a{text-decoration:underline;text-underline-offset:3px}
 .legal .mono{font-size:11px;max-width:420px;text-align:right;line-height:1.7}
-@media (prefers-reduced-motion:reduce){.scan{animation:none}html{scroll-behavior:auto}}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtOut .25s ease both}
+::view-transition-new(root){animation:vtIn .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vtOut{to{opacity:0}}
+@keyframes vtIn{from{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.scan{animation:none}html{scroll-behavior:auto}::view-transition-old(root),::view-transition-new(root){animation:none}}
 @media (max-width:1000px){.nav-links{display:none}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.cta{margin-left:0}}
 @media (max-width:700px){.grid,.who{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.faq details p{padding:0 0 24px 44px}.cta,.cta .btn{width:100%}.logo{font-size:17px}.final-card{padding:40px 24px 28px;gap:32px}.final-card .mark{display:none}.legal .mono{text-align:left}}
 @media (max-width:440px){.nav .btn{display:none}}
